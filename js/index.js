@@ -30,7 +30,7 @@ function addImages (numImages) {
       a.setAttribute("imageNum", numImages);
       col.appendChild(a);
       var img = document.createElement("img");
-      img.src = "http://dichopter.epizy.com/stereogram/images/image"+numImages+".jpg";
+      img.src = "/stereogram/images/image"+numImages+".jpg";
       //http://dichopter.epizy.com/stereogram/images/image9.jpg
       a.appendChild(img);  
       row.appendChild(col);

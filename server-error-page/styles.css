@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+  font-family: Arial;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  padding: 20px;
+  background-color: #ccc;
+  margin: 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: white;
+}
+a:visited{
+  color: white;
+}
+img {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+}

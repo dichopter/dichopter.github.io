@@ -1,0 +1,124 @@
+nav {
+  height: 75px;
+  color: black !important;
+}
+nav ul li a {
+  height: 75px;
+  color: black;
+}
+.sidenav-trigger {
+  color: black;
+}
+.nav-wrapper {
+  height: 75px;
+}
+img {
+  padding: 10px;
+  border-style: none;
+  height: 100%;
+  width: 100%;
+}
+
+.brand-logo {
+  height: 75px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 380px;
+}
+nav a.sidenav-trigger i {
+    height: 75px;
+    line-height: 75px;
+  border-radius: 8px;
+}
+nav a.sidenav-trigger {
+    height: 75px;
+    line-height: 75px;
+}
+.jumbotron {
+  background-image: url("https://rawgit.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
+  background-size: cover;
+  padding-bottom: 14px !important;
+  position: relative;
+  background-position: center center;
+}
+
+.blur-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.text-shadow {
+  text-shadow: 2px 2px 15px #fff;
+}
+
+.blur-content {
+  box-shadow: 0 0 12px;
+  border-radius: 8px;
+  z-index: 2 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(5px);
+  z-index: 1;
+  background: url("https://rawgit.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
+  background-position: center center;
+  overflow: hidden;
+  border-radius: 8px;
+  background-size: cover;
+}
+
+.rainbow-button {
+  margin-top: 10px;
+}
+
+.rainbow-button:hover {
+  animation-name: rainbow;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-color: #2196f3;
+  }
+  25% {
+    background-color: #fff45e;
+  }
+  50% {
+    background-color: #ff5e5e;
+  }
+  75% {
+    background-color: #6df974;
+  }
+  100% {
+    background-color: #2196f3;
+  }
+}
+
+
+.row .col.s12.m4 a img {
+  padding: 10px;
+  max-width: 300px;
+  border-radius: 18px;
+  transition: background .3s ease;
+}
+
+.row .col.s12.m4 a img:hover {
+  background-color: #ccc;
+}
+
+
+@media (max-width: 600px) { 
+  .row .col.s12.m4 {
+    text-align: center;
+  }
+}
+

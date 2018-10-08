@@ -26,7 +26,7 @@ function addImages (numImages) {
       var col = document.createElement("div"); 
       col.classList+=" col s12 m4";
       var a = document.createElement("a");
-      a.href = "http://dichopter.epizy.com/stereogram";
+      a.href = "https://dichopter.github.io/stereogram";
       a.setAttribute("imageNum", numImages);
       col.appendChild(a);
       var img = document.createElement("img");

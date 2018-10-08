@@ -1,5 +1,14 @@
 body {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+padding: 0;
+margin: 0;
+overflow: hidden;
+}
+#p5_loading {
+  background-color: #0000FF;
+  color: red;
+  box-sizing: border-box;
+  display: block;
+  position: absolut;
+  height: 960px;
+  width: 540px;
 }

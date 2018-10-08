@@ -35,7 +35,7 @@ nav a.sidenav-trigger {
     line-height: 75px;
 }
 .jumbotron {
-  background-image: url("https://rawgit.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
+  background-image: url("https://raw.githubusercontent.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
   background-size: cover;
   padding-bottom: 14px !important;
   position: relative;
@@ -67,7 +67,7 @@ nav a.sidenav-trigger {
   bottom: 0;
   filter: blur(5px);
   z-index: 1;
-  background: url("https://rawgit.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
+  background: url("https://raw.githubusercontent.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg");
   background-position: center center;
   overflow: hidden;
   border-radius: 8px;

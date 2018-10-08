@@ -15,7 +15,7 @@ function getCookie(name) {
 function preload(){
   var imageNum = getCookie("imageNum");
   console.log(document.cookie);
-  stereoImage = loadImage('https://rawgit.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
+  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
     leftImage = createImage(int(stereoImage.width/2), int(stereoImage.height));
     leftImage.loadPixels();
     leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 

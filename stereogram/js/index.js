@@ -15,7 +15,7 @@ function getCookie(name) {
 function preload(){
   var imageNum = getCookie("imageNum");
   console.log(document.cookie);
-  stereoImage = loadImage('http://dichopter.epizy.com/stereogram/images/image'+imageNum+'.jpg', function(){
+  stereoImage = loadImage('https://rawgit.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
     leftImage = createImage(int(stereoImage.width/2), int(stereoImage.height));
     leftImage.loadPixels();
     leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 
@@ -39,7 +39,7 @@ function setup() {
   switchButton = createButton('');
   switchButton.style("padding", "0");
   switchButton.style("background-color", "transparent");
-  switchButton.style("background-image", "url('http://dichopter.epizy.com/stereogram/js/switch.png')");
+  switchButton.style("background-image", "url('https://rawgit.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')");
   switchButton.style("background-size", "cover");
   switchButton.style("width", "100px");
   switchButton.style("height", "100px");  
@@ -50,7 +50,7 @@ function setup() {
   resetButton = createButton('');
   resetButton.style("padding", "0");
   resetButton.style("background-color", "transparent");
-  resetButton.style("background-image", "url('http://dichopter.epizy.com/stereogram/js/reset.png')");
+  resetButton.style("background-image", "url('https://rawgit.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')");
   resetButton.style("background-size", "cover");
   resetButton.style("width", "100px");
   resetButton.style("height", "100px");  

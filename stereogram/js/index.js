@@ -5,11 +5,24 @@ var pLineLength = 0;
 var imageMoveX = 0, imageMoveY = 0;
 var imageXSlider;
 var mousePressed = false;
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
-}
+// function getCookie(name) {
+//   var value = "; " + document.cookie;
+//   var parts = value.split("; " + name + "=");
+//   if (parts.length == 2) return parts.pop().split(";").shift();
+// }
+var getCookie = function(cname) {var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";};
 
 
 function preload(){

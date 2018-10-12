@@ -7,12 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var images = document.querySelectorAll(".stereograms .row a"); 
   images.forEach(function(image) {
     image.addEventListener("click", function() {
-      document.cookie = "imageNum="+image.getAttribute("imageNum");
+      setCookie("imageNum",image.getAttribute("imageNum"),1);
     });
   });
   
 });
 
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 function addImages (numImages) { 
   var numRows = Math.ceil(numImages/3);

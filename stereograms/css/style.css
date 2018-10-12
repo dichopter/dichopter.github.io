@@ -122,3 +122,10 @@ nav a.sidenav-trigger {
   }
 }
 
+.stereograms {
+  border-radius: 15px;
+}
+
+.stereograms:first-child {
+  padding-left: 15px;
+}

@@ -1,3 +1,19 @@
+// <Adding a service worker>
+if('serviceWorker' in navigator) {
+  console.log("Service worker supported!");
+}
+
+
+
+
+
+
+
+
+
+// </Adding a service worker>
+
+
 document.addEventListener('DOMContentLoaded', function() {
   //sessionStorage.imageNum = "1";
   var elems = document.querySelectorAll('.sidenav');
@@ -40,3 +56,5 @@ function addImages (numImages) {
     container.appendChild(row);
   } 
 }
+
+

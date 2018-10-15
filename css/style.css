@@ -50,11 +50,6 @@ nav a.sidenav-trigger {
   max-width: 500px;
 }
 
-.jumbotron {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 600;
-}
-
 
 @media (max-width: 600px) { 
   .row .col.s12.m4 {

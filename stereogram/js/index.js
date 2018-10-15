@@ -1,3 +1,14 @@
+// <Register service worker>
+if('serviceWorker' in navigator) { // Check if supported...
+  window.addEventListener('load', ()=> {
+    navigator.serviceWorker
+    .register("../sworkerFull.js")
+    .then(reg=>console.log("Service worker registered in page..."))
+    .catch(err=>console.log(err));
+  }); 
+}
+// </Register service worker>
+
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
@@ -5,11 +16,7 @@ var pLineLength = 0;
 var imageMoveX = 0, imageMoveY = 0;
 var imageXSlider;
 var mousePressed = false;
-// function getCookie(name) {
-//   var value = "; " + document.cookie;
-//   var parts = value.split("; " + name + "=");
-//   if (parts.length == 2) return parts.pop().split(";").shift();
-// }
+
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');

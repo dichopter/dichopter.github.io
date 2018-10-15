@@ -17,10 +17,11 @@ var filesToCache = [
 var staticCacheName = 'pages-cache-v2';
 
 self.addEventListener('install', function(event) {
-  console.log('Attempting to install service worker and cache static assets');
+  console.log('Attempting to install service worker and cache static assets...');
   event.waitUntil(
     caches.open(staticCacheName)
     .then(function(cache) {
+      console.log("Service worker installed successfully!");
       return cache.addAll(filesToCache);
     })
   );

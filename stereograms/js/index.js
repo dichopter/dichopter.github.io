@@ -30,7 +30,7 @@ function addImages (numImages) {
     var imageNum = 0;
     while(numImages>0&&imageNum<3){
       var col = document.createElement("div"); 
-      col.classList+=" col s12 m4";
+      col.classList+=" col s12 m6 l4";
       var a = document.createElement("a");
       a.href = "https://dichopter.github.io/stereogram";
       a.setAttribute("imageNum", numImages);

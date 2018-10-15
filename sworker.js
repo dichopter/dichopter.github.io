@@ -24,7 +24,7 @@ self.addEventListener('install', function(event) {
       console.log("Service worker caching files...");
       return cache.addAll(filesToCache);
     })
-    .then(()=>{ self.skipWaiting() })
+    .then(function(){ self.skipWaiting() })
   );
 });
 
@@ -32,9 +32,9 @@ self.addEventListener('activate', function(event) {
   console.log("Service worker activated...");
   // Remove unwanted, old caches
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.map(cache => {
+        cacheNames.map(function(cache) {
           if(cache!==staticCacheName) {
             console.log(`Clearing "${cache}" cache`);
             return caches.delete(cache);

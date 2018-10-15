@@ -1,3 +1,5 @@
+var staticCacheName = 'v1';
+
 var filesToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -13,16 +15,32 @@ var filesToCache = [
   '../site.webmanifest',
   '../manifest.json',
 ];
- 
-var staticCacheName = 'pages-cache-v2';
 
 self.addEventListener('install', function(event) {
-  console.log('Attempting to install service worker and cache static assets...');
+  console.log('Service worker installed...');
   event.waitUntil(
     caches.open(staticCacheName)
     .then(function(cache) {
-      console.log("Service worker installed successfully!");
+      console.log("Service worker caching files...");
       return cache.addAll(filesToCache);
+    })
+    .then(()=>{ self.skipWaiting() })
+  );
+});
+
+self.addEventListener('activate', function(event) {  
+  console.log("Service worker activated...");
+  // Remove unwanted, old caches
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if(cache!==staticCacheName) {
+            console.log(`Clearing "${cache}" cache`);
+            return caches.delete(cache);
+          }
+        })
+      )
     })
   );
 });

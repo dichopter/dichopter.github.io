@@ -8,7 +8,7 @@ if('serviceWorker' in navigator) { // Check if supported...
   window.addEventListener('load', ()=> {
     navigator.serviceWorker
     .register("../sworker.js")
-    .then(reg=>console.log("Service worker registered!"))
+    .then(reg=>console.log("Service worker registered in page..."))
     .catch(err=>console.log(err));
   });
   

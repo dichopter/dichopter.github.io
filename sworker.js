@@ -46,15 +46,11 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
+  console.log("Service worker fetching...");
   event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request);
-    }).catch(function(error) {
-      // TODO 6 - Respond with custom offline page
-    })
-  );
+    fetch(e.request)
+    .catch(function(){
+      caches.match(event.request); // respond with the requested object from the cache
+    }));
 });
 

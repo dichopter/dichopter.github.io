@@ -48,4 +48,6 @@ nav {
     }
   }
   
-  
+  footer .container .row {
+    margin-bottom: 0;
+  }

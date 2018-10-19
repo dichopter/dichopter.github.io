@@ -40,6 +40,7 @@ nav {
     padding-bottom: 14px !important;
     position: relative;
     background-position: center center;
+    background-color: #e8e8e8;
   }
   
   @media (max-width: 600px) { 

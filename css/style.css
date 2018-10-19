@@ -1,0 +1,16 @@
+/* These two selectors are for the resizing of the svg 
+   to ensure that everything fits in the window */
+.jumbotron h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.jumbotron h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+} 
+
+
+.jumbotron {
+    background-color: transparent;
+}

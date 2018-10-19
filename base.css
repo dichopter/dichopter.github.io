@@ -42,10 +42,6 @@ nav {
     background-position: center center;
   }
   
-  .text-shadow {
-    text-shadow: 2px 2px 15px #000;
-  }  
-  
   @media (max-width: 600px) { 
     .row .col.s12.m4 {
       text-align: center;

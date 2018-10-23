@@ -97,8 +97,10 @@ function draw() {
   fill(255,255,255);
   imageMode(CENTER);
   
-  image(leftImage,(.5*window.innerWidth+imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
-  image(rightImage,(.5*window.innerWidth+(leftImage.width*slider.value())-imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
+  // image(leftImage,(.5*window.innerWidth+imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
+  // image(rightImage,(.5*window.innerWidth+(leftImage.width*slider.value())-imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
+  image(leftImage,(.25*window.innerWidth+imageMoveX),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
+  image(rightImage,(.5*window.innerWidth-imageMoveX),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
 
 
   

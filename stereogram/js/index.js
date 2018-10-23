@@ -102,8 +102,8 @@ function draw() {
   image(leftImage,(.5*window.innerWidth+imageMoveX-imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
   image(rightImage,(.5*window.innerWidth-imageMoveX+imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
 
-
-  
+  cursor(MOVE);
+  if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
 
 }
 
@@ -150,16 +150,16 @@ function touchMoved() {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
     var sensitivity = 0.01;
-    if(abs(lineDiff>30)) lineDiff=0;
+    if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
       slider.elt.value=(slider.value()+sensitivity).toString();
     } else if(lineDiff<0) {
       slider.elt.value=(slider.value()-sensitivity).toString();
     }
     if(pLineLength==0) {
-      pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);  
+      pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     } else {
-      pLineLength = 0;
+      pLineLength = 0; // don't double count a zoom event
     }
   }
 	return false;

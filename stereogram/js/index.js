@@ -75,7 +75,7 @@ function setup() {
   resetButton.style("width", "100px");
   resetButton.style("height", "100px");  
   resetButton.style("border", "none");
-  resetButton.position(window.innerWidth-105, window.innerHeight-100);
+  resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   
 }  
@@ -99,19 +99,19 @@ function draw() {
   
   image(leftImage,.25*window.innerWidth+imageMoveX,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
   image(rightImage,.25*window.innerWidth+(leftImage.width*slider.value())-imageMoveX,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
+
+
   
-  //right.width = slider.value();
-  //console.log(right);
-  //line(mouseX, mouseY, pmouseX, pmouseY);
-  
+
 }
 
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(.1, 5);
   switchButton.style("top", (window.height-100)+"px");
+  switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
-  resetButton.style("left", (window.width-105)+"px");
+  resetButton.style("left", (window.width-100)+"px");
 }
 
 function calculateOptimum(min, max) {
@@ -146,12 +146,12 @@ function touchMoved() {
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
-    
+    var sensitivity = 0.01;
     if(abs(lineDiff>30)) lineDiff=0;
     if(lineDiff>0) {
-      slider.elt.value=(slider.value()+.005).toString();
+      slider.elt.value=(slider.value()+sensitivity).toString();
     } else if(lineDiff<0) {
-      slider.elt.value=(slider.value()-.005).toString();
+      slider.elt.value=(slider.value()-sensitivity).toString();
     }
     if(pLineLength==0) {
       pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);  

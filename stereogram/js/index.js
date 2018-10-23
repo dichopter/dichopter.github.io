@@ -59,7 +59,7 @@ function setup() {
   switchButton = createButton('');
   switchButton.style("padding", "0");
   switchButton.style("background-color", "transparent");
-  switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.svg')");
+  switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')");
   switchButton.style("background-size", "cover");
   switchButton.style("width", "100px");
   switchButton.style("height", "100px");  
@@ -70,7 +70,7 @@ function setup() {
   resetButton = createButton('');
   resetButton.style("padding", "0");
   resetButton.style("background-color", "transparent");
-  resetButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.svg')");
+  resetButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')");
   resetButton.style("background-size", "cover");
   resetButton.style("width", "100px");
   resetButton.style("height", "100px");  

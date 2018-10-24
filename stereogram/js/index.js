@@ -182,3 +182,12 @@ function mouseWheel(e) {
 function doubleClicked() {
   return false;
 }
+
+window.addEventListener("orientationchange", function() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+  slider.elt.value = calculateOptimum(.1, 5);
+  switchButton.style("top", (window.height-100)+"px");
+  switchButton.style("left", "0px");
+  resetButton.style("top", (window.height-100)+"px");
+  resetButton.style("left", (window.width-100)+"px");
+});

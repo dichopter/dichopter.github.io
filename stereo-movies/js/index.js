@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
   var numImages = 20;
+  var movieList;
   getMovies();
-  
+
 });
 
 function getMovies() {
@@ -13,10 +14,9 @@ function getMovies() {
   request.responseType = 'json';
   request.send();
   request.onload = function() {
-    var movieList = request.response;
+    movieList = request.response;
     console.log(movieList);
     addVideos(20);
-    return movieList;
   }
 }
 

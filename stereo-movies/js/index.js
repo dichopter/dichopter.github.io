@@ -1,17 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-  //sessionStorage.imageNum = "1";
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
   var numImages = 20;
-  addImages(numImages);
-  var images = document.querySelectorAll(".stereograms .row a"); 
-  images.forEach(function(image) {
-    image.addEventListener("click", function() {
-      setCookie("imageNum",image.getAttribute("imageNum"),1);
-    });
-  });
+  getMovies();
   
 });
+
+function getMovies() {
+  var requestURL = 'https://dichopter.github.io/stereo-movies/js/movieLinks.json';
+  var request = new XMLHttpRequest();
+  request.open('GET', requestURL);
+  request.responseType = 'json';
+  request.send().then(function(){
+    alert("Request sent!");
+  });
+  request.onload = function() {
+    var movieList = request.response;
+    console.log(movieList);
+    addVideos(20);
+  }
+}
+
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -20,7 +29,7 @@ function setCookie(cname, cvalue, exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function addImages (numImages) { 
+function addVideos (numImages) { 
   var numRows = Math.ceil(numImages/3);
   var container = document.querySelector(".stereograms");
   
@@ -31,6 +40,7 @@ function addImages (numImages) {
     while(numImages>0&&imageNum<3){
       var col = document.createElement("div"); 
       col.classList+=" col s12 m6 l4";
+
       var a = document.createElement("a");
       a.href = "https://dichopter.github.io/stereogram";
       a.setAttribute("imageNum", numImages);

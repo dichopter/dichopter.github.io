@@ -11,9 +11,7 @@ function getMovies() {
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';
-  request.send().then(function(){
-    alert("Request sent!");
-  });
+  request.send();
   request.onload = function() {
     var movieList = request.response;
     console.log(movieList);

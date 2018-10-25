@@ -14,7 +14,6 @@ function getMovies() {
   request.send();
   request.onload = function() {
     movieList = request.response;
-    console.log(movieList);
     addVideos(movieList);
   }
 }
@@ -28,7 +27,10 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function addVideos (movieList) { 
+  console.log("Movie List:");
+  console.log(movieList);
   var numRows = Math.ceil(movieList.length/3);
+  console.log("Num rows: "+numRows);
   var container = document.querySelector(".stereograms");
   // <iframe width="971" height="546" src="https://www.youtube.com/embed/dQGhflN6Ob0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   for(var i=0; i<numRows; i++) {

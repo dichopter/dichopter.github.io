@@ -36,8 +36,11 @@ function addVideos (movieList) {
   for(var i=0; i<numRows; i++) {
     var row = document.createElement("div");
     row.classList.add("row");
+    Console.log(movieList.length);
     for(var j=0; j<3; j++) {
       if(i*j>movieList.length) break;
+      Console.log("i*j"+(i*j));
+
       var col = document.createElement("div"); 
       col.classList+=" col s12 m6 l4";
       var iframe = document.createElement("iframe");

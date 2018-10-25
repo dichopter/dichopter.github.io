@@ -81,24 +81,14 @@ function setup() {
 }  
 
 function draw() {
-   if (keyIsDown(LEFT_ARROW)) {
-    imageMoveX -= 5;
-  }
-  if (keyIsDown(RIGHT_ARROW)) {
-    imageMoveX += 5;
-  }
-  if (keyIsDown(UP_ARROW)) {
-    imageMoveY -= 5;
-  }
-  if (keyIsDown(DOWN_ARROW)) {
-    imageMoveY += 5;
-  }
+  if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
+  if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
+  if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
+  if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
   background(0);
   fill(255,255,255);
   imageMode(CENTER);
   var imageWidth = leftImage.width*slider.value();
-  // image(leftImage,(.5*window.innerWidth+imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
-  // image(rightImage,(.5*window.innerWidth+(leftImage.width*slider.value())-imageMoveX)-leftImage.width/3,.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
   image(leftImage,(.5*window.innerWidth+imageMoveX-imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
   image(rightImage,(.5*window.innerWidth-imageMoveX+imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
 
@@ -108,8 +98,8 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(.1, 5);
+  resizeCanvas(window.innerWidth, window.innerHeight);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");

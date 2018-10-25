@@ -16,6 +16,7 @@ function getMovies() {
     var movieList = request.response;
     console.log(movieList);
     addVideos(20);
+    return movieList();
   }
 }
 

@@ -32,21 +32,19 @@ function addVideos (movieList) {
   var numRows = Math.ceil(movieList.length/3);
   console.log("Num rows: "+numRows);
   var container = document.querySelector(".stereograms");
-  // <iframe width="971" height="546" src="https://www.youtube.com/embed/dQGhflN6Ob0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   for(var i=1; i<=numRows; i++) {
     var row = document.createElement("div");
     row.classList.add("row");
-    console.log(movieList.length);
     for(var j=1; j<=3; j++) {
       if(movieList.length==0) break;
       var col = document.createElement("div"); 
       col.classList+=" col s12 m6 l4";
       var iframe = document.createElement("iframe");
       iframe.src = movieList.pop();
-      console.log(`movieList[${(i*j)}]: ${movieList[(i*j)]}`);
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute("allow", "encrypted-media");
       iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("style", "width: 100%");
       col.appendChild(iframe);
       row.appendChild(col);
     }

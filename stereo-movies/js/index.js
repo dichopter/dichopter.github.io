@@ -37,15 +37,15 @@ function addVideos (movieList) {
     var row = document.createElement("div");
     row.classList.add("row");
     console.log(movieList.length);
-    for(var j=0; j<3; j++) {
-      if((i*j)+1>movieList.length) break;
-      console.log("(i*j)+1: "+((i*j)+1));
+    for(var j=1; j<=3; j++) {
+      if((i*j)>movieList.length) break;
+      console.log(`(${i}*${j}):${(i*j)}`);
 
       var col = document.createElement("div"); 
       col.classList+=" col s12 m6 l4";
       var iframe = document.createElement("iframe");
-      iframe.src = movieList[(i*j)+1];
-      console.log(`movieList[${(i*j)+1}]: ${movieList[(i*j)+1]}`);
+      iframe.src = movieList[(i*j)];
+      console.log(`movieList[${(i*j)}]: ${movieList[(i*j)]}`);
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute("allow", "encrypted-media");
       iframe.setAttribute("allowfullscreen", "true");

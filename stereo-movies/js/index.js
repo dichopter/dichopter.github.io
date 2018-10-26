@@ -38,13 +38,11 @@ function addVideos (movieList) {
     row.classList.add("row");
     console.log(movieList.length);
     for(var j=1; j<=3; j++) {
-      if((i*j)>movieList.length) break;
-      console.log(`(${i}*${j}):${(i*j)}`);
-
+      if(movieList.length==0) break;
       var col = document.createElement("div"); 
       col.classList+=" col s12 m6 l4";
       var iframe = document.createElement("iframe");
-      iframe.src = movieList[(i*j)];
+      iframe.src = movieList.pop();
       console.log(`movieList[${(i*j)}]: ${movieList[(i*j)]}`);
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute("allow", "encrypted-media");

@@ -33,7 +33,7 @@ function addVideos (movieList) {
   console.log("Num rows: "+numRows);
   var container = document.querySelector(".stereograms");
   // <iframe width="971" height="546" src="https://www.youtube.com/embed/dQGhflN6Ob0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  for(var i=0; i<numRows; i++) {
+  for(var i=1; i<=numRows; i++) {
     var row = document.createElement("div");
     row.classList.add("row");
     console.log(movieList.length);

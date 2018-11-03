@@ -100,10 +100,12 @@ function draw() {
 function windowResized() {
   slider.elt.value = calculateOptimum(.1, 5);
   resizeCanvas(windowWidth, windowHeight);
+  
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
   resetButton.style("left", (window.width-100)+"px");
+  alert("THe widow was just resized");
   
 }
 

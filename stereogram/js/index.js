@@ -108,7 +108,7 @@ function windowResized() {
 
 function calculateOptimum(min, max) {
   var optimum = .05;
-  var scale = .9;
+  var scale = .8;
   while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
     {optimum+=.05;}
   optimum-=.05;

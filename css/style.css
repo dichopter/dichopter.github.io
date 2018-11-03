@@ -3,14 +3,20 @@
 .jumbotron h1 {
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 2.5rem;
 }
 
 .jumbotron h2 {
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 2.5rem;
 } 
 
 
 .jumbotron {
     background-color: transparent;
+}
+
+.jumbotron img {
+    max-width: 70%;
 }

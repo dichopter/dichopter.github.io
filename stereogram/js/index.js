@@ -13,7 +13,7 @@ var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
 var pLineLength = 0;
-var imageMoveX = -40, imageMoveY = 0;
+var imageMoveX = -50, imageMoveY = 0;
 var imageXSlider;
 var mousePressed = false;
 
@@ -108,7 +108,7 @@ function windowResized() {
 
 function calculateOptimum(min, max) {
   var optimum = .05;
-  var scale = .8;
+  var scale = .85;
   while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
     {optimum+=.05;}
   optimum-=.05;
@@ -122,7 +122,7 @@ function switchImages() {
 }
 
 function resetImages(){
-  imageMoveX = -40;
+  imageMoveX = -50;
   imageMoveY = 0;
 }
 

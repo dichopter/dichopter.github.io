@@ -48,7 +48,7 @@ function preload(){
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  background(255,255,255);
+  background(0);
   
   noFill();
   stroke(155);
@@ -99,8 +99,9 @@ function draw() {
 
 function windowResized() {
   slider.elt.value = calculateOptimum(.1, 5);
-  resizeCanvas(windowWidth, windowHeight);
-  
+  resizeCanvas(window.innerWidth, window.innerHeight);
+  alert("innerWidth:"+window.innerWidth+"; innerHeight: "+window.innerHeight);
+  alert("innerWidth:"+window.height+"; height: "+window.height);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");

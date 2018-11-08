@@ -77,7 +77,7 @@ function setup() {
   resetButton.style("border", "none");
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  alert("Testing alers...");
+  
 }  
 
 function draw() {
@@ -94,7 +94,7 @@ function draw() {
 
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
-
+  //alert("Testing alerts...");
 }
 
 function windowResized() {
@@ -104,8 +104,8 @@ function windowResized() {
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
   resetButton.style("left", (window.width-100)+"px");
-  alert("innerWidth:"+window.innerWidth+"; innerHeight: "+window.innerHeight);
-  alert("innerWidth:"+window.height+"; height: "+window.height);
+  //alert("innerWidth:"+window.innerWidth+"; innerHeight: "+window.innerHeight);
+  //alert("innerWidth:"+window.height+"; height: "+window.height);
 }
 
 function calculateOptimum(min, max) {

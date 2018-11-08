@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
-  var numImages = 20;
   var movieList;
   getMovies();
 });

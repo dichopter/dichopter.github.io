@@ -19,6 +19,7 @@ var imageMoveX = -50, imageMoveY = 0;
 var mousePressed = false;
 var message;
 var windResized = false;
+var w, h;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -69,6 +70,8 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
+  w=windowWidth;
+  h=windowHeight;
 }  
 
 function draw() {
@@ -86,10 +89,12 @@ function draw() {
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
   textSize(32);
-  if(windResized) {
+  if(w!=windowWidth||h!=windowHeight) {
+    w=windowWidth;
+    h=windowHeight;
     resizeWindow();
     resizeWindow();
-    windResized=false;
+    // windResized=false;
   } 
   
 }
@@ -99,16 +104,14 @@ function windowResized() {
 }
 
 function resizeWindow() {
-  windResized=false;
+  //windResized=false;
   resizeCanvas(windowWidth, windowHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
   resetButton.style("left", (window.width-100)+"px");
-  resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
-  //message = text(msg, 10, 30);
   
 }
 

@@ -57,13 +57,22 @@ function setup() {
   slider.position(-100, -100);
   slider.style('width', '10px');
   switchButton = createButton('');
-  switchButton.style("padding", "0");
-  switchButton.style("background-color", "transparent");
-  switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')");
-  switchButton.style("background-size", "cover");
-  switchButton.style("width", "100px");
-  switchButton.style("height", "100px");  
-  switchButton.style("border", "none");
+  var buttonStyles = [
+    "padding", "0", 
+    "background-color", "transparent",
+    "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')",
+    "background-size", "cover",
+    "width", "100px",
+    "height", "100px",
+    "border", "none"];
+  styleElement(switchButton, buttonStyles);
+  // switchButton.style("padding", "0");
+  // switchButton.style("background-color", "transparent");
+  // switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')");
+  // switchButton.style("background-size", "cover");
+  // switchButton.style("width", "100px");
+  // switchButton.style("height", "100px");
+  // switchButton.style("border", "none");
   switchButton.position(5, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
@@ -106,6 +115,15 @@ function windowResized() {
   resetButton.style("left", (window.width-100)+"px");
   //alert("innerWidth:"+window.innerWidth+"; innerHeight: "+window.innerHeight);
   //alert("innerWidth:"+window.height+"; height: "+window.height);
+}
+
+function styleElement(element, styles) {
+  if(styles.length==0||styles.length%2!==0) {
+    throw "Styles array is not evenly sized or is empty!";
+  }
+  for(var i=0; i<styles.length; i+=2) {
+    element.style(styles[i], styles[i+1]);
+  }
 }
 
 function calculateOptimum(min, max) {

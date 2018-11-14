@@ -17,6 +17,7 @@ var slider, switchButton, resetButton;
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
 var mousePressed = false;
+var message;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -83,7 +84,9 @@ function draw() {
 
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
-  //alert("Testing alerts...");
+  textSize(32);
+  message = text('word', 10, 30);
+  
 }
 
 function windowResized() {
@@ -92,7 +95,7 @@ function windowResized() {
   resizeWindow("3");
 }
 
-function resizeWindow(message) {
+function resizeWindow(msg) {
   resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
@@ -101,7 +104,8 @@ function resizeWindow(message) {
   resetButton.style("left", (window.width-100)+"px");
   resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
-  alert(message);
+  message = text(msg, 10, 30);
+  
 }
 
 function styleElement(element, styles) {

@@ -1,20 +1,22 @@
+
 // <Register service worker>
 if('serviceWorker' in navigator) { // Check if supported...
-  window.addEventListener('load', ()=> {
+  window.addEventListener('load', function() {
     navigator.serviceWorker
     .register("../sworkerFull.js")
-    .then(reg=>console.log("Service worker registered in page..."))
-    .catch(err=>console.log(err));
+    .then(function(reg) {console.log("Service worker registered in page...");})
+    .catch(function(err){console.log(err);});
   }); 
 }
 // </Register service worker>
+
+
 
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
-var imageXSlider;
 var mousePressed = false;
 
 var getCookie = function(cname) {var name = cname + "=";
@@ -36,11 +38,11 @@ function preload(){
   var imageNum = getCookie("imageNum");
   console.log(document.cookie);
   stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
-    leftImage = createImage(int(stereoImage.width/2), int(stereoImage.height));
+    leftImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     leftImage.loadPixels();
     leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 
     
-    rightImage = createImage(int(stereoImage.width/2), int(stereoImage.height));
+    rightImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     rightImage.loadPixels();
     rightImage.copy(stereoImage, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height);
   });
@@ -53,7 +55,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  slider = createSlider(.1, 5, calculateOptimum(.1,5), .005);
+  slider = createSlider(0.1, 5, calculateOptimum(0.1,5), 0.005);
   slider.position(-100, -100);
   slider.style('width', '10px');
 
@@ -77,8 +79,8 @@ function draw() {
   fill(255,255,255);
   imageMode(CENTER);
   var imageWidth = leftImage.width*slider.value();
-  image(leftImage,(.5*window.innerWidth+imageMoveX-imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
-  image(rightImage,(.5*window.innerWidth-imageMoveX+imageWidth/2),.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
+  image(leftImage,(0.5*window.innerWidth+imageMoveX-imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
+  image(rightImage,(0.5*window.innerWidth-imageMoveX+imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
 
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
@@ -87,7 +89,7 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
-  slider.elt.value = calculateOptimum(.1, 5);
+  slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
@@ -108,11 +110,11 @@ function styleElement(element, styles) {
 }
 
 function calculateOptimum(min, max) {
-  var optimum = .05;
-  var scale = .85;
+  var optimum = 0.05;
+  var scale = 0.85;
   while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
-    {optimum+=.05;}
-  optimum-=.05;
+    {optimum+=0.05;}
+  optimum-=0.05;
   return constrain(optimum, min, max);
 }
 
@@ -159,9 +161,9 @@ function touchMoved() {
 function mouseWheel(e) {
   var deltaY = e.deltaY;
   if(deltaY>0) {
-    slider.elt.value=(slider.value()+.005).toString();
+    slider.elt.value=(slider.value()+0.005).toString();
   } else if(deltaY<0) {
-    slider.elt.value=(slider.value()-.005).toString();
+    slider.elt.value=(slider.value()-0.005).toString();
   }
   deltaY=constrain(deltaY,-20,20);
   //console.log(deltaY);
@@ -176,7 +178,7 @@ function doubleClicked() {
 
 window.addEventListener("orientationchange", function() {
   resizeCanvas(window.innerWidth, window.innerHeight);
-  slider.elt.value = calculateOptimum(.1, 5);
+  slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");

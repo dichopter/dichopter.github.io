@@ -89,27 +89,27 @@ function draw() {
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
   textSize(32);
-  if(w!=windowWidth||h!=windowHeight) {
-    document.location.reload(true);
-  } 
+  // if(w!=windowWidth||h!=windowHeight) {
+  //   document.location.reload(true);
+  // } 
   
 }
 
-function windowResized() {
-  document.location.reload(true);
-}
+// function windowResized() {
+//   document.location.reload(true);
+// }
 
-function resizeWindow() {
-  //windResized=false;
-  resizeCanvas(windowWidth, windowHeight);
-  slider.elt.value = calculateOptimum(0.1, 5);
-  switchButton.style("top", (window.height-100)+"px");
-  switchButton.style("left", "0px");
-  resetButton.style("top", (window.height-100)+"px");
-  resetButton.style("left", (window.width-100)+"px");
-  resetImages();
+// function resizeWindow() {
+//   //windResized=false;
+//   resizeCanvas(windowWidth, windowHeight);
+//   slider.elt.value = calculateOptimum(0.1, 5);
+//   switchButton.style("top", (window.height-100)+"px");
+//   switchButton.style("left", "0px");
+//   resetButton.style("top", (window.height-100)+"px");
+//   resetButton.style("left", (window.width-100)+"px");
+//   resetImages();
   
-}
+// }
 
 function styleElement(element, styles) {
   if(styles.length==0||styles.length%2!==0) {

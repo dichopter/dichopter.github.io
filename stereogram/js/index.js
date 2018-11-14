@@ -90,24 +90,13 @@ function draw() {
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
   textSize(32);
   if(w!=windowWidth||h!=windowHeight) {
-    w=windowWidth;
-    h=windowHeight;
-    resizeCanvas(windowWidth, windowHeight);
-    slider.elt.value = calculateOptimum(0.1, 5);
-    switchButton.style("top", (window.height-100)+"px");
-    switchButton.style("left", "0px");
-    resetButton.style("top", (window.height-100)+"px");
-    resetButton.style("left", (window.width-100)+"px");
-    resetImages();
-    resizeWindow();
-    resizeWindow();
-    // windResized=false;
+    document.location.reload(true);
   } 
   
 }
 
 function windowResized() {
-  windResized = true;
+  document.location.reload(true);
 }
 
 function resizeWindow() {

@@ -91,7 +91,6 @@ function draw() {
     resizeWindow();
     windResized=false;
   } 
-  resizeWindow();
   
 }
 
@@ -101,7 +100,7 @@ function windowResized() {
 
 function resizeWindow() {
   windResized=false;
-  resizeCanvas(window.innerWidth, window.innerHeight);
+  resizeCanvas(windowWidth, windowHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");

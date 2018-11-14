@@ -18,6 +18,7 @@ var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
 var mousePressed = false;
 var message;
+var windResized = false;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -85,17 +86,19 @@ function draw() {
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
   textSize(32);
-  message = text('word', 10, 30);
+  if(windResized) {
+    resizeWindow();
+    resizeWindow();
+    windResized=false;
+  }
   
 }
 
 function windowResized() {
-  resizeWindow("1");
-  resizeWindow("2");
-  resizeWindow("3");
+  windResized = true;
 }
 
-function resizeWindow(msg) {
+function resizeWindow() {
   resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
@@ -104,7 +107,7 @@ function resizeWindow(msg) {
   resetButton.style("left", (window.width-100)+"px");
   resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
-  message = text(msg, 10, 30);
+  //message = text(msg, 10, 30);
   
 }
 

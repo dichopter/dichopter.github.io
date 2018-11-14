@@ -51,7 +51,7 @@ function preload(){
 }
 
 function setup() {
-  toggleFullScreen();
+  //toggleFullScreen();
   createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   

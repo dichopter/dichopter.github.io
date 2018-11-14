@@ -56,37 +56,16 @@ function setup() {
   slider = createSlider(.1, 5, calculateOptimum(.1,5), .005);
   slider.position(-100, -100);
   slider.style('width', '10px');
+
   switchButton = createButton('');
-  var buttonStyles = [
-    "padding", "0", 
-    "background-color", "transparent",
-    "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')",
-    "background-size", "cover",
-    "width", "100px",
-    "height", "100px",
-    "border", "none"];
-  styleElement(switchButton, buttonStyles);
-  // switchButton.style("padding", "0");
-  // switchButton.style("background-color", "transparent");
-  // switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')");
-  // switchButton.style("background-size", "cover");
-  // switchButton.style("width", "100px");
-  // switchButton.style("height", "100px");
-  // switchButton.style("border", "none");
-  switchButton.position(5, window.innerHeight-100);
+  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
+  switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
-  resetButton = createButton('');
-  resetButton.style("padding", "0");
-  resetButton.style("background-color", "transparent");
-  resetButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')");
-  resetButton.style("background-size", "cover");
-  resetButton.style("width", "100px");
-  resetButton.style("height", "100px");  
-  resetButton.style("border", "none");
+  resetButton = createButton(''); 
+  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  
 }  
 
 function draw() {
@@ -107,14 +86,13 @@ function draw() {
 }
 
 function windowResized() {
-  slider.elt.value = calculateOptimum(.1, 5);
   resizeCanvas(window.innerWidth, window.innerHeight);
+  slider.elt.value = calculateOptimum(.1, 5);
   switchButton.style("top", (window.height-100)+"px");
   switchButton.style("left", "0px");
   resetButton.style("top", (window.height-100)+"px");
   resetButton.style("left", (window.width-100)+"px");
-  //alert("innerWidth:"+window.innerWidth+"; innerHeight: "+window.innerHeight);
-  //alert("innerWidth:"+window.height+"; height: "+window.height);
+  resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 function styleElement(element, styles) {

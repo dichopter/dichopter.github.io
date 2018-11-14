@@ -92,7 +92,7 @@ function windowResized() {
   resizeWindow("3");
 }
 
-function resizeWindow(alert) {
+function resizeWindow(message) {
   resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
@@ -101,7 +101,7 @@ function resizeWindow(alert) {
   resetButton.style("left", (window.width-100)+"px");
   resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
-  alert(alert);
+  alert(message);
 }
 
 function styleElement(element, styles) {

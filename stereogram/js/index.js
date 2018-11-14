@@ -94,6 +94,7 @@ function windowResized() {
   resetButton.style("left", (window.width-100)+"px");
   resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
+  alert("first!");
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
 

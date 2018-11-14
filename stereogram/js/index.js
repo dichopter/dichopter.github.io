@@ -11,7 +11,6 @@ if('serviceWorker' in navigator) { // Check if supported...
 // </Register service worker>
 
 
-
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
@@ -88,6 +87,12 @@ function draw() {
 }
 
 function windowResized() {
+  resizeWindow("1");
+  resizeWindow("2");
+  resizeWindow("3");
+}
+
+function resizeWindow(alert) {
   resizeCanvas(window.innerWidth, window.innerHeight);
   slider.elt.value = calculateOptimum(0.1, 5);
   switchButton.style("top", (window.height-100)+"px");
@@ -96,8 +101,7 @@ function windowResized() {
   resetButton.style("left", (window.width-100)+"px");
   resizeCanvas(window.innerWidth, window.innerHeight);
   resetImages();
-  alert("first!");
-  resizeCanvas(window.innerWidth, window.innerHeight);
+  alert(alert);
 }
 
 function styleElement(element, styles) {

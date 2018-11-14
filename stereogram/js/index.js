@@ -90,7 +90,8 @@ function draw() {
     resizeWindow();
     resizeWindow();
     windResized=false;
-  }
+  } 
+  resizeWindow();
   
 }
 

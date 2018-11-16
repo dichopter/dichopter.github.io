@@ -61,14 +61,17 @@ function setup() {
   slider.style('width', '10px');
 
   switchButton = createButton('');
-  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
+  styleElement(switchButton, ["padding", "0", "background-color", "transparent", /*"background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')",*/ "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
   resetButton = createButton(''); 
-  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
+  styleElement(resetButton, ["padding", "0", "background-color", "transparent", /*"background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", */ "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
+  background(0);
+  fill(255,255,255);
+
 }  
 
 function draw() {
@@ -76,9 +79,7 @@ function draw() {
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
-  background(0);
-  fill(255,255,255);
-  imageMode(CENTER);
+    imageMode(CENTER);
   var imageWidth = leftImage.width*slider.value();
   image(leftImage,(0.5*window.innerWidth+imageMoveX-imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
   image(rightImage,(0.5*window.innerWidth-imageMoveX+imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 

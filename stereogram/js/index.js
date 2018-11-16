@@ -69,12 +69,13 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "background-color", "transparent", /*"background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", */ "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  background(0);
-  fill(255,255,255);
+  
 
 }  
 
 function draw() {
+  background(0);
+  fill(255,255,255);
   if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }

@@ -10,7 +10,6 @@ if('serviceWorker' in navigator) { // Check if supported...
 }
 // </Register service worker>
 
-
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
@@ -51,7 +50,6 @@ function preload(){
 }
 
 function setup() {
-  //toggleFullScreen();
   createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   
@@ -71,8 +69,6 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  w=windowWidth;
-  h=windowHeight;
 }  
 
 function draw() {
@@ -89,41 +85,6 @@ function draw() {
 
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
-  textSize(32);
-  // if(w!=windowWidth||h!=windowHeight) {
-  //   document.location.reload(true);
-  // } 
-  
-}
-
-// function windowResized() {
-//   document.location.reload(true);
-// }
-
-// function resizeWindow() {
-//   //windResized=false;
-//   resizeCanvas(windowWidth, windowHeight);
-//   slider.elt.value = calculateOptimum(0.1, 5);
-//   switchButton.style("top", (window.height-100)+"px");
-//   switchButton.style("left", "0px");
-//   resetButton.style("top", (window.height-100)+"px");
-//   resetButton.style("left", (window.width-100)+"px");
-//   resetImages();
-  
-// }
-function toggleFullScreen() {
-  var doc = window.document;
-  var docEl = doc.documentElement;
-
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
-  }
 }
 
 function styleElement(element, styles) {
@@ -164,7 +125,6 @@ function touchMoved() {
   if(touches.length==1){
     if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
-     
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
@@ -192,10 +152,7 @@ function mouseWheel(e) {
     slider.elt.value=(slider.value()-0.005).toString();
   }
   deltaY=constrain(deltaY,-20,20);
-  //console.log(deltaY);
-  deltaY=map(deltaY,-20,20,-5,5);
-  
-  //console.log(lerp(deltaY, 5, .1));
+  deltaY=map(deltaY,-20,20,-5,5); 
 }
 
 function doubleClicked() {
@@ -209,3 +166,18 @@ window.addEventListener("orientationchange", function() {
 window.addEventListener("onresize", function(){
   document.location.reload(true);
 });
+
+// function windowResized() {
+//   document.location.reload(true);
+// }
+
+// function resizeWindow() {
+//   //windResized=false;
+//   resizeCanvas(windowWidth, windowHeight);
+//   slider.elt.value = calculateOptimum(0.1, 5);
+//   switchButton.style("top", (window.height-100)+"px");
+//   switchButton.style("left", "0px");
+//   resetButton.style("top", (window.height-100)+"px");
+//   resetButton.style("left", (window.width-100)+"px");
+//   resetImages();
+// }

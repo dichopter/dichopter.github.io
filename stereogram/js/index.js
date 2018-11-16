@@ -61,12 +61,12 @@ function setup() {
   slider.style('width', '10px');
 
   switchButton = createButton('');
-  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none", "opacity", "0"]);
+  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "tranisiton", "opacity 1.5s"]);
   switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
   resetButton = createButton(''); 
-  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none", "opacity", "0"]);
+  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   
@@ -100,7 +100,12 @@ function styleElement(element, styles) {
 
 
 function showButtons() {
-
+  styleElement(switchButton, ["opacity", "1"]);
+  styleElement(resetButton, ["opacity", "1"]);
+  setTimeout(function(){ 
+    styleElement(switchButton, ["opacity", "0"]);
+    styleElement(resetButton, ["opacity", "0"]);
+   }, 3000);
 }
 
 
@@ -130,6 +135,7 @@ function mouseDragged() {
 }
 
 function touchMoved() {
+  showButtons();
   if(touches.length==1){
     if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;

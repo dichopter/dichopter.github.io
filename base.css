@@ -43,7 +43,10 @@ nav {
     background-color: #e8e8e8;
   }
   
-  
+  footer.page-footer ul>li {
+    display: block;
+    padding: 15px 5px;
+  }
 
 
   @media (max-width: 600px) { 

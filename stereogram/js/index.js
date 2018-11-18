@@ -119,15 +119,15 @@ function calculateOptimum(min, max) {
 
   // check that image starts out smaller than the current window
   if((fullImageWidth>scaledWidth)||(fullImageHeight>scaledHeight)) { 
-    // "grow" the image to fill up to the scale
-    while((fullImageWidth<scaledWidth)&&(fullImageHeight<scaledHeight))
-      {optimum+=0.05;}
-  } else { // images are currently bigger than the window
     // shrink the images to the optimum scale
     while((fullImageWidth>scaledWidth)&&(fullImageHeight>scaledHeight)&&optimum>0)
     {optimum-=0.005;}
+  } else { // images are currently bigger than the window
+    // "grow" the image to fill up to the scale
+    while((fullImageWidth<scaledWidth)&&(fullImageHeight<scaledHeight))
+      {optimum+=0.05;}
   }
-  if(optimum!=.05) optimum-=0.05;
+  if(optimum>=.05) optimum-=0.05;
   return constrain(optimum, min, max);
 }
 

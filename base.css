@@ -48,6 +48,10 @@ nav {
     padding: 15px 5px;
   }
 
+  .sidenav li>a {
+    height: 55px !important;
+    line-height: 55px !important;
+  }
 
   @media (max-width: 600px) { 
     .row .col.s12.m4 {

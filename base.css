@@ -43,6 +43,9 @@ nav {
     background-color: #e8e8e8;
   }
   
+  
+
+
   @media (max-width: 600px) { 
     .row .col.s12.m4 {
       text-align: center;

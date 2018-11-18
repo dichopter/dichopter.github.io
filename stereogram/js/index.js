@@ -124,7 +124,6 @@ function calculateOptimum(min, max) {
     {optimum-=0.005;}
   } else { // images are currently bigger than the window
     // "grow" the image to fill up to the scale
-    
     while((rightImage.width*optimum*2<scaledWidth)&&(rightImage.height*optimum<scaledHeight))
       {optimum+=0.05;}
   }

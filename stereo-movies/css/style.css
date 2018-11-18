@@ -9,6 +9,10 @@
   background-color: #ccc;
 }
 
+h3 span {
+  font-size: .6em;
+  font-weight: lighter;
+}
 
 @media (max-width: 600px) { 
   .row .col.s12.m6 {

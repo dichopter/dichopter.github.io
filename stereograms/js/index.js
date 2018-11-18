@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //sessionStorage.imageNum = "1";
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
-  var numImages = 20;
+  var numImages = 10;
   addImages(numImages);
   var images = document.querySelectorAll(".stereograms .row a"); 
   images.forEach(function(image) {

@@ -112,8 +112,16 @@ function showButtons() {
 function calculateOptimum(min, max) {
   var optimum = 0.05;
   var scale = 0.85;
-  while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
-    {optimum+=0.05;}
+  // check that image starts out smaller than the current window
+  if(rightImage.width*optimum*2<window.innerWidth*scale&&rightImage.height*optimum<window.innerHeight*scale) { 
+    // "grow" the image to fill up to the scale
+    while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
+      {optimum+=0.05;}
+  } else { // images are currently bigger than the window
+    // shrink the images to the optimum scale
+    while((rightImage.width*optimum*2>window.innerWidth*scale)&&(rightImage.height*optimum>window.innerHeight*scale)&&optimum>0)
+    {optimum-=0.005;}
+  }
   optimum-=0.05;
   return constrain(optimum, min, max);
 }

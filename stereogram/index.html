@@ -12,11 +12,13 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <link rel="stylesheet" href="css/style.css"> 
-    <meta name="app-mobile-web-app-capable" content="yes"> 
   </head>
 
-  <body>
+  <body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
     <div id="p5_loading" class="loading"></div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js'></script>

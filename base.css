@@ -4,10 +4,10 @@ nav {
   }
   nav ul li a {
     height: 75px;
-    color: black;
+    color: black !important;
   }
   .sidenav-trigger {
-    color: black;
+    color: black !important;
   }
   .nav-wrapper {
     height: 75px;

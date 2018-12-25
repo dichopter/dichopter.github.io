@@ -3,8 +3,10 @@ a {
 }
 
 
-ul>li:before {
-    content: "•";
-    font-size: 80%;
-    padding-right: 10px;
- }
+ul.pairs>li:before {
+    content: "○";
+    font-size: 140%;
+    padding-right: 5px;
+    top: -2px;
+    position: relative;
+}

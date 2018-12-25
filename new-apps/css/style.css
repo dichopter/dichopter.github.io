@@ -1,0 +1,10 @@
+a {
+    font-size:2em;
+}
+
+
+ul>li:before {
+    content: "•";
+    font-size: 80%;
+    padding-right: 10px;
+ }

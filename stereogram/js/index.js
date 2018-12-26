@@ -185,10 +185,6 @@ function mouseWheel(e) {
 
 function doubleClicked() {return false;} //disable double-click zoom
 
-
-
-
-
 function resizeAll() {
   resizeCanvas(window.innerWidth, window.innerHeight);
   imgScale = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
@@ -199,9 +195,9 @@ function resizeAll() {
   resetButton.style("left", (windowWidth-100)+"px");
 }
 
-window.addEventListener("resize", function(){
-  resizeAll(";resize");
-});
+// window.addEventListener("resize", function(){
+//   resizeAll(";resize");
+// });
 
 
 function windowResized() {
@@ -209,7 +205,10 @@ function windowResized() {
 }
 
 window.addEventListener("orientationchange", function(){
-  if (navigator.userAgent.search("Chrome")!=-1||(!!window.chrome && !!window.chrome.webstore)) {
-    location.reload();
+  // if (navigator.userAgent.search("Chrome")!=-1||(!!window.chrome && !!window.chrome.webstore)) {
+    // }
+    if(window.navigator.userAgent.match("CriOS")){
+        location.reload();
+    
   }
 });

@@ -191,6 +191,9 @@ function windowResized() {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
+  alert("windowWidth: "+windowWidth+"; window.width: "+window.width);
+  alert("windowHeight: "+windowHeight+"; window.height: "+window.height);
+  
 }
 
 window.addEventListener("resize", windowResized);

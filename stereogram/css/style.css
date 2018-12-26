@@ -2,7 +2,7 @@ body {
 padding: 0;
 margin: 0;
 overflow: hidden;
-background: olivedrab;
+background: paleturquoise;
 }
 
 .loading {
@@ -42,6 +42,7 @@ background: olivedrab;
 canvas {
   display: block; /*ensures this this the only element being shown*/
   /* these next two lines are VERY important for iOS and Safari canvas repositioning*/
-  position: absolute; 
+  position: absolute;   
   bottom: 0;
+  width: 100% !important;
 }

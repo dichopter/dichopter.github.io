@@ -196,12 +196,12 @@ window.addEventListener("resize", function(){
   // resetButton.style("left", (windowWidth-100)+"px");
   // alert("windowWidth1: "+windowWidth+"; window.width: "+window.width);
   // alert("windowHeight1: "+windowHeight+"; window.height: "+window.height);
-  alert("????");
+  // alert("????");
 });
 
 
 document.body.onresize = function(){
-  message = "hmm";
+  message += "hmm";
 
 };
 function windowResized() {
@@ -214,7 +214,7 @@ function windowResized() {
   // resetButton.style("left", (windowWidth-100)+"px");
   // alert("windowWidth2: "+windowWidth+"; window.width: "+window.width);
   // alert("windowHeight2: "+windowHeight+"; window.height: "+window.height);
-  message = "suwhoop";
+  message += "suwhoop";
 }
 
 

@@ -2,7 +2,9 @@ body {
 padding: 0;
 margin: 0;
 overflow: hidden;
-background: firebrick;
+background: fuchsia;
+width: 100% !important;
+height: 100% !important;
 }
 
 .loading {

@@ -201,7 +201,7 @@ window.addEventListener("resize", function(){
 
 
 
-function resizeAll() {
+function resizeAll(m) {
   resizeCanvas(windowWidth, windowHeight);
   slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
@@ -209,17 +209,17 @@ function resizeAll() {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
-
+  message+=m;
 }
 
 
 document.body.onresize = function(){
-  resizeAll();
+  resizeAll(";body");
 };
 
 
 function windowResized() {
-  resizeAll();
+  resizeAll(";windowR");
 }
 
-window.addEventListener("orientationchange", resizeAll);
+window.addEventListener("orientationchange", resizeAll(";orientation"));

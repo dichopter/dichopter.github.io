@@ -16,7 +16,6 @@ var imgScale = 0.005;
 var switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
-var message = "help";
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -57,12 +56,12 @@ function setup() {
   
 
   switchButton = createButton("switch");
-  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  styleElement(switchButton, ["padding", "0", "padding-top", "45px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
   resetButton = createButton("reset"); 
-  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  styleElement(resetButton, ["padding", "0", "padding-top", "45px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
@@ -72,7 +71,6 @@ function setup() {
 function draw() {
   background(0);
   fill(255,255,255);
-  text(message, 30,30);
   if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
@@ -185,7 +183,7 @@ function mouseWheel(e) {
 
 function doubleClicked() {return false;} //disable double-click zoom
 
-function resizeAll() {
+function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
   imgScale = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
@@ -193,22 +191,12 @@ function resizeAll() {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
-}
-
-// window.addEventListener("resize", function(){
-//   resizeAll(";resize");
-// });
-
-
-function windowResized() {
-  resizeAll();
+  showButtons();
 }
 
 window.addEventListener("orientationchange", function(){
-  // if (navigator.userAgent.search("Chrome")!=-1||(!!window.chrome && !!window.chrome.webstore)) {
-    // }
-    if(window.navigator.userAgent.match("CriOS")){
-        location.reload();
-    
-  }
+  //since resizeCanvas is broken on Chrome for iOS, we must reload the window
+    if(window.navigator.userAgent.match("CriOS")){ 
+        location.reload();  
+    } 
 });

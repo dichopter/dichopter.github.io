@@ -186,7 +186,6 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 
-window.addEventListener("resize", resizeAll(";resize"));
 
 
 
@@ -202,14 +201,15 @@ function resizeAll(m) {
   message+=m;
 }
 
-
-document.body.onresize = function(){
-  resizeAll(";body");
-};
+window.addEventListener("resize", function(){
+  resizeAll(";resize");
+});
 
 
 function windowResized() {
   resizeAll(";windowR");
 }
 
-window.addEventListener("orientationchange", resizeAll(";orientation"));
+window.addEventListener("orientationchange", function(){
+  resizeAll(";orientation");
+});

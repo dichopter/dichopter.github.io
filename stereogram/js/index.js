@@ -12,10 +12,11 @@ if('serviceWorker' in navigator) { // Check if supported...
 var c;
 var stereoImage;
 var leftImage, rightImage;
-var slider, switchButton, resetButton; 
+var imgScale = 0.005;
+var switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
-var message;
+var message = "help";
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -52,10 +53,8 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  message = "help";
-  slider = createSlider(0.1, 5, calculateOptimum(0.1,5), 0.005);
-  slider.position(-100, -100);
-  slider.style('width', '10px');
+  imgScale = calculateOptimum(0.1,5);
+  
 
   switchButton = createButton("switch");
   styleElement(switchButton, ["padding", "0", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
@@ -79,9 +78,9 @@ function draw() {
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
     imageMode(CENTER);
-  var imageWidth = leftImage.width*slider.value();
-  image(leftImage,(0.5*window.innerWidth+imageMoveX-imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value());
-  image(rightImage,(0.5*window.innerWidth-imageMoveX+imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*slider.value(), rightImage.height*slider.value()); 
+  var imageWidth = leftImage.width*imgScale;
+  image(leftImage,(0.5*window.innerWidth+imageMoveX-imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*imgScale, rightImage.height*imgScale);
+  image(rightImage,(0.5*window.innerWidth-imageMoveX+imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*imgScale, rightImage.height*imgScale); 
 
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
@@ -160,9 +159,9 @@ function touchMoved() {
     var sensitivity = 0.01;
     if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
-      slider.elt.value=(slider.value()+sensitivity).toString();
+      imgScale=(imgScale+sensitivity).toString();
     } else if(lineDiff<0) {
-      slider.elt.value=(slider.value()-sensitivity).toString();
+      imgScale=(imgScale-sensitivity).toString();
     }
     if(pLineLength==0) {
       pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
@@ -176,9 +175,9 @@ function touchMoved() {
 function mouseWheel(e) {
   var deltaY = e.deltaY;
   if(deltaY>0) {
-    slider.elt.value=(slider.value()+0.005).toString();
+    imgScale=(imgScale+0.005).toString();
   } else if(deltaY<0) {
-    slider.elt.value=(slider.value()-0.005).toString();
+    imgScale=(imgScale-0.005).toString();
   }
   deltaY=constrain(deltaY,-20,20);
   deltaY=map(deltaY,-20,20,-5,5); 
@@ -192,12 +191,12 @@ function doubleClicked() {return false;} //disable double-click zoom
 
 function resizeAll(m) {
   resizeCanvas(windowWidth, windowHeight);
-  // slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
-  // resetImages(); // reset image positions
-  // switchButton.style("top", (windowHeight-100)+"px");
-  // switchButton.style("left", "0px");
-  // resetButton.style("top", (windowHeight-100)+"px");
-  // resetButton.style("left", (windowWidth-100)+"px");
+  imgScale = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
+  resetImages(); // reset image positions
+  switchButton.style("top", (windowHeight-100)+"px");
+  switchButton.style("left", "0px");
+  resetButton.style("top", (windowHeight-100)+"px");
+  resetButton.style("left", (windowWidth-100)+"px");
 
   message+=m;
 }

@@ -191,7 +191,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 
 
 function resizeAll(m) {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(displayWidth, displayHeight);
   // slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   // resetImages(); // reset image positions
   // switchButton.style("top", (windowHeight-100)+"px");

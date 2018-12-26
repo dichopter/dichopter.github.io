@@ -201,9 +201,9 @@ function windowResized() {
   slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
 }
-document.addEventListener("DOMContentLoaded", function(event) {
-  window.scrollTo(0,1); //hopefully gets rid of address bar!
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+//   // window.scrollTo(0,1); //hopefully gets rid of address bar!
+// });
 
 // function windowResized() {
 //   document.location.reload(true);

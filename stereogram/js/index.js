@@ -186,29 +186,19 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 
-window.addEventListener("resize", function(){
-  // resizeCanvas(windowWidth, windowHeight);
+window.addEventListener("resize", resizeAll(";resize"));
+
+
+
+function resizeAll(m) {
+  resizeCanvas(windowWidth, windowHeight);
   // slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   // resetImages(); // reset image positions
   // switchButton.style("top", (windowHeight-100)+"px");
   // switchButton.style("left", "0px");
   // resetButton.style("top", (windowHeight-100)+"px");
   // resetButton.style("left", (windowWidth-100)+"px");
-  // alert("windowWidth1: "+windowWidth+"; window.width: "+window.width);
-  // alert("windowHeight1: "+windowHeight+"; window.height: "+window.height);
-  // alert("????");
-});
 
-
-
-function resizeAll(m) {
-  resizeCanvas(windowWidth, windowHeight);
-  slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
-  resetImages(); // reset image positions
-  switchButton.style("top", (windowHeight-100)+"px");
-  switchButton.style("left", "0px");
-  resetButton.style("top", (windowHeight-100)+"px");
-  resetButton.style("left", (windowWidth-100)+"px");
   message+=m;
 }
 

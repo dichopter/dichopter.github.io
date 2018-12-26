@@ -15,10 +15,7 @@ var leftImage, rightImage;
 var slider, switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
-var mousePressed = false;
-var message;
-var windResized = false;
-var w, h;
+var w,h;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -52,7 +49,8 @@ function preload(){
 function setup() {
   c = createCanvas(window.innerWidth, window.innerHeight);
   background(0);
-  
+  w = windowWidth;
+  h = windowHeight;
   noFill();
   stroke(155);
   strokeWeight(10);
@@ -60,13 +58,13 @@ function setup() {
   slider.position(-100, -100);
   slider.style('width', '10px');
 
-  switchButton = createButton('switch');
-  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "color", "white",/*"background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/switch.png')", "background-size", "cover",*/ "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  switchButton = createButton(w);
+  styleElement(switchButton, ["padding", "0", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
   
-  resetButton = createButton('reset'); 
-  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "color", "white",/*"background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')", "background-size", "cover",*/ "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  resetButton = createButton(h); 
+  styleElement(resetButton, ["padding", "0", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
@@ -127,7 +125,7 @@ function calculateOptimum(min, max) {
     while((rightImage.width*optimum*2<scaledWidth)&&(rightImage.height*optimum<scaledHeight))
       {optimum+=0.05;}
   }
-  if(optimum>=.05) optimum-=0.05;
+  if(optimum>=0.05) optimum-=0.05;
   return constrain(optimum, min, max);
 }
 
@@ -188,13 +186,6 @@ function mouseWheel(e) {
 
 function doubleClicked() {return false;} //disable double-click zoom
 
-// window.addEventListener("orientationchange", function() {
-//   document.location.reload(true);
-// });
-
-// window.addEventListener("onresize", function(){
-//   document.location.reload(true);
-// });
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -204,22 +195,6 @@ function windowResized() {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
+  w = windowWidth;
+  h = windowHeight;
 }
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   // window.scrollTo(0,1); //hopefully gets rid of address bar!
-// });
-
-// function windowResized() {
-//   document.location.reload(true);
-// }
-
-// function resizeWindow() {
-//   //windResized=false;
-//   resizeCanvas(windowWidth, windowHeight);
-//   slider.elt.value = calculateOptimum(0.1, 5);
-//   switchButton.style("top", (window.height-100)+"px");
-//   switchButton.style("left", "0px");
-//   resetButton.style("top", (window.height-100)+"px");
-//   resetButton.style("left", (window.width-100)+"px");
-//   resetImages();
-// }

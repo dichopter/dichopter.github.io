@@ -189,7 +189,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 
 
 
-function resizeAll(m) {
+function resizeAll() {
   resizeCanvas(window.innerWidth, window.innerHeight);
   imgScale = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
@@ -197,8 +197,6 @@ function resizeAll(m) {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
-
-  message+=m;
 }
 
 window.addEventListener("resize", function(){
@@ -207,9 +205,11 @@ window.addEventListener("resize", function(){
 
 
 function windowResized() {
-  resizeAll(";windowR");
+  resizeAll();
 }
 
 window.addEventListener("orientationchange", function(){
-  resizeAll(";orientation");
+  if (navigator.userAgent.search("Chrome")!=-1||(!!window.chrome && !!window.chrome.webstore)) {
+    location.reload();
+  }
 });

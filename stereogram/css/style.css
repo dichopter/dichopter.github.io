@@ -2,7 +2,7 @@ body {
 padding: 0;
 margin: 0;
 overflow: hidden;
-background: paleturquoise;
+background: orange;
 }
 
 .loading {
@@ -44,5 +44,4 @@ canvas {
   /* these next two lines are VERY important for iOS and Safari canvas repositioning*/
   position: absolute;   
   bottom: 0;
-  width: 100% !important;
 }

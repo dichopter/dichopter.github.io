@@ -172,14 +172,13 @@ function touchMoved() {
 
 function mouseWheel(e) {
   var deltaY = e.deltaY;
-  // if(deltaY>0) {
-  //   imgScale+=0.005;
-  // } else if(deltaY<0) {
-  //   imgScale-=0.005;
-  // }
+  if(deltaY>0) {
+    imgScale+=0.005;
+  } else if(deltaY<0) {
+    imgScale-=0.005;
+  }
   deltaY=constrain(deltaY,-20,20);
-  // deltaY=map(deltaY,-20,20,-5,5); 
-  imgScale = lerp(imgScale, deltaY, .1);
+  deltaY=map(deltaY,-20,20,-5,5); 
 }
 
 function doubleClicked() {return false;} //disable double-click zoom

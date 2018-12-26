@@ -74,6 +74,8 @@ function setup() {
 function draw() {
   background(0);
   fill(255,255,255);
+  text("W: "+w, 10, 30);
+  text("H: "+h, 40, 30);
   if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }

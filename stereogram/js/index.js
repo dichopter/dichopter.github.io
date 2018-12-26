@@ -210,3 +210,4 @@ function windowResized() {
   alert("is anything working");  
 }
 
+document.body.onresize = windowResized;

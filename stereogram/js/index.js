@@ -9,7 +9,7 @@ if('serviceWorker' in navigator) { // Check if supported...
   }); 
 }
 // </Register service worker>
-
+var c;
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
@@ -50,7 +50,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  c = createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   
   noFill();
@@ -197,7 +197,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 // });
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  c.resizeCanvas(windowWidth, windowHeight);
   slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
 }

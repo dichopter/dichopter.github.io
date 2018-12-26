@@ -9,13 +9,11 @@ if('serviceWorker' in navigator) { // Check if supported...
   }); 
 }
 // </Register service worker>
-var c;
 var stereoImage;
 var leftImage, rightImage;
 var slider, switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
-var w,h;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -47,10 +45,8 @@ function preload(){
 }
 
 function setup() {
-  c = createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(window.innerWidth, window.innerHeight);
   background(0);
-  w = windowWidth;
-  h = windowHeight;
   noFill();
   stroke(155);
   strokeWeight(10);
@@ -197,6 +193,6 @@ function windowResized() {
   switchButton.style("left", "0px");
   resetButton.style("top", (windowHeight-100)+"px");
   resetButton.style("left", (windowWidth-100)+"px");
-  w = windowWidth;
-  h = windowHeight;
 }
+
+window.addEventListener("resize", windowResized);

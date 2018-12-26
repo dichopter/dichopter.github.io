@@ -188,13 +188,19 @@ function mouseWheel(e) {
 
 function doubleClicked() {return false;} //disable double-click zoom
 
-window.addEventListener("orientationchange", function() {
-  document.location.reload(true);
-});
+// window.addEventListener("orientationchange", function() {
+//   document.location.reload(true);
+// });
 
-window.addEventListener("onresize", function(){
-  document.location.reload(true);
-});
+// window.addEventListener("onresize", function(){
+//   document.location.reload(true);
+// });
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
+  resetImages(); // reset image positions
+}
 document.addEventListener("DOMContentLoaded", function(event) {
   window.scrollTo(0,1); //hopefully gets rid of address bar!
 });

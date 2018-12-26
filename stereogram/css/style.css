@@ -38,3 +38,7 @@ background: blueviolet;
     transform: rotateZ(360deg);
   }
 }
+
+canvas {
+  display: block; /*ensures this this the only element being shown*/
+}

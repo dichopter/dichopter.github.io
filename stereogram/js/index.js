@@ -197,7 +197,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 // });
 
 function windowResized() {
-  c.resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, windowHeight);
   slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
 }

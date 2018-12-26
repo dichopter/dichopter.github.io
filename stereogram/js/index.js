@@ -9,7 +9,7 @@ if('serviceWorker' in navigator) { // Check if supported...
   }); 
 }
 // </Register service worker>
-var c;
+
 var stereoImage;
 var leftImage, rightImage;
 var imgScale = 0.005;
@@ -34,7 +34,7 @@ var getCookie = function(cname) {var name = cname + "=";
 
 function preload(){
   var imageNum = getCookie("imageNum");
-  console.log(document.cookie);
+  // console.log(document.cookie);
   stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
     leftImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     leftImage.loadPixels();
@@ -47,7 +47,7 @@ function preload(){
 }
 
 function setup() {
-  c = createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   noFill();
   stroke(155);

@@ -200,21 +200,26 @@ window.addEventListener("resize", function(){
 });
 
 
-document.body.onresize = function(){
-  message += "hmm";
 
-};
-function windowResized() {
-  // resizeCanvas(windowWidth, windowHeight);
-  // slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
-  // resetImages(); // reset image positions
-  // switchButton.style("top", (windowHeight-100)+"px");
-  // switchButton.style("left", "0px");
-  // resetButton.style("top", (windowHeight-100)+"px");
-  // resetButton.style("left", (windowWidth-100)+"px");
-  // alert("windowWidth2: "+windowWidth+"; window.width: "+window.width);
-  // alert("windowHeight2: "+windowHeight+"; window.height: "+window.height);
-  message += "suwhoop";
+function resizeAll() {
+  resizeCanvas(windowWidth, windowHeight);
+  slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
+  resetImages(); // reset image positions
+  switchButton.style("top", (windowHeight-100)+"px");
+  switchButton.style("left", "0px");
+  resetButton.style("top", (windowHeight-100)+"px");
+  resetButton.style("left", (windowWidth-100)+"px");
+
 }
 
 
+document.body.onresize = function(){
+  resizeAll();
+};
+
+
+function windowResized() {
+  resizeAll();
+}
+
+window.addEventListener("orientationchange", resizeAll);

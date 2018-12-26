@@ -14,6 +14,7 @@ var leftImage, rightImage;
 var slider, switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
+var message;
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -50,6 +51,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
+  message = "help";
   slider = createSlider(0.1, 5, calculateOptimum(0.1,5), 0.005);
   slider.position(-100, -100);
   slider.style('width', '10px');
@@ -70,6 +72,7 @@ function setup() {
 function draw() {
   background(0);
   fill(255,255,255);
+  text(message, 30,30);
   if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
@@ -197,6 +200,10 @@ window.addEventListener("resize", function(){
 });
 
 
+document.body.onresize = function(){
+  message = "hmm";
+
+};
 function windowResized() {
   // resizeCanvas(windowWidth, windowHeight);
   // slider.elt.value = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
@@ -207,7 +214,7 @@ function windowResized() {
   // resetButton.style("left", (windowWidth-100)+"px");
   // alert("windowWidth2: "+windowWidth+"; window.width: "+window.width);
   // alert("windowHeight2: "+windowHeight+"; window.height: "+window.height);
-  alert("is anything working");  
+  message = "suwhoop";
 }
 
-document.body.onresize = windowResized;
+

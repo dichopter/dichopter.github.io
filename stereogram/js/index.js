@@ -52,7 +52,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  imgScale = calculateOptimum(0.1,5);
+  imgScale = calculateOptimum(0.001,5);
   
 
   switchButton = createButton("switch");
@@ -113,16 +113,17 @@ function calculateOptimum(min, max) {
   var scaledHeight = window.innerHeight*scale;
   
   // check that image starts out smaller than the current window
-  if((fullImageWidth>scaledWidth)||(fullImageHeight>scaledHeight)) { 
+  // if((fullImageWidth<scaledWidth)||(fullImageHeight<scaledHeight)) { 
     // shrink the images to the optimum scale
-    while((rightImage.width*optimum*2>scaledWidth)&&(rightImage.height*optimum>scaledHeight)&&optimum>0)
-    {optimum-=0.005;}
-  } else { // images are currently bigger than the window
+    while(((rightImage.width*optimum*2>scaledWidth)||(rightImage.height*optimum>scaledHeight))&&optimum>0)
+    {optimum-=0.001;}
+  // } else { // images are currently bigger than the window
     // "grow" the image to fill up to the scale
-    while((rightImage.width*optimum*2<scaledWidth)&&(rightImage.height*optimum<scaledHeight))
-      {optimum+=0.05;}
-  }
-  if(optimum>=0.05) optimum-=0.05;
+    while((rightImage.width*optimum*2<scaledWidth)||(rightImage.height*optimum<scaledHeight))
+      {optimum+=0.001;}
+  // } 
+
+  if(optimum>=0.001) optimum-=0.001;
   return constrain(optimum, min, max);
 }
 
@@ -185,7 +186,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
-  imgScale = calculateOptimum(0.1, 5); // reset image sizes and size appropriately
+  imgScale = calculateOptimum(0.001, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");
   switchButton.style("left", "0px");

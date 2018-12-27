@@ -8,11 +8,10 @@ if('serviceWorker' in navigator) { // Check if supported...
     });
     
   }
-  // </Register service worker>
+// </Register service worker>
   
   
   document.addEventListener('DOMContentLoaded', function() {
-    //sessionStorage.imageNum = "1";
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
   });

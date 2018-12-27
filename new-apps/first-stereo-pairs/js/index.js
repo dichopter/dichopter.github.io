@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var images = document.querySelectorAll("img"); 
     images.forEach(function(image) {
       image.parentElement.addEventListener("click", function() {
-        setCookie("imageNum",image.getAttribute("imageNum"),1);
+        setCookie("imageNum",image.parentElement.getAttribute("imageNum"),1);
       });
     });
     

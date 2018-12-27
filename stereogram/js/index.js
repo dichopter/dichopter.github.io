@@ -112,16 +112,12 @@ function calculateOptimum(min, max) {
   var scaledWidth = window.innerWidth*scale;
   var scaledHeight = window.innerHeight*scale*scale;
   
-  // check that image starts out smaller than the current window
-  // if((fullImageWidth<scaledWidth)||(fullImageHeight<scaledHeight)) { 
-    // shrink the images to the optimum scale
-    while(((rightImage.width*optimum*2>scaledWidth)||(rightImage.height*optimum>scaledHeight))&&optimum>0)
-    {optimum-=0.001;}
-  // } else { // images are currently bigger than the window
-    // "grow" the image to fill up to the scale
-    while((rightImage.width*optimum*2<scaledWidth)||(rightImage.height*optimum<scaledHeight))
-      {optimum+=0.001;}
-  // } 
+  // shrink the images to the optimum scale
+  while(((rightImage.width*optimum*2>scaledWidth)||(rightImage.height*optimum>scaledHeight))&&optimum>0)
+  {optimum-=0.001;}
+  // "grow" the image to fill up to the scale
+  while((rightImage.width*optimum*2<scaledWidth)||(rightImage.height*optimum<scaledHeight))
+    {optimum+=0.001;}
 
   if(optimum>=0.001) optimum-=0.001;
   return constrain(optimum, min, max);

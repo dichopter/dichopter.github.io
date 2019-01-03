@@ -36,6 +36,7 @@ function preload(){
   var imageNum = getCookie("imageNum");
   // console.log(document.cookie);
   stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
+    console.time('imageloading');  
     leftImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     leftImage.loadPixels();
     leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 
@@ -43,6 +44,7 @@ function preload(){
     rightImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     rightImage.loadPixels();
     rightImage.copy(stereoImage, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height);
+    console.timeEnd('imageloading');
   });
 }
 

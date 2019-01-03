@@ -2,7 +2,7 @@
 if('serviceWorker' in navigator) { // Check if supported...
     window.addEventListener('load', ()=> {
       navigator.serviceWorker
-      .register("../sworkerFull.js")
+      .register("https://dichopter.github.io/sworkerFull.js")
       .then(reg=>console.log("Service worker registered in page..."))
       .catch(err=>console.log(err));
     });

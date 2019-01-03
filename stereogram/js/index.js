@@ -36,7 +36,7 @@ function preload(){
   var imageNum = getCookie("imageNum");
   // console.log(document.cookie);
   stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
-    console.time('imageloading');  
+    
     leftImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     leftImage.loadPixels();
     leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 
@@ -44,7 +44,7 @@ function preload(){
     rightImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
     rightImage.loadPixels();
     rightImage.copy(stereoImage, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height);
-    console.timeEnd('imageloading');
+    
   });
 }
 
@@ -77,11 +77,11 @@ function draw() {
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
-    imageMode(CENTER);
-  var imageWidth = leftImage.width*imgScale;
-  image(leftImage,(0.5*window.innerWidth+imageMoveX-imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*imgScale, rightImage.height*imgScale);
-  image(rightImage,(0.5*window.innerWidth-imageMoveX+imageWidth/2),0.5*window.innerHeight+imageMoveY, rightImage.width*imgScale, rightImage.height*imgScale); 
-
+  imageMode(CENTER);
+  var imageWidth = img.width*imgScale, 
+  imageHeight = img.height*imgScale; 
+  image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
+  image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
 }
@@ -116,9 +116,11 @@ function calculateOptimum(min, max) {
 }
 
 function switchImages() {
-  var tempImage = leftImage;
-  leftImage = rightImage;
-  rightImage = tempImage;
+  if(imageMoveX>0) {
+    imageMoveX = -imageMoveX+imgScale*img.width/2; 
+  } else {
+    imageMoveX = -imageMoveX+imgScale*img.width/2;
+  }
 }
 
 function resetImages(){

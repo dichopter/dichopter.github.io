@@ -52,7 +52,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  imgScale = calculateOptimum(0.001,5);
+  imgScale = calculateOptimum(0.01,5);
   
 
   switchButton = createButton("switch");
@@ -105,21 +105,11 @@ function showButtons() {
 
 
 function calculateOptimum(min, max) {
-  var optimum = 0.05;
-  var scale = 0.85;
-  var fullImageWidth = rightImage.width*optimum*2;
-  var fullImageHeight = rightImage.height*optimum;
-  var scaledWidth = window.innerWidth*scale;
-  var scaledHeight = window.innerHeight*scale*scale;
-  
-  // shrink the images to the optimum scale
-  while(((rightImage.width*optimum*2>scaledWidth)||(rightImage.height*optimum>scaledHeight))&&optimum>0)
-  {optimum-=0.001;}
-  // "grow" the image to fill up to the scale
-  while((rightImage.width*optimum*2<scaledWidth)||(rightImage.height*optimum<scaledHeight))
-    {optimum+=0.001;}
-
-  if(optimum>=0.001) optimum-=0.001;
+  var optimum = .01;
+  var scale = .85;
+  while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
+    {optimum+=.05;}
+  optimum-=.05;
   return constrain(optimum, min, max);
 }
 
@@ -182,7 +172,7 @@ function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
-  imgScale = calculateOptimum(0.001, 5); // reset image sizes and size appropriately
+  imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");
   switchButton.style("left", "0px");
@@ -197,3 +187,6 @@ window.addEventListener("orientationchange", function(){
         location.reload();  
     } 
 });
+
+
+//stereoImage = loadImage('https://rawgit.com/xavierrocks/xavierrocks.github.io/master/projectLITE/Page-5-Image-5.png',

@@ -78,10 +78,10 @@ function draw() {
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
   imageMode(CENTER);
-  var imageWidth = img.width*imgScale, 
-  imageHeight = img.height*imgScale; 
-  image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
-  image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
+  var imageWidth = stereoImage.width*imgScale, 
+  imageHeight = stereoImage.height*imgScale; 
+  image(stereoImage,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, stereoImage.width/2, stereoImage.height);
+  image(stereoImage,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height);
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
 }
@@ -117,9 +117,9 @@ function calculateOptimum(min, max) {
 
 function switchImages() {
   if(imageMoveX>0) {
-    imageMoveX = -imageMoveX+imgScale*img.width/2; 
+    imageMoveX = -imageMoveX+imgScale*stereoImage.width/2; 
   } else {
-    imageMoveX = -imageMoveX+imgScale*img.width/2;
+    imageMoveX = -imageMoveX+imgScale*stereoImage.width/2;
   }
 }
 

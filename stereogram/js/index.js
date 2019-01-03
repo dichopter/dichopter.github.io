@@ -93,9 +93,10 @@ function showButtons() {
 
 
 function calculateOptimum(min, max) {
+  if (stereoImage==null||stereoImage.width==0) return 0.01;
   var optimum = .01;
   var scale = .85;
-  while((rightImage.width*optimum*2<window.innerWidth*scale)&&(rightImage.height*optimum<window.innerHeight*scale))
+  while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
     {optimum+=.05;}
   optimum-=.05;
   return constrain(optimum, min, max);

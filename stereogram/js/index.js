@@ -11,7 +11,6 @@ if('serviceWorker' in navigator) { // Check if supported...
 // </Register service worker>
 
 var stereoImage;
-var leftImage, rightImage;
 var imgScale = 0.005;
 var switchButton, resetButton; 
 var pLineLength = 0;
@@ -33,19 +32,7 @@ var getCookie = function(cname) {var name = cname + "=";
 
 
 function preload(){
-  var imageNum = getCookie("imageNum");
-  // console.log(document.cookie);
-  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+imageNum+'.jpg', function(){
-    
-    leftImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
-    leftImage.loadPixels();
-    leftImage.copy(stereoImage, 0, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height); 
-    
-    rightImage = createImage(Math.floor(stereoImage.width/2), Math.floor(stereoImage.height));
-    rightImage.loadPixels();
-    rightImage.copy(stereoImage, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height, 0, 0, stereoImage.width/2, stereoImage.height);
-    
-  });
+  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+getCookie('imageNum')+'.jpg');
 }
 
 function setup() {
@@ -67,7 +54,6 @@ function setup() {
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
-
 }  
 
 function draw() {
@@ -77,9 +63,9 @@ function draw() {
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
-  imageMode(CENTER);
+
   var imageWidth = stereoImage.width*imgScale, 
-  imageHeight = stereoImage.height*imgScale; 
+      imageHeight = stereoImage.height*imgScale; 
   image(stereoImage,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, stereoImage.width/2, stereoImage.height);
   image(stereoImage,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height);
   cursor(MOVE);

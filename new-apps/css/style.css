@@ -12,3 +12,9 @@ ul.pairs>li:before {
     top: -2px;
     position: relative;
 }
+
+
+.stereograms {
+    border-radius: 15px;
+  }
+  

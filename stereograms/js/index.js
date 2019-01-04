@@ -1,8 +1,5 @@
-var preloadImages = [];
 document.addEventListener('DOMContentLoaded', function() {
   var numImages = 14;
-  
-  var pimg;
   addImages(numImages);
   var images = document.querySelectorAll(".stereograms .row a"); 
   images.forEach(function(image) {
@@ -41,11 +38,7 @@ function addImages (numImages) {
       a.appendChild(img);  
       row.appendChild(col);
       numImages--;
-      imageNum++;
-
-      pimg = new Image();
-      pimg.src = "https://dichopter.github.io/stereogram/images/image"+numImages+".jpg";
-      preloadImages.push(pimg);      
+      imageNum++; 
     }
     container.appendChild(row);
   } 

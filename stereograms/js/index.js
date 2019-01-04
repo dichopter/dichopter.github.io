@@ -1,6 +1,7 @@
+var preloadImages = [];
 document.addEventListener('DOMContentLoaded', function() {
   var numImages = 14;
-  var preloadImages = [];
+  
   var pimg;
   addImages(numImages);
   var images = document.querySelectorAll(".stereograms .row a"); 

@@ -1,5 +1,7 @@
-a {
-    font-size:2em;
+.pairs a {
+    font-size:1.75em;
+    text-decoration: underline;
+    color: #212121;
 }
 
 
@@ -10,33 +12,3 @@ ul.pairs>li:before {
     top: -2px;
     position: relative;
 }
-
-.row .col.s12.m6 a img {
-    padding: 10px;
-    max-width: 300px;
-    border-radius: 18px;
-    transition: background .3s ease;
-  }
-  
-  .row .col.s12.m6 a img:hover {
-    background-color: #ccc;
-  }
-  
-  h3 span {
-    font-size: .6em;
-    font-weight: lighter;
-  }
-  
-  @media (max-width: 600px) { 
-    .row .col.s12.m6 {
-      text-align: center;
-    }
-  }
-  
-  .stereograms {
-    border-radius: 15px;
-  }
-  
-  .stereograms:first-child {
-    padding-left: 15px;
-  }

@@ -1,18 +1,8 @@
 var staticCacheName = 'v3';
-var images = [];
-for(var i=1; i<=14; i++) {
-  images.push("https://dichopter.github.io/stereogram/images/image"+i+".jpg");
-}
 
 self.addEventListener('install', function (event) {
   console.log('Service worker installed...');
-  event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(
-        images
-      );
-    })
-  );
+  
 });
 
 self.addEventListener('activate', function (event) {

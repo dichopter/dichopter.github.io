@@ -172,7 +172,7 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  resizeCanvas(window.innerWidth, window.innerHeight);
+  //resizeCanvas(window.innerWidth, window.innerHeight);
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");
@@ -181,6 +181,10 @@ function windowResized() {
   resetButton.style("left", (windowWidth-100)+"px");
   showButtons();
 }
+
+window.addEventListener("resize", function() {
+  alert("window has been resized!!");
+});
 
 window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window

@@ -185,7 +185,9 @@ window.addEventListener("orientationchange", function(){
 });
 
 document.body.addEventListener('click', function() {
+  alert('yah');
   document.body.requestFullscreen();
+  alert('yeet');
 });
 
 //stereoImage = loadImage('https://rawgit.com/xavierrocks/xavierrocks.github.io/master/projectLITE/Page-5-Image-5.png',

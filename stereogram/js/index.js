@@ -15,6 +15,8 @@ var imgScale = 0.005;
 var switchButton, resetButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
+var imageWidth, imageHeight;
+
 
 var getCookie = function(cname) {var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -64,10 +66,12 @@ function draw() {
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
   if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
 
-  var imageWidth = stereoImage.width*imgScale, 
-      imageHeight = stereoImage.height*imgScale; 
+  imageWidth = stereoImage.width*imgScale;
+  imageHeight = stereoImage.height*imgScale;
   image(stereoImage,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, stereoImage.width/2, stereoImage.height);
   image(stereoImage,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height);
+  stroke(200);
+  line(windowWidth/2, windowHeight/2-50, windowWidth/2, windowHeight/2+50);
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
 }
@@ -132,7 +136,7 @@ function touchMoved() {
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
-    var sensitivity = 0.01;
+    var sensitivity = 0.005;
     if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
       imgScale+=sensitivity;
@@ -151,9 +155,9 @@ function touchMoved() {
 function mouseWheel(e) {
   var deltaY = e.deltaY;
   if(deltaY>0) {
-    imgScale+=0.005;
+    imgScale+=0.008;
   } else if(deltaY<0) {
-    imgScale-=0.005;
+    imgScale-=0.008;
   }
   deltaY=constrain(deltaY,-20,20);
   deltaY=map(deltaY,-20,20,-5,5); 

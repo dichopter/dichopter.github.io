@@ -55,7 +55,6 @@ function setup() {
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
-  document.body.requestFullscreen();
 }
 
 function draw() {
@@ -180,8 +179,9 @@ function windowResized() {
 window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window
     if(window.navigator.userAgent.match("CriOS")){ 
-        location.reload();  
-    } 
+        //location.reload();
+        document.body.requestFullscreen();
+    }
 });
 
 

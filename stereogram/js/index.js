@@ -55,6 +55,7 @@ function setup() {
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
+  document.body.requestFullScreen();
 }
 
 function draw() {

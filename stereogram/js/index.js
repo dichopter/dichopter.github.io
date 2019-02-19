@@ -44,23 +44,25 @@ function setup() {
   stroke(155);
   strokeWeight(10);
   imgScale = calculateOptimum(0.01,5);
-  
 
   switchButton = createButton("switch");
   styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   switchButton.position(0, window.innerHeight-100);
   switchButton.mousePressed(switchImages);
-  
+
   resetButton = createButton("reset"); 
   styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
-}  
+}
 
 function draw() {
   background(0);
   fill(255,255,255);
+  stroke(200);
+  strokeWeight(1);
+  line(windowWidth/2, windowHeight/2-50, windowWidth/2, windowHeight/2+50);
   if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
   if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
   if (keyIsDown(UP_ARROW))    {  imageMoveY -= 5;  }
@@ -70,8 +72,6 @@ function draw() {
   imageHeight = stereoImage.height*imgScale;
   image(stereoImage,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, stereoImage.width/2, stereoImage.height);
   image(stereoImage,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, stereoImage.width/2, 0, stereoImage.width/2, stereoImage.height);
-  stroke(200);
-  line(windowWidth/2, windowHeight/2-50, windowWidth/2, windowHeight/2+50);
   cursor(MOVE);
   if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);
 }

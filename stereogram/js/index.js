@@ -55,6 +55,12 @@ function setup() {
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
   showButtons();
+
+  document.querySelector("button").addEventListener('click', function() {
+    document.body.requestFullscreen();
+    alert('yeet');
+  });
+
 }
 
 function draw() {
@@ -184,10 +190,5 @@ window.addEventListener("orientationchange", function(){
     }
 });
 
-document.body.addEventListener('click', function() {
-  alert('yah');
-  document.body.requestFullscreen();
-  alert('yeet');
-});
 
 //stereoImage = loadImage('https://rawgit.com/xavierrocks/xavierrocks.github.io/master/projectLITE/Page-5-Image-5.png',

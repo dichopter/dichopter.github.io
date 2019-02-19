@@ -185,6 +185,7 @@ function windowResized() {
 window.addEventListener("resize", function() {
   alert("window has been resized!!");
   document.querySelector("canvas").height =  document.querySelector("body").offsetHeight;
+  document.querySelector("canvas").width =  document.querySelector("body").offsetWidth;
 });
 
 window.addEventListener("orientationchange", function(){

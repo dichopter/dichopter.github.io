@@ -30,8 +30,8 @@ function httpGetAsync(theUrl, callback) {
   xmlHttp.send(null);
 }
 
-function renderItems() {
-
+function renderItems(res) {
+  console.log(res);
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
   var dropdowns = document.querySelectorAll('.dropdown-trigger')

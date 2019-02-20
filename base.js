@@ -13,8 +13,10 @@ if ('serviceWorker' in navigator) { // Check if supported...
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Render the navbar through here
+  // Render the navbar and other Materialize elements through here
   httpGetAsync("https://dichopter.github.io/navbar.html", renderItems);
+  // Render the footer through here
+  httpGetAsync("https://dichopter.github.io/footer.html", renderFooter);
 
 });
 
@@ -32,8 +34,7 @@ function httpGetAsync(theUrl, callback) {
 
 function renderItems(res) {
   // Insert the requested navbar html into the navbar element
-  var header = document.querySelector("header");
-  header.innerHTML = res;
+  document.querySelector("header").innerHTML = res;
 
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
@@ -50,4 +51,8 @@ function renderItems(res) {
   for (var i = 0; i < collapsibles.length; i++) {
     M.Collapsible.init(collapsibles[i]);
   }
+}
+
+function renderFooter(res) {
+  document.querySelector("footer").innerHTML = res;
 }

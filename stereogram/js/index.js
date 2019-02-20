@@ -139,11 +139,10 @@ function touchMoved() {
   if(touches.length==1){
     if(mouseX>windowWidth/2) {
       if(abs(mouseX-pmouseX)<20) imageMoveX-=mouseX-pmouseX;
-      if(abs(mouseY-pmouseY)<20) imageMoveY-=mouseY-pmouseY;
     } else {
       if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
-      if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
     }
+    if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;

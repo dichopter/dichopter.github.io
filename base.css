@@ -52,10 +52,10 @@ nav a.sidenav-trigger {
 
 
 .collapsible-header {
-  padding-left: 31px;
+  padding-left: 31px !important;
 }
 .collapsible-body li a {
-  padding-left: 50px;
+  padding-left: 50px !important;
 }
 
 

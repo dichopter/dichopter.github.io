@@ -14,7 +14,7 @@ if ('serviceWorker' in navigator) { // Check if supported...
 
 document.addEventListener('DOMContentLoaded', function () {
   // Render the navbar through here
-  httpGetAsync("https://dichopter.github.io/navbar.html", renderItems(res));
+  httpGetAsync("https://dichopter.github.io/navbar.html", renderItems);
 
 });
 
@@ -30,9 +30,7 @@ function httpGetAsync(theUrl, callback) {
   xmlHttp.send(null);
 }
 
-function renderItems(res) {
-  console.log(res);
-
+function renderItems() {
 
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});

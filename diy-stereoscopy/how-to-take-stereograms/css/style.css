@@ -1,0 +1,20 @@
+.pairs a {
+    font-size:1.75em;
+    text-decoration: underline;
+    color: #212121;
+}
+
+
+ul.pairs>li:before {
+    content: "○";
+    font-size: 140%;
+    padding-right: 5px;
+    top: -2px;
+    position: relative;
+}
+
+
+.stereograms {
+    border-radius: 15px;
+  }
+  

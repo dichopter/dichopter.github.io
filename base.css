@@ -1,3 +1,9 @@
+header {
+  width: 100%;
+  min-height: 75px;
+  background-color: #fafafa;
+}
+
 nav {
   height: 75px;
   color: black !important;
@@ -67,6 +73,7 @@ nav a.sidenav-trigger {
   background-position: center center;
   background-color: #e8e8e8;
 }
+
 
 footer.page-footer ul>li a {
   display: block;

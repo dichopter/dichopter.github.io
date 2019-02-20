@@ -16,7 +16,7 @@ if('serviceWorker' in navigator) { // Check if supported...
     var instances = M.Sidenav.init(elems, {});
     var dropdowns = document.querySelectorAll('.dropdown-trigger')
     for (var i = 0; i < dropdowns.length; i++){
-      M.Dropdown.init(dropdowns[i]);
+      M.Dropdown.init(dropdowns[i], {alignment: "right", hover: true, });
     }
     var collapsibles = document.querySelectorAll('.collapsible')
     for (var i = 0; i < collapsibles.length; i++){

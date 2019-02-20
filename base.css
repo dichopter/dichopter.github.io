@@ -1,68 +1,83 @@
 nav {
-    height: 75px;
-    color: black !important;
-  }
-  nav ul li a {
-    height: 75px;
-    color: black !important;
-  }
-  .sidenav-trigger {
-    color: black !important;
-  }
-  .nav-wrapper {
-    height: 75px;
-  }
-  img {
-    padding: 10px;
-    border-style: none;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .brand-logo {
-    height: 75px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 380px;
-  }
-  nav a.sidenav-trigger i {
-      height: 75px;
-      line-height: 75px;
-    border-radius: 8px;
-  }
-  nav a.sidenav-trigger {
-      height: 75px;
-      line-height: 75px;
-  }
-  .jumbotron {
-    /* background-image: url("https://raw.githubusercontent.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg"); */
-    background-size: cover;
-    padding-bottom: 14px !important;
-    position: relative;
-    background-position: center center;
-    background-color: #e8e8e8;
-  }
-  
-  footer.page-footer ul>li a {
-    display: block;
-    padding: 15px 5px;
-  }
+  height: 75px;
+  color: black !important;
+}
 
-  .sidenav li>a {
-    height: 55px !important;
-    line-height: 55px !important;
-  }
+nav ul li a {
+  height: 75px;
+  color: black !important;
+}
 
-  @media (max-width: 600px) { 
-    .row .col.s12.m4 {
-      text-align: center;
-    }
-  }
+.sidenav-trigger {
+  color: black !important;
+}
 
-  @media (max-width: 1000px) { 
-   
+.nav-wrapper {
+  height: 75px;
+}
+.nav-wrapper ul li {
+  background-color: #fafafa;
+}
+
+img {
+  padding: 10px;
+  border-style: none;
+  height: 100%;
+  width: 100%;
+}
+
+.brand-logo {
+  height: 75px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 380px;
+}
+
+nav a.sidenav-trigger i {
+  height: 75px;
+  line-height: 75px;
+  border-radius: 8px;
+}
+
+nav a.sidenav-trigger {
+  height: 75px;
+  line-height: 75px;
+}
+.dropdown-content {
+  width: auto !important;
+  top: 75px !important;
+
+}
+
+
+
+.jumbotron {
+  /* background-image: url("https://raw.githubusercontent.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg"); */
+  background-size: cover;
+  padding-bottom: 14px !important;
+  position: relative;
+  background-position: center center;
+  background-color: #e8e8e8;
+}
+
+footer.page-footer ul>li a {
+  display: block;
+  padding: 15px 5px;
+}
+
+.sidenav li>a {
+  height: 55px !important;
+  line-height: 55px !important;
+}
+
+@media (max-width: 600px) {
+  .row .col.s12.m4 {
+    text-align: center;
   }
-  
-  footer .container .row {
-    margin-bottom: 0;
-  }
+}
+
+@media (max-width: 1000px) {}
+
+footer .container .row {
+  margin-bottom: 0;
+}

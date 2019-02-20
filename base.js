@@ -14,6 +14,9 @@ if('serviceWorker' in navigator) { // Check if supported...
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
+    elems = document.querySelectorAll(".dropdown-trigger");
+    instances = M.Dropdown.init(elems, {});
+
   });
   
   

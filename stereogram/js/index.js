@@ -58,7 +58,7 @@ function setup() {
 
   document.querySelector("button").addEventListener('click', function() {
     document.body.requestFullscreen();
-    alert('yeet');
+    //alert('yeet');
   });
 
 }

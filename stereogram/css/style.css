@@ -8,12 +8,6 @@ html, body {
   padding: 0;
   display: block;
 }
-html {
-  background: rgba(255,0,0,.5);
-}
-body {
-  background: rgba(0,0,255,.5);
-}
 
 .loading {
   position: absolute;

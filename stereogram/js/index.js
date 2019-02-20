@@ -137,8 +137,13 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
-    if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
+    if(mouseX>windowWidth/2) {
+      if(abs(mouseX-pmouseX)<20) imageMoveX-=mouseX-pmouseX;
+      if(abs(mouseY-pmouseY)<20) imageMoveY-=mouseY-pmouseY;
+    } else {
+      if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
+      if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
+    }
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
@@ -189,20 +194,11 @@ function windowResized() {
   showButtons();
 }
 
-//window.addEventListener("resize", function() {
-  //alert("window has been resized!!");
-  //var b = document.querySelector('body');
-  //c.height =  b.offsetHeight;
-  //c.width =  b.offsetWidth;
-  //c.style("
-  //console.log(b);
-//});
 
 window.addEventListener("orientationchange", function(){
-  //since resizeCanvas is broken on Chrome for iOS, we must reload the window
+  //since rotating does not make the canvas fullscreen on chrome for iOS, we must devise a different way to do so
     if(window.navigator.userAgent.match("CriOS")){ 
-        //location.reload();
-        //document.body.requestFullscreen();
+      
     }
 });
 

@@ -50,6 +50,13 @@ nav a.sidenav-trigger {
 }
 
 
+.collapsible-header {
+  padding-left: 31px;
+}
+.collapsible-body li a {
+  padding-left: 50px;
+}
+
 
 .jumbotron {
   /* background-image: url("https://raw.githubusercontent.com/xavierrocks/xavierrocks.github.io/master/trippyGlassesLMin.jpg"); */

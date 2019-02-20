@@ -31,7 +31,10 @@ function httpGetAsync(theUrl, callback) {
 }
 
 function renderItems(res) {
-  console.log(res);
+  // Insert the requested navbar html into the navbar element
+  var header = document.querySelector("header");
+  header.innerHTML = res;
+
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, {});
   var dropdowns = document.querySelectorAll('.dropdown-trigger')

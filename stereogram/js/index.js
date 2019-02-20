@@ -9,7 +9,7 @@ if('serviceWorker' in navigator) { // Check if supported...
   }); 
 }
 // </Register service worker>
-
+var c;
 var stereoImage;
 var imgScale = 0.005;
 var switchButton, resetButton; 
@@ -38,7 +38,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(window.innerWidth, window.innerHeight);
+  c = createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   noFill();
   stroke(155);

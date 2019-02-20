@@ -12,6 +12,9 @@ if('serviceWorker' in navigator) { // Check if supported...
   
   
   document.addEventListener('DOMContentLoaded', function() {
+    // Render the navbar through here
+    
+
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
     var dropdowns = document.querySelectorAll('.dropdown-trigger')

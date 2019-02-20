@@ -172,7 +172,8 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  //resizeCanvas(window.innerWidth, window.innerHeight);
+  var b = document.querySelector('body');
+  resizeCanvas(b.offsetWidth, b.offsetHeight);
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");
@@ -182,19 +183,20 @@ function windowResized() {
   showButtons();
 }
 
-window.addEventListener("resize", function() {
+//window.addEventListener("resize", function() {
   //alert("window has been resized!!");
-  var b = document.querySelector('body');
-  document.querySelector("canvas").height =  b.offsetHeight;
-  document.querySelector("canvas").width =  b.offsetWidth;
-  console.log(b);
-});
+  //var b = document.querySelector('body');
+  //c.height =  b.offsetHeight;
+  //c.width =  b.offsetWidth;
+  //c.style("
+  //console.log(b);
+//});
 
 window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window
     if(window.navigator.userAgent.match("CriOS")){ 
         //location.reload();
-        document.body.requestFullscreen();
+        //document.body.requestFullscreen();
     }
 });
 

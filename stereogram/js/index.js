@@ -174,8 +174,12 @@ function doubleClicked() {return false;} //disable double-click zoom
 function windowResized() {
   var b = document.querySelector('body');
   c = resizeCanvas(b.offsetWidth, b.offsetHeight);
-  c.style.width = "100%";
-  c.style.height = "100%";
+  var currentCanvas = document.querySelector("canvas");
+  currentCanvas.style.width = "100%";
+  currentCanvas.style.height = "100%";
+  console.log(currentCanvas);
+  console.log("Styles...");
+  console.log(currentCanvas.style);
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");

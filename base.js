@@ -14,8 +14,14 @@ if('serviceWorker' in navigator) { // Check if supported...
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {});
-    elems = document.querySelectorAll(".dropdown-trigger");
-    instances = M.Dropdown.init(elems, {});
+    var dropdowns = document.querySelectorAll('.dropdown-trigger')
+    for (var i = 0; i < dropdowns.length; i++){
+      M.Dropdown.init(dropdowns[i]);
+    }
+    var collapsibles = document.querySelectorAll('.collapsible')
+    for (var i = 0; i < collapsibles.length; i++){
+      M.Collapsible.init(collapsibles[i]);
+    }
 
   });
   

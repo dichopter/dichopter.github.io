@@ -81,7 +81,9 @@ nav a.sidenav-trigger {
 }
 
 
-
+footer h5 {
+  font-weight: bold;
+}
 footer.page-footer ul>li a {
   display: block;
   padding: 7px 5px;

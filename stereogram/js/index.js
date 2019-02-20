@@ -175,10 +175,10 @@ function windowResized() {
   var b = document.querySelector('body');
   c = resizeCanvas(b.offsetWidth, b.offsetHeight);
   var currentCanvas = document.querySelector("canvas");
-  currentCanvas.style.width = "100%";
-  currentCanvas.style.height = "100%";
-  console.log(currentCanvas);
-  console.log("Styles...");
+  currentCanvas.style.width = b.offsetWidth+"px";
+  currentCanvas.style.height = b.offsetHeight+"px";
+  windowWidth = b.offsetWidth;
+  windowHeight = b.offsetHeight;
   console.log(currentCanvas.style);
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions

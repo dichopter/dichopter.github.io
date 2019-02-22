@@ -142,13 +142,16 @@ function touchMoved() {
   showButtons();
   if(touches.length==1){
     if(imageMoveX<0){
-      imageMoveX += constrain(mouseX-pmouseX,-20,20) * (mouseX>windowWidth/2) ? -1 : 1;
-      
+      if(mouseX>windowWidth/2) {
+        imageMoveX-=constrain(mouseX-pmouseX,-20,20);
+      } else {
+        imageMoveX+=constrain(mouseX-pmouseX,-20,20);
+      }
     } else {
       if(mouseX>windowWidth/2) {
-        
+        imageMoveX-=constrain(mouseX-pmouseX,0,20);
       } else {
-
+        imageMoveX-=constrain(mouseX-pmouseX,-20,0);
       }
     }
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;

@@ -1,3 +1,10 @@
-.profile-image {
-    
-}
+ a.profile-image img {
+     padding: 10px;
+     max-width: 300px;
+     border-radius: 18px;
+     transition: background .3s ease;
+ }
+
+ a.profile-image img:hover {
+     background-color: #ccc;
+ }

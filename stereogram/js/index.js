@@ -129,6 +129,7 @@ function resetImages(){
 }
 
 function mouseDragged() {
+  
   imageMoveX+=mouseX-pmouseX;
   imageMoveY+=mouseY-pmouseY;  
 }
@@ -140,7 +141,7 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(mouseX>windowWidth/2&&imageMoveX>0) {
+    if(mouseX>windowWidth/2&&imageMoveX<0) {
       if(abs(mouseX-pmouseX)<20) imageMoveX-=mouseX-pmouseX;
     } else {
       if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;

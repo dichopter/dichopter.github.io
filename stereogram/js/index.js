@@ -141,18 +141,10 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(imageMoveX<0){
-      if(mouseX>windowWidth/2) {
-        imageMoveX-=constrain(mouseX-pmouseX,-20,20);
-      } else {
-        imageMoveX+=constrain(mouseX-pmouseX,-20,20);
-      }
+    if(mouseX>windowWidth/2) {
+      imageMoveX-=constrain(mouseX-pmouseX,-20,20);
     } else {
-      if(mouseX>windowWidth/2) {
-        imageMoveX-=constrain(mouseX-pmouseX,0,20);
-      } else {
-        imageMoveX+=constrain(mouseX-pmouseX,-20,0);
-      }
+      imageMoveX+=constrain(mouseX-pmouseX,-20,20);
     }
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
   } else if(touches.length==2) {
@@ -198,10 +190,8 @@ function windowResized() {
 
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
-  switchButton.style("top", (windowHeight-100)+"px");
-  switchButton.style("left", "0px");
-  resetButton.style("top", (windowHeight-100)+"px");
-  resetButton.style("left", (windowWidth-100)+"px");
+  styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
+  styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
   showButtons();
 }
 

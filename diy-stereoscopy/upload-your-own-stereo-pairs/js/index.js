@@ -7,7 +7,7 @@ var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
 var input;
 var inputLabel;
-
+var imageWidth, imageHeight;
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
@@ -53,8 +53,11 @@ function draw() {
     if (keyIsDown(DOWN_ARROW))  {  imageMoveY += 5;  }
     background(0);
     fill(255,255,255);
-    var imageWidth = img.width*imgScale, 
-        imageHeight = img.height*imgScale; 
+    stroke(200);
+    strokeWeight(1);
+    line(windowWidth/2, windowHeight/2-50, windowWidth/2, windowHeight/2+50);
+    imageWidth = img.width*imgScale;
+    imageHeight = img.height*imgScale; 
     image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
     image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
     if(img.width!=0&&imgScale==0.01) imgScale = calculateOptimum(0.01, 5);
@@ -97,6 +100,9 @@ function handleFile(file) {
 function styleElement(element, styles) {
   if(styles.length==0||styles.length%2!==0) {
     throw "Styles array is not evenly sized or is empty!";
+  }
+  if(!element) {
+    throw "Please pass in an element";
   }
   for(var i=0; i<styles.length; i+=2) {
     element.style(styles[i], styles[i+1]);
@@ -152,12 +158,16 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
+    if(mouseX>windowWidth/2) {
+      imageMoveX-=constrain(mouseX-pmouseX,-20,20);
+    } else {
+      imageMoveX+=constrain(mouseX-pmouseX,-20,20);
+    }
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
   } else if(touches.length==2) {
     var currentLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
     var lineDiff = currentLineLength-pLineLength;
-    var sensitivity = 0.01;
+    var sensitivity = 0.005;
     if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
       imgScale+=sensitivity;
@@ -187,7 +197,14 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  resizeCanvas(window.innerWidth, window.innerHeight);
+  var b = document.querySelector('body');
+  c = resizeCanvas(b.offsetWidth, b.offsetHeight);
+  var currentCanvas = document.querySelector("canvas");
+  currentCanvas.style.width = b.offsetWidth+"px";
+  currentCanvas.style.height = b.offsetHeight+"px";
+  windowWidth = b.offsetWidth;
+  windowHeight = b.offsetHeight;
+  
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
@@ -198,6 +215,6 @@ function windowResized() {
 window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window
     if(window.navigator.userAgent.match("CriOS")){ 
-        location.reload();  
+        // location.reload();  no longer needed because we resize correctly now
     } 
 });

@@ -141,10 +141,18 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(mouseX>windowWidth/2&&imageMoveX<0) {
-      if(abs(mouseX-pmouseX)<20) imageMoveX-=mouseX-pmouseX;
+    if(imageMoveX<0){
+      if(mouseX>windowWidth/2) {
+        imageMoveX-=constrain(mouseX-pmouseX,-20,20);
+      } else {
+        imageMoveX+=constrain(mouseX-pmouseX,-20,20);
+      }
     } else {
-      if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
+      if(mouseX>windowWidth/2) {
+        
+      } else {
+        
+      }
     }
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;
   } else if(touches.length==2) {

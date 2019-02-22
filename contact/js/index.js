@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var numImages = 18;
     addImages(numImages);
-    var images = document.querySelectorAll("a .profile-image");
+    var images = document.querySelectorAll("a.profile-image");
     images.forEach(function (image) {
         image.addEventListener("click", function () {
             setCookie("imageNum", image.getAttribute("imageNum"), 1);

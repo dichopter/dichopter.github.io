@@ -149,9 +149,9 @@ function touchMoved() {
       }
     } else {
       if(mouseX>windowWidth/2) {
-        imageMoveX-=constrain(mouseX-pmouseX,-20,0);
-      } else {
         imageMoveX-=constrain(mouseX-pmouseX,0,20);
+      } else {
+        imageMoveX+=constrain(mouseX-pmouseX,-20,0);
       }
     }
     if(abs(mouseY-pmouseY)<20) imageMoveY+=mouseY-pmouseY;

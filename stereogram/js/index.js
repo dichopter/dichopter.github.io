@@ -86,6 +86,9 @@ function styleElement(element, styles) {
   if(styles.length==0||styles.length%2!==0) {
     throw "Styles array is not evenly sized or is empty!";
   }
+  if(!element) {
+    throw "Please pass in an element";
+  }
   for(var i=0; i<styles.length; i+=2) {
     element.style(styles[i], styles[i+1]);
   }

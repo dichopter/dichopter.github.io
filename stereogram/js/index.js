@@ -137,7 +137,7 @@ function mouseMoved() {
 function touchMoved() {
   showButtons();
   if(touches.length==1){
-    if(mouseX>windowWidth/2) {
+    if(mouseX>windowWidth/2&&imageMoveX>0) {
       if(abs(mouseX-pmouseX)<20) imageMoveX-=mouseX-pmouseX;
     } else {
       if(abs(mouseX-pmouseX)<20) imageMoveX+=mouseX-pmouseX;
@@ -183,7 +183,7 @@ function windowResized() {
   currentCanvas.style.height = b.offsetHeight+"px";
   windowWidth = b.offsetWidth;
   windowHeight = b.offsetHeight;
-  console.log(currentCanvas.style);
+
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   switchButton.style("top", (windowHeight-100)+"px");

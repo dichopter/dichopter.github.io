@@ -18,7 +18,7 @@ function setup() {
   input.attribute("id", "file");
   inputLabel = createElement('label', 'Choose an image...');
   inputLabel.attribute("for", "file");
-  inputLabel.position(windowWidth/2-105, windowHeight/2+20);
+  inputLabel.position(windowWidth/2-105, windowHeight/2);
   styleElement(inputLabel, ['color', 'white', 'padding', '10px', 'border', '3px dashed white', 'border-radius', '21px', 'font-size', '1.5em', 'font-family', 'Arial', 'cursor', 'pointer', 'transition', 'opacity 1.5s']);
   
   
@@ -195,21 +195,7 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  // var b = document.querySelector('body');
-  // c = resizeCanvas(b.offsetWidth, b.offsetHeight);
-  // var currentCanvas = document.querySelector("canvas");
-  // currentCanvas.style.width = b.offsetWidth+"px";
-  // currentCanvas.style.height = b.offsetHeight+"px";
-  // windowWidth = b.offsetWidth;
-  // windowHeight = b.offsetHeight;
   
-  // imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
-  // resetImages(); // reset image positions
-  // styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
-  // styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
-  // showButtons();
-
-  // var b = document.querySelector('body');
   windowWidth = document.body.clientWidth;
   windowHeight = document.documentElement.clientHeight;
   c = resizeCanvas(windowWidth, windowHeight);

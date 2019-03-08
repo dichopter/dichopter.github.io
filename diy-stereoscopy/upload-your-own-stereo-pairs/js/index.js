@@ -1,5 +1,5 @@
 var img, c;
-var msg = 'Drag an image file of a SBS \n stereo pair onto the canvas.';
+// var msg = 'Drag an image file of a SBS \n stereo pair onto the canvas.';
 var stereoImage;
 var switchButton, resetButton; 
 var imgScale = 0.01;
@@ -18,8 +18,8 @@ function setup() {
   input.attribute("id", "file");
   inputLabel = createElement('label', 'Choose an image...');
   inputLabel.attribute("for", "file");
-  inputLabel.position(windowWidth/2-105, windowHeight/2+50);
-  styleElement(inputLabel, ['color', 'white', 'padding', '10px', 'border', '3px dashed white', 'border-radius', '21px', 'font-size', '1.25em', 'font-family', 'Arial', 'cursor', 'pointer', 'transition', 'opacity 1.5s']);
+  inputLabel.position(windowWidth/2-105, windowHeight/2+20);
+  styleElement(inputLabel, ['color', 'white', 'padding', '10px', 'border', '3px dashed white', 'border-radius', '21px', 'font-size', '1.5em', 'font-family', 'Arial', 'cursor', 'pointer', 'transition', 'opacity 1.5s']);
   
   
   switchButton = createButton("switch");
@@ -39,9 +39,7 @@ function draw() {
     background(40);
     noStroke();
     fill(255);
-    textSize(24);
-    textAlign(CENTER);
-    text(msg, width/2, height/2);
+    // textAlign(CENTER);
     noFill();
     stroke(255);
     strokeWeight(5);

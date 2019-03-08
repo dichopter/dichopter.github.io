@@ -88,6 +88,11 @@ footer.page-footer ul>li a {
   display: block;
   padding: 7px 5px;
 }
+footer.page-footer ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 .sidenav li>a {
   height: 55px !important;

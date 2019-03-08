@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var numImages = 18;
-    addImages(numImages);
     var images = document.querySelectorAll("a.profile-image");
     images.forEach(function (image) {
         image.addEventListener("click", function () {

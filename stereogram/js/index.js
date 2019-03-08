@@ -180,13 +180,13 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  var b = document.querySelector('body');
-  c = resizeCanvas(b.offsetWidth, b.offsetHeight);
+  // var b = document.querySelector('body');
+  c = resizeCanvas(window.screen.width, window.screen.height);
   var currentCanvas = document.querySelector("canvas");
-  currentCanvas.style.width = b.offsetWidth+"px";
-  currentCanvas.style.height = b.offsetHeight+"px";
-  windowWidth = b.offsetWidth;
-  windowHeight = b.offsetHeight;
+  currentCanvas.style.width = window.screen.width+"px";
+  currentCanvas.style.height = window.screen.height+"px";
+  windowWidth = window.screen.width;
+  windowHeight = window.screen.height;
 
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions

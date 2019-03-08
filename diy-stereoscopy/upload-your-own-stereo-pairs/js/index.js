@@ -210,12 +210,12 @@ function windowResized() {
   // showButtons();
 
   // var b = document.querySelector('body');
-  c = resizeCanvas(window.screen.width, window.screen.height);
+  windowWidth = document.body.clientWidth;
+  windowHeight = document.documentElement.clientHeight;
+  c = resizeCanvas(windowWidth, windowHeight);
   var currentCanvas = document.querySelector("canvas");
-  currentCanvas.style.width = window.screen.width+"px";
-  currentCanvas.style.height = window.screen.height+"px";
-  windowWidth = window.screen.width;
-  windowHeight = window.screen.height;
+  // currentCanvas.style.width = windowWidth+"px";
+  // currentCanvas.style.height = windowHeight+"px";
 
   imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
   resetImages(); // reset image positions

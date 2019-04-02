@@ -35,7 +35,10 @@ function setup() {
   resetButton.mousePressed(resetImages);
   console.log("...");
   
-  
+  info = createElement("div", '<div id="modal1" class="modal"> <div class="modal-content"> <h2>Welcome</h2> <div class="row"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image1.jpg" alt="A generic stereographic pair"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image2.jpg" alt="A generic stereographic pair"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image3.jpg" alt="A generic stereographic pair"> </div> <p> The photo should be saved to your gallery in order for this to work. The photo is not uploaded to our servers in any form, the applet only creates a temporary copy on your device.</p> <h3>iPhone Instructions</h3> <ol> <li>Save a stereographic pair to your device. You can learn how to make your own stereographic pairs, here. You can find all kinds of stereographic pairs on the internet.</li> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image2.jpg" alt="A generic stereographic pair"> <li>Go to this page, click on “Choose an image...”</li> <img src="https://dichopter.github.io/screenshot1" alt="Screenshot of the app"> <li>Click on “Photo Library”</li> <img src="https://dichopter.github.io/screenshot2" alt="Screenshot of the app"> <li>Select the image from the gallery you want</li> <img src="https://dichopter.github.io/screenshot3" alt="Screenshot of the app"> <li>Enjoy viewing your pair!</li> </ol> <h3>Android Instructions</h3> <ol> <li></li> <li></li> <li></li> </ol> </div> <div class="modal-footer"> <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a> </div> </div>');
+  var elems = document.querySelector('.modal');
+  var instance = M.Modal.init(elems, {});
+  instance.open();
 }
 
 function draw() {
@@ -219,11 +222,4 @@ window.addEventListener("orientationchange", function(){
     if(window.navigator.userAgent.match("CriOS")){ 
         // location.reload();  no longer needed because we resize correctly now
     } 
-});
-
-window.addEventListener("DOMContentLoaded", function(){
-  info = createElement("div", '<div id="modal1" class="modal"> <div class="modal-content"> <h2>Welcome</h2> <div class="row"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image1.jpg" alt="A generic stereographic pair"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image2.jpg" alt="A generic stereographic pair"> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image3.jpg" alt="A generic stereographic pair"> </div> <p> The photo should be saved to your gallery in order for this to work. The photo is not uploaded to our servers in any form, the applet only creates a temporary copy on your device.</p> <h3>iPhone Instructions</h3> <ol> <li>Save a stereographic pair to your device. You can learn how to make your own stereographic pairs, here. You can find all kinds of stereographic pairs on the internet.</li> <img class="col s4" src="https://dichopter.github.io/stereogram/images/image2.jpg" alt="A generic stereographic pair"> <li>Go to this page, click on “Choose an image...”</li> <img src="https://dichopter.github.io/screenshot1" alt="Screenshot of the app"> <li>Click on “Photo Library”</li> <img src="https://dichopter.github.io/screenshot2" alt="Screenshot of the app"> <li>Select the image from the gallery you want</li> <img src="https://dichopter.github.io/screenshot3" alt="Screenshot of the app"> <li>Enjoy viewing your pair!</li> </ol> <h3>Android Instructions</h3> <ol> <li></li> <li></li> <li></li> </ol> </div> <div class="modal-footer"> <a href="#!" class="modal-close waves-effect waves-green btn-flat">Okay</a> </div> </div>');
-  var elems = document.querySelector('.modal');
-  var instance = M.Modal.init(elems, {});
-  instance.open();
 });

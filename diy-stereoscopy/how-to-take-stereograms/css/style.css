@@ -18,3 +18,10 @@ ul.pairs>li:before {
     border-radius: 15px;
   }
   
+.appLogo {
+    max-width: 200px;
+    border-radius: 20%;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 2px 2px 3px black;
+}

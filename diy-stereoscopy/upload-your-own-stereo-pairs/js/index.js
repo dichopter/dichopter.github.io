@@ -9,6 +9,8 @@ var input;
 var inputLabel;
 var imageWidth, imageHeight;
 
+var info;
+
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   c.drop(gotFile);
@@ -31,7 +33,10 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  console.log("help");
+  console.log("...");
+  info = createElement("div", "<div id='modal1' class='modal'><div class='modal-content'><h4>Modal Header</h4><p>A bunch of text</p></div><div class='modal-footer'><a href='#!' class='modal-close waves-effect waves-green btn-flat'>Agree</a></div></div>");
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, {});
 }
 
 function draw() {

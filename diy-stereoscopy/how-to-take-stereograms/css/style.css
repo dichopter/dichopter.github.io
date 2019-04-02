@@ -28,3 +28,7 @@ ul.pairs>li:before {
 body {
     background: #282828;
 }
+
+.modal {
+    -webkit-overflow-scrolling: touch;
+}

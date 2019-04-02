@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var numImages = 17;
+  var numImages = 16;
   addImages(numImages);
   var images = document.querySelectorAll(".stereograms .row a"); 
   images.forEach(function(image) {

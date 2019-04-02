@@ -223,3 +223,7 @@ window.addEventListener("orientationchange", function(){
         // location.reload();  no longer needed because we resize correctly now
     } 
 });
+
+window.addEventListener("DOMContentLoaded", function() {
+  console.log("working");
+});

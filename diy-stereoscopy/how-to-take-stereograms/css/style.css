@@ -24,3 +24,7 @@ ul.pairs>li:before {
     padding-right: 0 !important;
     box-shadow: 2px 2px 3px black;
 }
+
+body {
+    background: #282828;
+}

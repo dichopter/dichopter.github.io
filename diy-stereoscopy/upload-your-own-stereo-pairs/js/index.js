@@ -48,6 +48,7 @@ function draw() {
     stroke(255);
     strokeWeight(5);
     rect(windowWidth*0.015, windowWidth*0.015, windowWidth*.97, windowHeight*0.955);  
+    document.body.style.overflow = "scroll";
   } else {
     if (keyIsDown(LEFT_ARROW))  {  imageMoveX -= 5;  }
     if (keyIsDown(RIGHT_ARROW)) {  imageMoveX += 5;  }
@@ -223,7 +224,7 @@ window.addEventListener("orientationchange", function(){
 
 
 window.onload = function() {
-  document.body.style.overflow = "scroll";
+  
   var elem = document.querySelector('.modal');
   var instance = M.Modal.init(elem, {});
   

@@ -3,7 +3,7 @@
 if('serviceWorker' in navigator) { // Check if supported...
   window.addEventListener('load', function() {
     navigator.serviceWorker
-    .register("https://dichopter.github.io/sworkerFull.js")
+    .register("https://dichopter.com/sworkerFull.js")
     .then(function(reg) {console.log("Service worker registered in page...");})
     .catch(function(err){console.log(err);});
   }); 
@@ -34,7 +34,7 @@ var getCookie = function(cname) {var name = cname + "=";
 
 
 function preload(){
-  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+getCookie('imageNum')+'.jpg');
+  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/images/image'+getCookie('imageNum')+'.jpg');
 }
 
 function setup() {

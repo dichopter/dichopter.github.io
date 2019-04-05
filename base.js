@@ -2,7 +2,7 @@
 if ('serviceWorker' in navigator) { // Check if supported...
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register("https://dichopter.github.io/sworkerFull.js")
+      .register("https://dichopter.com/sworkerFull.js")
       .then(reg => console.log("Service worker registered in page..."))
       .catch(err => console.log(err));
   });
@@ -14,9 +14,9 @@ if ('serviceWorker' in navigator) { // Check if supported...
 
 document.addEventListener('DOMContentLoaded', function () {
   // Render the navbar and other Materialize elements through here
-  httpGetAsync("https://dichopter.github.io/navbar.html", renderItems);
+  httpGetAsync("https://dichopter.com/navbar.html", renderItems);
   // Render the footer through here
-  httpGetAsync("https://dichopter.github.io/footer.html", renderFooter);
+  httpGetAsync("https://dichopter.com/footer.html", renderFooter);
 
 });
 

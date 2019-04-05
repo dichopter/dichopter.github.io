@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getMovies() {
-  var requestURL = 'https://dichopter.github.io/stereo-movies/js/movieLinks.json';
+  var requestURL = 'https://dichopter.com/stereo-movies/js/movieLinks.json';
   var request = new XMLHttpRequest();
   request.open('GET', requestURL);
   request.responseType = 'json';

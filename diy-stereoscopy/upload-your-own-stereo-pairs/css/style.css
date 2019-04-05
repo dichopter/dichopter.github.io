@@ -18,3 +18,7 @@ ul.pairs>li:before {
     border-radius: 15px;
   }
   
+
+ol li img {
+    max-width: 50vh;
+}

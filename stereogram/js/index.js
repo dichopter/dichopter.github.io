@@ -34,7 +34,7 @@ var getCookie = function(cname) {var name = cname + "=";
 
 
 function preload(){
-  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/images/image'+getCookie('imageNum')+'.jpg');
+  stereoImage = loadImage('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image'+getCookie('imageNum')+'.jpg');
 }
 
 function setup() {

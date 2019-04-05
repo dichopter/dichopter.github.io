@@ -32,7 +32,7 @@ function setup() {
   button = createButton("");
   button.style("padding", "0");
   button.style("background-color", "transparent");
-  button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/js/play.png')");
+  button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/play.png')");
   button.style("background-size", "cover");
   button.style("width", "100px");
   button.style("height", "100px");
@@ -45,7 +45,7 @@ button.mousePressed(toggleVid);
   switchButton = createButton("");
   switchButton.style("padding", "0");
   switchButton.style("background-color", "transparent");
-  switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/js/switch.png')");
+  switchButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.guthub.io/master/stereogram/js/switch.png')");
   switchButton.style("background-size", "cover");
   switchButton.style("width", "100px");
   switchButton.style("height", "100px");
@@ -56,7 +56,7 @@ button.mousePressed(toggleVid);
   resetButton = createButton("");
   resetButton.style("padding", "0");
   resetButton.style("background-color", "transparent");
-  resetButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/js/reset.png')");
+  resetButton.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/reset.png')");
   resetButton.style("background-size", "cover");
   resetButton.style("width", "100px");
   resetButton.style("height", "100px");
@@ -123,10 +123,10 @@ function draw() {
 function toggleVid() {
   if (playing) {
     video.pause();
-    button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/js/play.png')");
+    button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/play.png')");
   } else {
     video.loop();
-    button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.com/master/stereogram/js/pause.png')");
+    button.style("background-image", "url('https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/js/pause.png')");
   }
   playing = !playing;
 }

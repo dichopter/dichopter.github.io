@@ -1,0 +1,41 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://dichopter.com</loc>
+    </url>
+
+    <url>
+        <loc>https://dichopter.com/about-project</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/viewer</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/stereograms</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/stereo-movies</loc>
+    </url>
+
+
+    <url>
+        <loc>https://dichopter.com/diy-stereoscopy</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/diy-stereoscopy/how-to-take-stereograms</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/diy-stereoscopy/upload-your-own-stereo-pairs</loc>
+    </url>
+
+    <url>
+        <loc>https://dichopter.com/new-apps</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/apps</loc>
+    </url>
+    <url>
+        <loc>https://dichopter.com/contact</loc>
+    </url>
+
+    
+</urlset>

@@ -54,12 +54,14 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
-  showButtons();
+  
 
   exitButton = createButton("X");
   styleElement(exitButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   exitButton.position(window.innerWidth-100, 0);
   exitButton.mousePressed(window.history.back());
+
+  showButtons();
 
   document.querySelector("button").addEventListener('click', function() {
     document.body.requestFullscreen();

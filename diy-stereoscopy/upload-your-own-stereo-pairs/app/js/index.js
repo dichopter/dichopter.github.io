@@ -2,7 +2,7 @@ var img, c;
 // var msg = 'Drag an image file of a SBS \n stereo pair onto the canvas.';
 var stereoImage;
 var switchButton, resetButton; 
-var imgScale = 0.01;
+var imgScale = 0.001;
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
 var input;
@@ -124,12 +124,12 @@ function showButtons() {
 
 function calculateOptimum(min, max) {
   if (stereoImage==null||stereoImage.width==0) return 0.01;
-  var optimum = .01;
+  var optimum = .001;
   var scale = .85;
   while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
-    {optimum+=.05;}
-  optimum-=.05;
-  return constrain(optimum, min, max);
+    {optimum+=.001;}
+  optimum-=.001;
+  return optimum;
 }
 
 function switchImages() {

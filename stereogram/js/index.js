@@ -121,10 +121,9 @@ function calculateOptimum(min, max) {
   var scale = .85;
   while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
       {optimum+=.001;}
-      optimum-=.001;
-  
-    
-  return constrain(optimum, min, max);
+  optimum-=.001;
+  // return constrain(optimum, min, max);
+  return optimum;
 }
 
 function switchImages() {

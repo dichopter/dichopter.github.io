@@ -14,7 +14,7 @@ var stereoImage;
 var imgScale = 0.001;
 var switchButton, resetButton, exitButton; 
 var pLineLength = 0;
-var imageMoveX = -50, imageMoveY = 0;
+var imageMoveX = 0, imageMoveY = 0;
 var imageWidth, imageHeight;
 
 
@@ -119,6 +119,9 @@ function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0) return 0.001;
   var optimum = .001;
   var scale = .85;
+  if((stereoImage.width*optimum>window.innerWidth)||(stereoImage.height*optimum>window.innerHeight)) {
+    alert("ERROR: images are too large");
+  }
   while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
       {optimum+=.001;}
   optimum-=.001;

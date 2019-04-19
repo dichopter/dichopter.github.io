@@ -212,7 +212,7 @@ function windowResized() {
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
-  styleElement(exitButton, ["top", 0+"px", "right", -100+"px"]);
+  styleElement(exitButton, ["top", 0+"px", "left", (windowWidth-100)+"px"]);
   showButtons();
 }
 

@@ -59,7 +59,7 @@ function setup() {
   exitButton = createButton("X");
   styleElement(exitButton, ["padding", "0", "padding-bottom", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   exitButton.position(window.innerWidth-100, 0);
-  exitButton.mousePressed(window.history.back);
+  exitButton.mousePressed(goBack);
 
   showButtons();
 
@@ -114,6 +114,7 @@ function showButtons() {
 }
 
 
+
 function calculateOptimum(min, max) {
   if (stereoImage==null||stereoImage.width==0) return 0.01;
   var optimum = .01;
@@ -135,6 +136,10 @@ function switchImages() {
 function resetImages(){
   imageMoveX = -50;
   imageMoveY = 0;
+}
+
+function goBack() {
+  window.history.back();
 }
 
 function mouseDragged() {

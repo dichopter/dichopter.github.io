@@ -126,9 +126,10 @@ function calculateOptimum(min, max) {
   if (stereoImage==null||stereoImage.width==0) return 0.01;
   var optimum = .001;
   var scale = .85;
-  while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
+  while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
     {optimum+=.001;}
   optimum-=.001;
+  optimum*=scale;
   return optimum;
 }
 

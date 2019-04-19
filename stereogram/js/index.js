@@ -43,7 +43,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  imgScale = calculateOptimum(0.001,5);
+  imgScale = calculateOptimum();
 
   switchButton = createButton("switch");
   styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
@@ -115,13 +115,14 @@ function showButtons() {
 
 
 
-function calculateOptimum(min, max) {
-  if (stereoImage==null||stereoImage.width==0) return 0.01;
+function calculateOptimum() {
+  if (stereoImage==null||stereoImage.width==0) return 0.001;
   var optimum = .001;
   var scale = .85;
-  while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
+  while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
       {optimum+=.001;}
   optimum-=.001;
+  optimum*=scale;
   return optimum;
 }
 
@@ -202,7 +203,7 @@ function windowResized() {
   windowWidth = b.offsetWidth;
   windowHeight = b.offsetHeight;
 
-  imgScale = calculateOptimum(0.001, 5); // reset image sizes and size appropriately
+  imgScale = calculateOptimum(); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);

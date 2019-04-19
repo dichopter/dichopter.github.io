@@ -128,6 +128,7 @@ function calculateOptimum(min, max) {
       {optimum+=.05;}
       optimum-=.05;
     }
+    alert(optimum);
   return constrain(optimum, min, max);
 }
 

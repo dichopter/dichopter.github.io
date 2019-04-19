@@ -59,7 +59,7 @@ function draw() {
     imageHeight = img.height*imgScale; 
     image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
     image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
-    if(img.width!=0&&imgScale==0.01) imgScale = calculateOptimum(0.01, 5);
+    if(img.width!=0&&imgScale==0.01) imgScale = calculateOptimum();
     cursor(MOVE);
     if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);   
   } 
@@ -73,7 +73,7 @@ function gotFile(file) {
     // assign the stereoImage variable
     img = createImg(file.data).hide();   
     stereoImage = img;
-    imgScale = calculateOptimum(0.01,5);
+    imgScale = calculateOptimum();
     styleElement(inputLabel, ["top", "10px", "left", "10px"]);
   } else {
     msg = 'Not an image file! Try again :/.';
@@ -85,7 +85,7 @@ function handleFile(file) {
   if (file.type === 'image') { 
     img = createImg(file.data); img.hide();
     stereoImage = img;
-    imgScale = calculateOptimum(0.01,5);
+    imgScale = calculateOptimum();
     styleElement(inputLabel, ["top", "10px", "left", "10px"]);
   } else {
     msg = 'Not an image file! Try again :/.';
@@ -122,7 +122,7 @@ function showButtons() {
 }
 
 
-function calculateOptimum(min, max) {
+function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0) return 0.01;
   var optimum = .001;
   var scale = .85;
@@ -205,7 +205,7 @@ function windowResized() {
   // currentCanvas.style.width = windowWidth+"px";
   // currentCanvas.style.height = windowHeight+"px";
 
-  imgScale = calculateOptimum(0.01, 5); // reset image sizes and size appropriately
+  imgScale = calculateOptimum(); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);

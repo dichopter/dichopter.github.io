@@ -92,6 +92,9 @@ footer.page-footer ul {
   margin-top: 0;
   margin-bottom: 0;
 }
+footer.page-footer {
+  padding-bottom: 20px;
+}
 
 
 .sidenav li>a {

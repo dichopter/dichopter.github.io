@@ -65,7 +65,7 @@ function setup() {
 
   document.querySelector("button").addEventListener('click', function() {
     document.body.requestFullscreen();
-    //alert('yeet');
+    
   });
 
 }
@@ -122,7 +122,6 @@ function calculateOptimum(min, max) {
   while((stereoImage.width*optimum<window.innerWidth*scale)&&(stereoImage.height*optimum<window.innerHeight*scale))
       {optimum+=.001;}
   optimum-=.001;
-  // return constrain(optimum, min, max);
   return optimum;
 }
 

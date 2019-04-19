@@ -11,7 +11,7 @@ if('serviceWorker' in navigator) { // Check if supported...
 // </Register service worker>
 var c;
 var stereoImage;
-var imgScale = 0.005;
+var imgScale = 0.001;
 var switchButton, resetButton, exitButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;

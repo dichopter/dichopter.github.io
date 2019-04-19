@@ -12,7 +12,7 @@ if('serviceWorker' in navigator) { // Check if supported...
 var c;
 var stereoImage;
 var imgScale = 0.005;
-var switchButton, resetButton; 
+var switchButton, resetButton, exitButton; 
 var pLineLength = 0;
 var imageMoveX = -50, imageMoveY = 0;
 var imageWidth, imageHeight;
@@ -56,6 +56,11 @@ function setup() {
   resetButton.mousePressed(resetImages);
   showButtons();
 
+  exitButton = createButton("X");
+  styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  exitButton.position(window.innerWidth-100, 0);
+  exitButton.mousePressed(window.history.back());
+
   document.querySelector("button").addEventListener('click', function() {
     document.body.requestFullscreen();
     //alert('yeet');
@@ -98,9 +103,11 @@ function styleElement(element, styles) {
 function showButtons() {
   styleElement(switchButton, ["opacity", "1"]);
   styleElement(resetButton, ["opacity", "1"]);
+  styleElement(exitButton, ["opacity", "1"]);
   setTimeout(function(){ 
     styleElement(switchButton, ["opacity", "0"]);
     styleElement(resetButton, ["opacity", "0"]);
+    styleElement(exitButton, ["opacity", "0"]);
    }, 3000);
 }
 
@@ -192,6 +199,7 @@ function windowResized() {
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
+  styleElement(exitButton, ["top", 0+"px", "right", -100+"px"]);
   showButtons();
 }
 

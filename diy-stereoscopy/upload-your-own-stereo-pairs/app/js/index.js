@@ -124,10 +124,13 @@ function showButtons() {
 
 function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0) return calculateOptimum();
-  var optimum = .001;
+  var optimum;
   var scale = .85;
-  while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
-    {optimum+=1.001;}
+  var optmimumWidth = window.innerWidth/stereoImage.width;
+  var optimumHeight = window.innerHeight/stereoImage.height;
+  optimum = min(optimumWidth, optimumHeight);
+  // while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
+  //   {optimum*=1.001;}
   //optimum-=.001;
   optimum*=scale;
   return optimum;
@@ -142,7 +145,7 @@ function switchImages() {
 }
 
 function resetImages(){
-  imageMoveX = -50;
+  imageMoveX = 0;
   imageMoveY = 0;
 }
 

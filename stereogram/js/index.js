@@ -138,7 +138,7 @@ function switchImages() {
 }
 
 function resetImages(){
-  imageMoveX = -50;
+  imageMoveX = 0;
   imageMoveY = 0;
 }
 

@@ -116,7 +116,7 @@ function showButtons() {
 
 
 function calculateOptimum() {
-  if (stereoImage==null||stereoImage.width==0) return calculateOptimum;
+  if (stereoImage==null||stereoImage.width==0) return calculateOptimum();
   var optimum = 0.001;
   var scale = .85;
   if((stereoImage.width*optimum>window.innerWidth)||(stereoImage.height*optimum>window.innerHeight)) {

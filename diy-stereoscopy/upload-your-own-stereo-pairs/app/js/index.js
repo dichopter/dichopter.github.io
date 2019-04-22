@@ -8,10 +8,12 @@ var imageMoveX = -50, imageMoveY = 0;
 var input;
 var inputLabel;
 var imageWidth, imageHeight;
-
+var gWidth, gHeight;
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
+  gWidth = windowWidth;
+  gHeight = windowHeight;
   c.drop(gotFile);
   input = createFileInput(handleFile); 
   input.position(0, -50);
@@ -199,15 +201,20 @@ function mouseWheel(e) {
 function doubleClicked() {return false;} //disable double-click zoom
 
 function windowResized() {
-  
   windowWidth = document.body.clientWidth;
   windowHeight = document.documentElement.clientHeight;
+  
   c = resizeCanvas(windowWidth, windowHeight);
-  var currentCanvas = document.querySelector("canvas");
+  // var currentCanvas = document.querySelector("canvas");
   // currentCanvas.style.width = windowWidth+"px";
   // currentCanvas.style.height = windowHeight+"px";
+  if(windowHeight==gWidth||windowWidth==gHeight) {
+    gWidth = windowWidth;
+    gHeight = windowHeight;    
+  } else {
+    calculateOptimum(); // reset image sizes and size appropriately
+  }
 
-  calculateOptimum(); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
@@ -218,7 +225,6 @@ window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window
     if(window.navigator.userAgent.match("CriOS")){ 
         // location.reload();  no longer needed because we resize correctly now
-    } 
-    optimizeImages();
+    }
 });
 

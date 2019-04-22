@@ -4,16 +4,14 @@ var stereoImage;
 var switchButton, resetButton; 
 var imgScale = 0.001;
 var pLineLength = 0;
-var imageMoveX = -50, imageMoveY = 0;
+var imageMoveX = 0, imageMoveY = 0;
 var input;
 var inputLabel;
 var imageWidth, imageHeight;
-var gWidth, gHeight;
+
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
-  gWidth = windowWidth;
-  gHeight = windowHeight;
   c.drop(gotFile);
   input = createFileInput(handleFile); 
   input.position(0, -50);
@@ -133,7 +131,7 @@ function calculateOptimum() {
     var maxHeight = document.body.clientHeight/stereoImage.height;
     var maximum = max(maxWidth, maxHeight);
     maximum*=scale;
-    imgScale = maximum;
+    imgScale = 1/maximum;
   }
 }
 
@@ -208,12 +206,9 @@ function windowResized() {
   // var currentCanvas = document.querySelector("canvas");
   // currentCanvas.style.width = windowWidth+"px";
   // currentCanvas.style.height = windowHeight+"px";
-  if(windowHeight==gWidth||windowWidth==gHeight) {
-    gWidth = windowWidth;
-    gHeight = windowHeight;    
-  } else {
-    calculateOptimum(); // reset image sizes and size appropriately
-  }
+  
+  calculateOptimum(); // reset image sizes and size appropriately
+  
 
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);

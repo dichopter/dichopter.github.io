@@ -124,7 +124,6 @@ function showButtons() {
 
 function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0) return calculateOptimum();
-  var optimum;
   var scale = .85;
   var maxWidth = window.innerWidth/stereoImage.width;
   var maxHeight = window.innerHeight/stereoImage.height;
@@ -132,8 +131,8 @@ function calculateOptimum() {
   // while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
   //   {optimum*=1.001;}
   //optimum-=.001;
-  optimum*=scale;
-  return optimum;
+  maximum*=scale;
+  return maximum;
 }
 
 function switchImages() {

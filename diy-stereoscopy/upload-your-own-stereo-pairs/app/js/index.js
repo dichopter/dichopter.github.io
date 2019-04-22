@@ -59,7 +59,7 @@ function draw() {
     imageHeight = img.height*imgScale; 
     image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
     image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
-    calculateOptimum();
+    if(img.width!=0&&iimg.height!=0&&mgScale==0.0001) calculateOptimum();
     cursor(MOVE);
     if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);   
   } 
@@ -126,7 +126,7 @@ function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0||stereoImage.height==0) {
     window.setTimeout(calculateOptimum, 100);
   } else {
-    var scale = .85;
+    var scale = .75;
     var maxWidth = document.body.clientWidth/stereoImage.width;
     var maxHeight = document.body.clientHeight/stereoImage.height;
     var maximum = max(maxWidth, maxHeight);

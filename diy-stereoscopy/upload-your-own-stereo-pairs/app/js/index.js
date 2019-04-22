@@ -59,7 +59,7 @@ function draw() {
     imageHeight = img.height*imgScale; 
     image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
     image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
-    if(img.width!=0&&imgScale==0.01) calculateOptimum();
+    calculateOptimum();
     cursor(MOVE);
     if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);   
   } 

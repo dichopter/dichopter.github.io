@@ -129,6 +129,10 @@ function calculateOptimum() {
     var scale = .85;
     var maxWidth = windowWidth/stereoImage.width;
     var maxHeight = windowHeight/stereoImage.height;
+    alert("windowWidth:"+windowWidth);
+    alert("windowHeight:"+windowHeight);
+    alert("document.body.clientWidth:"+document.body.clientWidth);
+    alert("document.body.clientHeight:"+document.body.clientHeight);
     var maximum = max(maxWidth, maxHeight);
     maximum*=scale;
     imgScale = maximum;

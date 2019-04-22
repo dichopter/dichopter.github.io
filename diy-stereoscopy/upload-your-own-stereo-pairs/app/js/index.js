@@ -59,7 +59,7 @@ function draw() {
     imageHeight = img.height*imgScale; 
     image(img,(windowWidth/2-imageWidth/2+imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, 0, 0, img.width/2, img.height);
     image(img,(windowWidth/2-imageMoveX),windowHeight/2-imageHeight/2+imageMoveY, imageWidth/2, imageHeight, img.width/2, 0, img.width/2, img.height);
-    if(img.width!=0&&imgScale==0.01) imgScale = calculateOptimum();
+    if(img.width!=0&&imgScale==0.01) calculateOptimum();
     cursor(MOVE);
     if(mouseY>=window.innerHeight-100&&(mouseX<=100||mouseX>=window.innerWidth-100)) cursor(HAND);   
   } 
@@ -73,7 +73,7 @@ function gotFile(file) {
     // assign the stereoImage variable
     img = createImg(file.data).hide();   
     stereoImage = img;
-    imgScale = calculateOptimum();
+    calculateOptimum();
     styleElement(inputLabel, ["top", "10px", "left", "10px"]);
   } else {
     msg = 'Not an image file! Try again :/.';
@@ -85,7 +85,7 @@ function handleFile(file) {
   if (file.type === 'image') { 
     img = createImg(file.data); img.hide();
     stereoImage = img;
-    imgScale = calculateOptimum();
+    calculateOptimum();
     styleElement(inputLabel, ["top", "10px", "left", "10px"]);
   } else {
     msg = 'Not an image file! Try again :/.';
@@ -134,7 +134,7 @@ function calculateOptimum() {
     //   {optimum*=1.001;}
     //optimum-=.001;
     maximum*=scale;
-    return maximum;
+    imgScale = maximum;
   }
 }
 
@@ -210,7 +210,7 @@ function windowResized() {
   // currentCanvas.style.width = windowWidth+"px";
   // currentCanvas.style.height = windowHeight+"px";
 
-  imgScale = calculateOptimum(); // reset image sizes and size appropriately
+  calculateOptimum(); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);

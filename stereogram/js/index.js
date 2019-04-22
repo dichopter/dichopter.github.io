@@ -43,7 +43,7 @@ function setup() {
   noFill();
   stroke(155);
   strokeWeight(10);
-  imgScale = calculateOptimum();
+  calculateOptimum();
 
   switchButton = createButton("switch");
   styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
@@ -116,17 +116,16 @@ function showButtons() {
 
 
 function calculateOptimum() {
-  if (stereoImage==null||stereoImage.width==0) return calculateOptimum();
-  var optimum = 0.001;
-  var scale = .85;
-  if((stereoImage.width*optimum>window.innerWidth)||(stereoImage.height*optimum>window.innerHeight)) {
-    alert("ERROR: images are too large");
+  if (stereoImage==null||stereoImage.width==0||stereoImage.height==0) {
+    window.setTimeout(calculateOptimum, 100);
+  } else {
+    var scale = .80;
+    var maxWidth = document.body.clientWidth/stereoImage.width;
+    var maxHeight = document.body.clientHeight/stereoImage.height;
+    var maximum = max(maxWidth, maxHeight);
+    maximum*=scale;
+    imgScale = maximum/2;
   }
-  while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
-      {optimum*=1.001;}
-  //optimum*=.001;
-  optimum*=scale;
-  return optimum;
 }
 
 function switchImages() {
@@ -206,7 +205,7 @@ function windowResized() {
   windowWidth = b.offsetWidth;
   windowHeight = b.offsetHeight;
 
-  imgScale = calculateOptimum(); // reset image sizes and size appropriately
+  calculateOptimum(); // reset image sizes and size appropriately
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);

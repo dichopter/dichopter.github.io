@@ -116,15 +116,15 @@ function showButtons() {
 
 
 function calculateOptimum() {
-  if (stereoImage==null||stereoImage.width==0) return 0.001;
-  var optimum = .001;
+  if (stereoImage==null||stereoImage.width==0) return 1;
+  var optimum = 0.001;
   var scale = .85;
   if((stereoImage.width*optimum>window.innerWidth)||(stereoImage.height*optimum>window.innerHeight)) {
     alert("ERROR: images are too large");
   }
   while((stereoImage.width*optimum<window.innerWidth)&&(stereoImage.height*optimum<window.innerHeight))
-      {optimum+=.001;}
-  optimum-=.001;
+      {optimum*=1.001;}
+  //optimum*=.001;
   optimum*=scale;
   return optimum;
 }

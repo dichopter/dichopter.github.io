@@ -127,12 +127,8 @@ function calculateOptimum() {
     window.setTimeout(calculateOptimum, 100);
   } else {
     var scale = .85;
-    var maxWidth = windowWidth/stereoImage.width;
-    var maxHeight = windowHeight/stereoImage.height;
-    alert("windowWidth:"+windowWidth);
-    alert("windowHeight:"+windowHeight);
-    alert("document.body.clientWidth:"+document.body.clientWidth);
-    alert("document.body.clientHeight:"+document.body.clientHeight);
+    var maxWidth = document.body.clientWidth/stereoImage.width;
+    var maxHeight = document.body.clientHeight/stereoImage.height;
     var maximum = max(maxWidth, maxHeight);
     maximum*=scale;
     imgScale = maximum;

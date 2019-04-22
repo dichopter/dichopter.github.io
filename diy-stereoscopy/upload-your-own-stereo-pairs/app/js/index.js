@@ -219,5 +219,6 @@ window.addEventListener("orientationchange", function(){
     if(window.navigator.userAgent.match("CriOS")){ 
         // location.reload();  no longer needed because we resize correctly now
     } 
+    optimizeImages();
 });
 

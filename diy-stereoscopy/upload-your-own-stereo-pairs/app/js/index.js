@@ -150,6 +150,9 @@ function switchImages() {
     imageMoveX = -imageMoveX+imgScale*img.width/2;
   }
 }
+function goBack() {
+  window.history.back();
+}
 
 function resetImages(){
   imageMoveX = 0;

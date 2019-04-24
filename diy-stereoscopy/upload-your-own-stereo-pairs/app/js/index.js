@@ -227,6 +227,7 @@ function windowResized() {
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
   styleElement(exitButton, ["top", 0+"px", "left", (windowWidth-100)+"px"]);
   showButtons();
+  calculateOptimum();
 }
 
 

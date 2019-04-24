@@ -1,13 +1,13 @@
 
 // <Register service worker>
-if('serviceWorker' in navigator) { // Check if supported...
-  window.addEventListener('load', function() {
-    navigator.serviceWorker
-    .register("https://dichopter.com/sworkerFull.js")
-    .then(function(reg) {console.log("Service worker registered in page...");})
-    .catch(function(err){console.log(err);});
-  }); 
-}
+// if('serviceWorker' in navigator) { // Check if supported...
+//   window.addEventListener('load', function() {
+//     navigator.serviceWorker
+//     .register("https://dichopter.com/sworkerFull.js")
+//     .then(function(reg) {console.log("Service worker registered in page...");})
+//     .catch(function(err){console.log(err);});
+//   }); 
+// }
 // </Register service worker>
 var c;
 var stereoImage;

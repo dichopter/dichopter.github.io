@@ -209,42 +209,27 @@ function mouseWheel(e) {
 
 function doubleClicked() {return false;} //disable double-click zoom
 
-// function windowResized() {
-//   windowWidth = document.body.clientWidth;
-//   windowHeight = document.documentElement.clientHeight;
-  
-//   c = resizeCanvas(windowWidth, windowHeight);
-//   // var currentCanvas = document.querySelector("canvas");
-//   // currentCanvas.style.width = windowWidth+"px";
-//   // currentCanvas.style.height = windowHeight+"px";
-  
-//   calculateOptimum(); // reset image sizes and size appropriately
-  
-
-//   resetImages(); // reset image positions
-//   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
-//   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
-//   showButtons();
-// }
-
-
-
 function windowResized() {
-  var b = document.querySelector('body');
-  c = resizeCanvas(b.offsetWidth, b.offsetHeight);
-  var currentCanvas = document.querySelector("canvas");
-  currentCanvas.style.width = b.offsetWidth+"px";
-  currentCanvas.style.height = b.offsetHeight+"px";
-  windowWidth = b.offsetWidth;
-  windowHeight = b.offsetHeight;
-
+  windowWidth = document.body.clientWidth;
+  windowHeight = document.documentElement.clientHeight;
+  
+  c = resizeCanvas(windowWidth, windowHeight);
+  // var currentCanvas = document.querySelector("canvas");
+  // currentCanvas.style.width = windowWidth+"px";
+  // currentCanvas.style.height = windowHeight+"px";
+  
   calculateOptimum(); // reset image sizes and size appropriately
+  
+
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
   styleElement(exitButton, ["top", 0+"px", "left", (windowWidth-100)+"px"]);
   showButtons();
 }
+
+
+
 
 window.addEventListener("orientationchange", function(){
   //since resizeCanvas is broken on Chrome for iOS, we must reload the window

@@ -135,8 +135,8 @@ function calculateOptimum() {
     window.setTimeout(calculateOptimum, 100);
   } else {
     var scale = .80;
-    var maxWidth = document.body.clientWidth/stereoImage.width;
-    var maxHeight = document.body.clientHeight/stereoImage.height;
+    var maxWidth = width/stereoImage.width;
+    var maxHeight = height/stereoImage.height;
     var maximum = max(maxWidth, maxHeight);
     maximum*=scale;
     imgScale = maximum/2;
@@ -220,8 +220,6 @@ function windowResized() {
   // currentCanvas.style.height = windowHeight+"px";
   
   calculateOptimum(); // reset image sizes and size appropriately
-  
-
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);

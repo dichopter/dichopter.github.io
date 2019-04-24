@@ -212,7 +212,8 @@ function doubleClicked() {return false;} //disable double-click zoom
 function windowResized() {
   windowWidth = document.body.clientWidth;
   windowHeight = document.documentElement.clientHeight;
-  
+  width = windowWidth;
+  height = windowHeight;
   c = resizeCanvas(windowWidth, windowHeight);
   // var currentCanvas = document.querySelector("canvas");
   // currentCanvas.style.width = windowWidth+"px";

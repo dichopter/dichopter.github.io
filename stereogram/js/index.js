@@ -62,12 +62,6 @@ function setup() {
   exitButton.mousePressed(goBack);
 
   showButtons();
-
-  document.querySelector("button").addEventListener('click', function() {
-    document.body.requestFullscreen();
-    
-  });
-
 }
 
 function draw() {

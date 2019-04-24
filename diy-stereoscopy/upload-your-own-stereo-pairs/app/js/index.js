@@ -1,7 +1,7 @@
 var img, c;
 // var msg = 'Drag an image file of a SBS \n stereo pair onto the canvas.';
 var stereoImage;
-var switchButton, resetButton; 
+var switchButton, resetButton, exitButton; 
 var imgScale = 0.001;
 var pLineLength = 0;
 var imageMoveX = 0, imageMoveY = 0;
@@ -32,6 +32,12 @@ function setup() {
   styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
   resetButton.position(window.innerWidth-100, window.innerHeight-100);
   resetButton.mousePressed(resetImages);
+
+  exitButton = createButton("X");
+  styleElement(exitButton, ["padding", "0", "padding-bottom", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
+  exitButton.position(window.innerWidth-100, 0);
+  exitButton.mousePressed(goBack);
+
 }
 
 function draw() {
@@ -113,10 +119,12 @@ function showButtons() {
     styleElement(switchButton, ["opacity", "1"]);
     styleElement(resetButton, ["opacity", "1"]);
     styleElement(inputLabel, ["opacity", "1"]);
+    styleElement(exitButton, ["opacity", "1"]);
     setTimeout(function(){ 
       styleElement(switchButton, ["opacity", "0"]);
       styleElement(resetButton, ["opacity", "0"]);
       styleElement(inputLabel, ["opacity", "0"]);
+      styleElement(exitButton, ["opacity", "0"]);
      }, 3000);
   }
 }
@@ -231,7 +239,7 @@ function windowResized() {
   resetImages(); // reset image positions
   styleElement(switchButton, ["top", (windowHeight-100)+"px"]);
   styleElement(resetButton, ["top", (windowHeight-100)+"px", "left", (windowWidth-100)+"px"]);
-  // styleElement(exitButton, ["top", 0+"px", "left", (windowWidth-100)+"px"]);
+  styleElement(exitButton, ["top", 0+"px", "left", (windowWidth-100)+"px"]);
   showButtons();
 }
 

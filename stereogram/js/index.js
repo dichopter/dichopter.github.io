@@ -38,6 +38,7 @@ function preload(){
 }
 
 function setup() {
+  stereoImage.loadPixels(); // hopefully makes the preload function blocking
   c = createCanvas(window.innerWidth, window.innerHeight);
   background(0);
   noFill();
@@ -112,7 +113,8 @@ function showButtons() {
 
 function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0||stereoImage.height==0) {
-    window.setTimeout(calculateOptimum, 100);
+    // window.setTimeout(calculateOptimum, 100);
+    alert("OOPS");
   } else {
     var scale = .80;
     var maxWidth = document.body.clientWidth/stereoImage.width;

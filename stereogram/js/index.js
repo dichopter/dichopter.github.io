@@ -164,7 +164,7 @@ function touchMoved() {
     if(lineDiff>0) {
       imgScale*=1+sensitivity;
     } else if(lineDiff<0) {
-      imgScale*=-1-ensitivity;
+      imgScale*=-1-sensitivity;
     }
     if(pLineLength==0) {
       pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);

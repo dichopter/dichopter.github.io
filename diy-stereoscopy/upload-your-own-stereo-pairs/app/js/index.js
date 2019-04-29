@@ -146,7 +146,7 @@ function calculateOptimum() {
 
   // window.setTimeout(calculateOptimum, 100);
   // alert("OOOOOOF");
-  if (typeof stereoImage !== "undefined" || typeof stereoImage.width !== "undefined" || typeof stereoImage.height !== "undefined") {
+  if (typeof stereoImage !== "undefined" && typeof stereoImage.width !== "undefined" && typeof stereoImage.height !== "undefined") {
     //variable exists, do what you want
     var scale = .80;
     var maxWidth = width / stereoImage.width;

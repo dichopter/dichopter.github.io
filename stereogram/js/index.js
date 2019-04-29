@@ -162,9 +162,9 @@ function touchMoved() {
     var sensitivity = 0.005;
     if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
-      imgScale*=1+sensitivity;
+      imgScale+=sensitivity;
     } else if(lineDiff<0) {
-      imgScale*=-1-sensitivity;
+      imgScale-=sensitivity;
     }
     if(pLineLength==0) {
       pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
@@ -177,11 +177,10 @@ function touchMoved() {
 
 function mouseWheel(e) {
   var deltaY = e.deltaY;
-  var sensitivity = 0.008;
   if(deltaY>0) {
-    imgScale*=1+sensitivity;
+    imgScale+=0.008;
   } else if(deltaY<0) {
-    imgScale*=1-sensitivity;
+    imgScale-=0.008;
   }
   deltaY=constrain(deltaY,-20,20);
   deltaY=map(deltaY,-20,20,-5,5); 

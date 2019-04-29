@@ -141,22 +141,43 @@ function showButtons() {
   }
 }
 
+function __delay__(timer) {
+  return new Promise(resolve => {
+    timer = timer || 2000;
+    setTimeout(function () {
+      resolve();
+    }, timer);
+  });
+};
 
 function calculateOptimum() {
 
   // window.setTimeout(calculateOptimum, 100);
   // alert("OOOOOOF");
-  if (typeof stereoImage !== "undefined" && typeof stereoImage.width !== "undefined" && typeof stereoImage.height !== "undefined") {
-    //variable exists, do what you want
+  // if (typeof stereoImage !== "undefined" && typeof stereoImage.width !== "undefined" && typeof stereoImage.height !== "undefined") {
+  //   //variable exists, do what you want
+  //   var scale = .80;
+  //   var maxWidth = width / stereoImage.width;
+  //   var maxHeight = height / stereoImage.height;
+  //   var maximum = max(maxWidth, maxHeight);
+  //   maximum *= scale;
+  //   imgScale = maximum / 2;
+  // } else {
+  //   setTimeout(calculateOptimum, 250);
+  // }
+  setTimeout(async function () {
+    //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
+    while (typeof stereoImage == "undefined")
+      await __delay__(1000);
+
+    //WHEN CONDITION IS CORRECT THEN TRIGGER WILL CLICKED
     var scale = .80;
     var maxWidth = width / stereoImage.width;
     var maxHeight = height / stereoImage.height;
     var maximum = max(maxWidth, maxHeight);
     maximum *= scale;
     imgScale = maximum / 2;
-  } else {
-    setTimeout(calculateOptimum, 250);
-  }
+  }, 1);
 }
 
 function switchImages() {

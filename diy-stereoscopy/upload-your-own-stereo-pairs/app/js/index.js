@@ -90,8 +90,8 @@ function handleFile(file) {
   print(file); 
   if (file.type === 'image') { 
     img = createImg(file.data); img.hide();
-    img.loadPixels();
     stereoImage = img;
+    
     calculateOptimum();
     styleElement(inputLabel, ["top", "10px", "left", "10px"]);
   } else {
@@ -134,7 +134,7 @@ function showButtons() {
 function calculateOptimum() {
   if (stereoImage==null||stereoImage.width==0||stereoImage.height==0) {
     // window.setTimeout(calculateOptimum, 100);
-    alert("OOOOOOF");
+    // alert("OOOOOOF");
   } else {
     var scale = .80;
     var maxWidth = width/stereoImage.width;

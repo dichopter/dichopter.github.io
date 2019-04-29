@@ -102,9 +102,24 @@ function handleFile(file) {
     img = createImg(file.data);
     img.hide();
     stereoImage = img;
+    //WHEN CONDITION IS CORRECT THEN TRIGGER WILL CLICKED
+    setTimeout(async function () {
+      //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
+      while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined") {
+        await __delay__(1500);
 
-    calculateOptimum();
-    styleElement(inputLabel, ["top", "10px", "left", "10px"]);
+      }
+
+      var scale = .80;
+      var maxWidth = width / stereoImage.width;
+      var maxHeight = height / stereoImage.height;
+      var maximum = max(maxWidth, maxHeight);
+      maximum *= scale;
+      imgScale = maximum / 2;
+      calculateOptimum();
+      styleElement(inputLabel, ["top", "10px", "left", "10px"]);
+    }, 1);
+
   } else {
     msg = 'Not an image file! Try again :/.';
     img = null;
@@ -167,7 +182,7 @@ function calculateOptimum() {
   // }
   setTimeout(async function () {
     //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
-    while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined"){
+    while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined") {
       await __delay__(1500);
 
     }

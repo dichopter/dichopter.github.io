@@ -168,7 +168,7 @@ function calculateOptimum() {
   setTimeout(async function () {
     //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
     while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined"){
-      await __delay__(1000);
+      await __delay__(1500);
 
     }
 

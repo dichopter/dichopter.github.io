@@ -165,10 +165,10 @@ function calculateOptimum() {
   // } else {
   //   setTimeout(calculateOptimum, 250);
   // }
-  setTimeout(async function () {
+  
     //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
     while (typeof stereoImage == "undefined" || typeof stereoImage.width !== "undefined" || typeof stereoImage.height !== "undefined"){
-      await __delay__(1000);
+      window.setTimeout(calculateOptimum, 250);
 
     }
 
@@ -179,7 +179,7 @@ function calculateOptimum() {
     var maximum = max(maxWidth, maxHeight);
     maximum *= scale;
     imgScale = maximum / 2;
-  }, 1);
+  
 }
 
 function switchImages() {

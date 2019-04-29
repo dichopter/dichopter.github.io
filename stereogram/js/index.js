@@ -112,17 +112,12 @@ function showButtons() {
 
 
 function calculateOptimum() {
-  if (stereoImage==null||stereoImage.width==0||stereoImage.height==0) {
-    // window.setTimeout(calculateOptimum, 100);
-    alert("OOPS");
-  } else {
     var scale = .80;
     var maxWidth = document.body.clientWidth/stereoImage.width;
     var maxHeight = document.body.clientHeight/stereoImage.height;
     var maximum = max(maxWidth, maxHeight);
     maximum*=scale;
     imgScale = maximum/2;
-  }
 }
 
 function switchImages() {
@@ -167,9 +162,9 @@ function touchMoved() {
     var sensitivity = 0.005;
     if(abs(lineDiff>30)) lineDiff=0; // preventing superzoom glitches
     if(lineDiff>0) {
-      imgScale+=sensitivity;
+      imgScale*=1+sensitivity;
     } else if(lineDiff<0) {
-      imgScale-=sensitivity;
+      imgScale*=-1-ensitivity;
     }
     if(pLineLength==0) {
       pLineLength = dist(mouseX, mouseY, touches[1].x, touches[1].y);
@@ -182,10 +177,11 @@ function touchMoved() {
 
 function mouseWheel(e) {
   var deltaY = e.deltaY;
+  var sensitivity = 0.008;
   if(deltaY>0) {
-    imgScale+=0.008;
+    imgScale*=1+sensitivity;
   } else if(deltaY<0) {
-    imgScale-=0.008;
+    imgScale*=1-sensitivity;
   }
   deltaY=constrain(deltaY,-20,20);
   deltaY=map(deltaY,-20,20,-5,5); 

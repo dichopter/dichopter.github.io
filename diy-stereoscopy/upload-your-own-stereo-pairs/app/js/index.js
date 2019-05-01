@@ -13,7 +13,7 @@ var imageWidth, imageHeight;
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
-  stereoImage = createImage(width, height);
+  //stereoImage = createImage(width, height);
   c.drop(handleFile);
   input = createFileInput(handleFile);
   input.position(0, -50);
@@ -44,7 +44,7 @@ function setup() {
 }
 
 function draw() {
-  if (img == null) {
+  if (typeof stereoImage == "undefined") {
     background(40);
     noStroke();
     fill(255);
@@ -163,6 +163,7 @@ function calculateOptimum() {
     styleElement(switchButton, ["top", (windowHeight - 100) + "px"]);
     styleElement(resetButton, ["top", (windowHeight - 100) + "px", "left", (windowWidth - 100) + "px"]);
     styleElement(exitButton, ["top", 0 + "px", "left", (windowWidth - 100) + "px"]);
+    inputLabel.position(0, 0);
   }, 1);
 }
 

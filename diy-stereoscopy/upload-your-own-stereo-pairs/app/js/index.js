@@ -40,6 +40,7 @@ function setup() {
   exitButton.position(window.innerWidth - 100, 0);
   exitButton.mousePressed(goBack);
 
+  pixelDensity(1); // must change later on
 }
 
 function draw() {

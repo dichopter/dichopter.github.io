@@ -93,6 +93,9 @@ function handleFile(file) {
     img.hide();
     loadPixels(); // hopefully, this makes the load asynchronous
     stereoImage = img;
+    stereoImage.width = img.width;
+    stereoImage.height = img.height;
+    updatePixels();
     //WHEN CONDITION IS CORRECT THEN TRIGGER WILL CLICKED
     calculateOptimum();
 

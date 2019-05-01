@@ -13,8 +13,7 @@ var imageWidth, imageHeight;
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
-  stereoImage.width = windowWidth;
-  stereoImage.height = windowHeight;
+  stereoImage = createImage(width, height);
   c.drop(gotFile);
   input = createFileInput(handleFile);
   input.position(0, -50);

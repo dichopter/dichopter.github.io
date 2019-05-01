@@ -91,7 +91,7 @@ function handleFile(file) {
   if (file.type === 'image') {
     img = createImg(file.data);
     img.hide();
-    img.loadPixels(); // hopefully, this makes the load asynchronous
+    loadPixels(); // hopefully, this makes the load asynchronous
     stereoImage = img;
     //WHEN CONDITION IS CORRECT THEN TRIGGER WILL CLICKED
     calculateOptimum();

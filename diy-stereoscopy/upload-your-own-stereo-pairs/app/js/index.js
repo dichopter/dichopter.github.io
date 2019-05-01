@@ -14,7 +14,7 @@ var imageWidth, imageHeight;
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   stereoImage = createImage(width, height);
-  c.drop(gotFile);
+  c.drop(handleFile);
   input = createFileInput(handleFile);
   input.position(0, -50);
   input.attribute("name", "file");
@@ -83,43 +83,17 @@ function draw() {
 }
 
 
-function gotFile(file) {
-  // If it's an image file
-  if (file.type === 'image') {
-    // assign the stereoImage variable
-    img = createImg(file.data).hide();
-    stereoImage = img;
-    calculateOptimum();
-    styleElement(inputLabel, ["top", "10px", "left", "10px"]);
-  } else {
-    msg = 'Not an image file! Try again :/.';
-    img = null;
-  }
-}
+
 
 function handleFile(file) {
   print(file);
   if (file.type === 'image') {
     img = createImg(file.data);
     img.hide();
+    img.loadPixels(); // hopefully, this makes the load asynchronous
     stereoImage = img;
     //WHEN CONDITION IS CORRECT THEN TRIGGER WILL CLICKED
-    setTimeout(async function () {
-      //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
-      while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined") {
-        await __delay__(1500);
-
-      }
-
-      var scale = .80;
-      var maxWidth = width / stereoImage.width;
-      var maxHeight = height / stereoImage.height;
-      var maximum = max(maxWidth, maxHeight);
-      maximum *= scale;
-      imgScale = maximum / 2;
-      calculateOptimum();
-      styleElement(inputLabel, ["top", "10px", "left", "10px"]);
-    }, 1);
+    calculateOptimum();
 
   } else {
     msg = 'Not an image file! Try again :/.';

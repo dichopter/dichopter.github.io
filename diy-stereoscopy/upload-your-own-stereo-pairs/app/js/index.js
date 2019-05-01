@@ -145,24 +145,10 @@ function __delay__(timer) {
 };
 
 function calculateOptimum() {
-
-  // window.setTimeout(calculateOptimum, 100);
-  // alert("OOOOOOF");
-  // if (typeof stereoImage !== "undefined" && typeof stereoImage.width !== "undefined" && typeof stereoImage.height !== "undefined") {
-  //   //variable exists, do what you want
-  //   var scale = .80;
-  //   var maxWidth = width / stereoImage.width;
-  //   var maxHeight = height / stereoImage.height;
-  //   var maximum = max(maxWidth, maxHeight);
-  //   maximum *= scale;
-  //   imgScale = maximum / 2;
-  // } else {
-  //   setTimeout(calculateOptimum, 250);
-  // }
   setTimeout(async function () {
     //STOPT THE FUNCTION UNTIL CONDITION IS CORRECT
-    while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined" || stereoImage.width==0||stereoImage.height==0) {
-      await __delay__(1500);
+    while (typeof stereoImage == "undefined" || typeof stereoImage.width == "undefined" || typeof stereoImage.height == "undefined" || stereoImage.width == 0 || stereoImage.height == 0) {
+      await __delay__(250);
 
     }
 
@@ -173,6 +159,10 @@ function calculateOptimum() {
     var maximum = max(maxWidth, maxHeight);
     maximum *= scale;
     imgScale = maximum / 2;
+
+    styleElement(switchButton, ["top", (windowHeight - 100) + "px"]);
+    styleElement(resetButton, ["top", (windowHeight - 100) + "px", "left", (windowWidth - 100) + "px"]);
+    styleElement(exitButton, ["top", 0 + "px", "left", (windowWidth - 100) + "px"]);
   }, 1);
 }
 

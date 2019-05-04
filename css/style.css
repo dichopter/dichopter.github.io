@@ -17,6 +17,10 @@
     background-color: transparent;
 }
 
+.eyeglasses {
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
 .jumbotron img {
     max-width: 70%;
 }

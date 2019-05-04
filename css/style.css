@@ -18,8 +18,8 @@
 }
 
 .eyeglasses {
-    padding-bottom: 5vh;
-    padding-top: 5vh;
+    padding-bottom: 5vh !important;
+    padding-top: 5vh !important;
 }
 .jumbotron img {
     max-width: 70%;

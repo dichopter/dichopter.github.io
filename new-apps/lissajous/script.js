@@ -146,7 +146,7 @@ function windowResized() {
         document.body.clientHeight;
 
     styleElement(switchButton, ["top", (height - 100) + "px"]);
-
+    // ADD STYLE ELEMENT FOR RESET BUTTON!!!
     showButtons();
 }
 

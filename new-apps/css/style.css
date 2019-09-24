@@ -1,20 +1,40 @@
-.pairs a {
-    font-size:1.75em;
+.pairs {
+    margin-left: 20px;
+}
+
+.pairs li {
+    font-size: 1.75em;
+}
+
+.pairs li a {
+    font-size: 1.0em;
     text-decoration: underline;
     color: #212121;
 }
 
+.pairs li a:hover {
+    text-decoration: none;
+}
+
+.firstList {
+    margin-left: 0;
+}
+
+.pairs li p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0px;
+    display: inline;
+    margin-left: 8px;
+}
 
 ul.pairs>li:before {
-    content: "○";
+    content: "-";
     font-size: 140%;
-    padding-right: 5px;
     top: -2px;
     position: relative;
 }
 
-
 .stereograms {
     border-radius: 15px;
-  }
-  
+}

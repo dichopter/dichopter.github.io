@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://CDN.JSDelivr.net/g/p5.js(p5.min.js+addons/p5.dom.js+addons/p5.sound.js)"></script>
 	<script src="Tone.js"></script>
-    <script src="tonejs-ui.js"></script>
+    <!-- <script src="tonejs-ui.js"></script> -->
     <script  src="script.js"></script>
     <style>
         .container {
@@ -16,24 +16,23 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- <div class="container">
 	<tone-example>
 
 		<tone-content>
 			<tone-play-toggle id="osc0"></tone-play-toggle>
 			<tone-auto-panner collapsed></tone-auto-panner>
-			<!-- <tone-play-toggle id="osc1"></tone-play-toggle>
+			<tone-play-toggle id="osc1"></tone-play-toggle>
 			<tone-auto-filter collapsed></tone-auto-filter>
 			<tone-play-toggle id="osc2"></tone-play-toggle>
-			<tone-tremolo collapsed></tone-tremolo> -->
+			<tone-tremolo collapsed></tone-tremolo>
 		</tone-content>
     </tone-example>
-</div>
+</div> -->
 
     <button id="leButton">YO CLICK ME!</button>
     <script type="text/javascript">
-        let button = document.querySelector("#leButton");
-        button.onclick = function() { alert("wow"); };
+        
 		//AutoPanner - a panning modulation effect
 		var panner = new Tone.AutoPanner({
 			"frequency" : 1,
@@ -65,10 +64,13 @@
 		// 	"type" : "square6",
 		// 	"frequency" : "A4"
 		// }).connect(tremolo).start();
-		//bind the interface
-		document.querySelector("#osc0").addEventListener("change", e => {
-			osc0.volume.rampTo(e.detail ? 0 : -Infinity, 0.1);
-        });
+        //bind the interface
+        let button = document.querySelector("#leButton");
+        button.onclick = function(e) { osc0.volume.rampTo(0, 0.1); };
+
+		// document.querySelector("#osc0").addEventListener("change", e => {
+		// 	osc0.volume.rampTo(e.detail ? 0 : -Infinity, 0.1);
+        // });
         
 
 		// document.querySelector("#osc1").addEventListener("change", e => {
@@ -79,7 +81,7 @@
 		// });
 		// document.querySelector("tone-tremolo").bind(tremolo);
 		// document.querySelector("tone-auto-filter").bind(filter);
-		document.querySelector("tone-auto-panner").bind(panner);
+		// document.querySelector("tone-auto-panner").bind(panner);
 		
 	</script>
 	

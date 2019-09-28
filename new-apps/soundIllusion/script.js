@@ -16,7 +16,7 @@ function setup() {
 
 
 function draw() {
-    background(100);
+    background(200);
 }
 
 
@@ -27,6 +27,9 @@ function touchMoved() {
     console.log("I was clicked!");
     synth.triggerAttackRelease('C4', '4n');
     showButtons();
+    alert("something was touched!");
+    alert(panner);
+    alert(synth);
     return false;
 }
 

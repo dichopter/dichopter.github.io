@@ -16,13 +16,17 @@ function setup() {
 
 
 function draw() {
-    background(30);
+    background(100);
 }
 
 
 
 function touchMoved() {
-    
+    if(!panner) panner = new Tone.Panner(-1).toMaster();
+    if(!synth) synth = new Tone.Synth().toMaster().connect(panner);
+    console.log("I was clicked!");
+    synth.triggerAttackRelease('C4', '4n');
+    showButtons();
     return false;
 }
 

@@ -35,6 +35,9 @@
 		font-family: monospace;
 	}
 
+    body {
+        background-color: green;
+    }
 	</style>
 
 	<span>STATUS:</span><span id="isStarted">NOT Started</span>
@@ -48,7 +51,7 @@
 	var audioContext = new AudioContext();
 
 	//set the context
-	StartAudioContext(audioContext, ".starterButton").then(function(){
+	StartAudioContext(Tone.context, ".starterButton").then(function(){
         document.querySelector("#isStarted").textContent = "Started";
         var panner = new Tone.AutoPanner({
 			"frequency" : 1,

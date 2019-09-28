@@ -8,15 +8,6 @@ function setup() {
     stroke(255);
     noFill();
 
-
-    panner = new Tone.Panner(-1).toMaster();
-
-    synth = new Tone.Synth().toMaster().connect(panner);
-    
-    //play a middle 'C' for the duration of an 8th note
-    
-    
-
     playButton = createButton("play");
     styleElement(playButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 2.5s"]);
     playButton.position(0, 0);
@@ -36,6 +27,8 @@ function touchMoved() {
 }
 
 function playSound() {
+    if(!panner) panner = new Tone.Panner(-1).toMaster();
+    if(!synth) synth = new Tone.Synth().toMaster().connect(panner);
     console.log("I was clicked!");
     synth.triggerAttackRelease('C4', '4n');
     showButtons();

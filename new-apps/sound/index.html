@@ -66,8 +66,17 @@
 		// }).connect(tremolo).start();
         //bind the interface
         let button = document.querySelector("#leButton");
-        button.onclick = function(e) { osc0.volume.rampTo(0, 0.1); };
+        // button.onclick = function(e) { osc0.volume.rampTo(0, 0.1); };
+        button.addEventListener("click", e=> {
+            osc0.volume.rampTo(0, 0.1);
+        });
+        document.addEventListener("click", e=> {
+            osc0.volume.rampTo(0, 0.1);
+        });
 
+
+
+        
 		// document.querySelector("#osc0").addEventListener("change", e => {
 		// 	osc0.volume.rampTo(e.detail ? 0 : -Infinity, 0.1);
         // });

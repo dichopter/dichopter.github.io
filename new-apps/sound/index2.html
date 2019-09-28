@@ -1,79 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>StartAudioContext</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>StartAudioContext</title>
     <script type="text/javascript" src="StartAudioContext.js"></script>
     <script src="Tone.js"></script>
 </head>
+
 <body>
 
-	<style type="text/css">
-	.starterButton {
-		width: 300px;
-		height: 80px;
-		line-height: 80px;
-		margin-left: auto;
-		margin-right: auto;
-		text-align: center;
-		background-color: rgb(204, 204, 204);
-		margin-top: 100px;
-		cursor: pointer;
-		font-family: sans-serif;
-		position: relative;
-		font-family: monospace;
-	}
+    <style type="text/css">
+        .starterButton {
+            width: 300px;
+            height: 80px;
+            line-height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            background-color: rgb(204, 204, 204);
+            margin-top: 100px;
+            cursor: pointer;
+            font-family: sans-serif;
+            position: relative;
+            font-family: monospace;
+        }
 
-	.starterButton:active {
-		background-color: #FFB729;
-		color: white;
-	}
+        .starterButton:active {
+            background-color: #FFB729;
+            color: white;
+        }
 
-	span {
-		font-size: 16px;
-		margin-right: 5px;
-		font-family: monospace;
-	}
+        span {
+            font-size: 16px;
+            margin-right: 5px;
+            font-family: monospace;
+        }
 
-    body {
-        background-color: blue;
-    }
-	</style>
+        body {
+            background-color: purple;
+        }
+    </style>
 
-	<span>STATUS:</span><span id="isStarted">NOT Started</span>
+    <span>STATUS:</span><span id="isStarted">NOT Started</span>
 
-	<button class="starterButton">Tap to start the AudioContext</button>
+    <button class="starterButton">Tap to start the AudioContext</button>
 
 
-    <div class="output">
+    <div id="log">
 
 
     </div>
-	<script type="text/javascript">
+    <script type="text/javascript">
+        (function () {
+            var old = console.log;
+            var logger = document.getElementById('log');
+            console.log = function () {
+                for (var i = 0; i < arguments.length; i++) {
+                    if (typeof arguments[i] == 'object') {
+                        logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+                    } else {
+                        logger.innerHTML += arguments[i] + '<br />';
+                    }
+                }
+            }
+        })();
 
-	//create an audio context
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	var audioContext = new AudioContext();
 
-	//set the context
-	StartAudioContext(audioContext, ".starterButton").then(function(){
-        console.log(audioContext);
-        let output = document.querySelector(".output");
-        output.innerHTML = audioContext;
-        document.querySelector("#isStarted").textContent = "Started";
-        var panner = new Tone.AutoPanner({
-			"frequency" : 1,
-			"depth" : 1
-        }).toMaster().start();
-        var osc0 = new Tone.Oscillator({ 
-			"volume" : -Infinity, 
-			"type" : "square6",
-			"frequency" : "C4"
-		}).connect(panner).start();
-        osc0.volume.rampTo(0, 0.1);
 
-	})
+        //create an audio context
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        var audioContext = new AudioContext();
 
-	</script>
+        //set the context
+        StartAudioContext(audioContext, ".starterButton").then(function () {
+            console.log("audioContext: ",audioContext);
+            // let output = document.querySelector(".output");
+            // output.innerHTML = audioContext;
+            document.querySelector("#isStarted").textContent = "Started";
+            var panner = new Tone.AutoPanner({
+                "frequency": 1,
+                "depth": 1
+            }).toMaster().start();
+            var osc0 = new Tone.Oscillator({
+                "volume": -Infinity,
+                "type": "square6",
+                "frequency": "C4"
+            }).connect(panner).start();
+            osc0.volume.rampTo(0, 0.1);
+
+        })
+
+    </script>
 </body>
+
 </html>

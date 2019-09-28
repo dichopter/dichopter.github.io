@@ -36,7 +36,7 @@
 	}
 
     body {
-        background-color: green;
+        background-color: blue;
     }
 	</style>
 
@@ -44,6 +44,11 @@
 
 	<button class="starterButton">Tap to start the AudioContext</button>
 
+
+    <div class="output">
+
+
+    </div>
 	<script type="text/javascript">
 
 	//create an audio context
@@ -51,7 +56,10 @@
 	var audioContext = new AudioContext();
 
 	//set the context
-	StartAudioContext(Tone.context, ".starterButton").then(function(){
+	StartAudioContext(audioContext, ".starterButton").then(function(){
+        console.log(audioContext);
+        let output = document.querySelector(".output");
+        output.innerHTML = audioContext;
         document.querySelector("#isStarted").textContent = "Started";
         var panner = new Tone.AutoPanner({
 			"frequency" : 1,

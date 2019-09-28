@@ -3,7 +3,8 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>StartAudioContext</title>
-	<script type="text/javascript" src="StartAudioContext.js"></script>
+    <script type="text/javascript" src="StartAudioContext.js"></script>
+    <script src="Tone.js"></script>
 </head>
 <body>
 
@@ -38,17 +39,28 @@
 
 	<span>STATUS:</span><span id="isStarted">NOT Started</span>
 
-	<div class="starterButton">Tap to start the AudioContext</div>
+	<button class="starterButton">Tap to start the AudioContext</button>
 
 	<script type="text/javascript">
 
 	//create an audio context
-	window.AudioContext = window.AudioContext || window.webkitAudioContext
-	var audioContext = new AudioContext()
+	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	var audioContext = new AudioContext();
 
 	//set the context
 	StartAudioContext(audioContext, ".starterButton").then(function(){
-		document.querySelector("#isStarted").textContent = "Started"
+        document.querySelector("#isStarted").textContent = "Started";
+        var panner = new Tone.AutoPanner({
+			"frequency" : 1,
+			"depth" : 1
+        }).toMaster().start();
+        var osc0 = new Tone.Oscillator({ 
+			"volume" : -Infinity, 
+			"type" : "square6",
+			"frequency" : "C4"
+		}).connect(panner).start();
+        osc0.volume.rampTo(0, 0.1);
+
 	})
 
 	</script>

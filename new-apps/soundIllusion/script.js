@@ -25,7 +25,7 @@ function setup() {
 
 
 function draw() {
-
+    background(0);
 }
 
 
@@ -70,7 +70,6 @@ function mouseMoved() {
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
     var width =
         window.innerWidth ||
         document.documentElement.clientWidth ||
@@ -79,6 +78,8 @@ function windowResized() {
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
+    resizeCanvas(width, height);
+    
 
     
     // ADD STYLE ELEMENT FOR RESET BUTTON!!!

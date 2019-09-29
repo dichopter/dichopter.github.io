@@ -38,7 +38,7 @@
         }
 
         body {
-            background-color: purple;
+            background-color: darkgrey;
         }
     </style>
 
@@ -52,19 +52,19 @@
 
     </div>
     <script type="text/javascript">
-        (function () {
-            var old = console.log;
-            var logger = document.getElementById('log');
-            console.log = function () {
-                for (var i = 0; i < arguments.length; i++) {
-                    if (typeof arguments[i] == 'object') {
-                        logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
-                    } else {
-                        logger.innerHTML += arguments[i] + '<br />';
-                    }
-                }
-            }
-        })();
+        // (function () {
+        //     var old = console.log;
+        //     var logger = document.getElementById('log');
+        //     console.log = function () {
+        //         for (var i = 0; i < arguments.length; i++) {
+        //             if (typeof arguments[i] == 'object') {
+        //                 logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+        //             } else {
+        //                 logger.innerHTML += arguments[i] + '<br />';
+        //             }
+        //         }
+        //     }
+        // })();
 
 
 
@@ -75,14 +75,15 @@
         //set the context
         StartAudioContext(audioContext, ".starterButton").then(function () {
             var oscillatorNode = audioContext.createOscillator();
-            // var gainNode = audioContext.createGain();
-            // var finish = audioContext.destination;
-            // let myOscillator = audioContext.createOscillator();
-            oscillatorNode.frequency.value = 440;
+            oscillatorNode.frequency.value = 640;
             oscillatorNode.connect(audioContext.destination);
             oscillatorNode.start();
-            oscillatorNode.stop(audioContext.currentTime + 2);
-            console.log("audioContext: ", audioContext);
+            oscillatorNode.stop(audioContext.currentTime + 20);
+
+            let logger = document.querySelector("#log");
+
+            logger.innerHTML = "audioContext.currentTime: "+audioContext.currentTime;
+
             document.querySelector("#isStarted").textContent = "Started";
             // var panner = new Tone.AutoPanner({
             //     "frequency": 1,

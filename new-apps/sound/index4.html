@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>StartAudioContext</title>
+    <script type="text/javascript" src="StartAudioContext.js"></script>
+    
+</head>
+
+<body>
+
+    <style type="text/css">
+        .starterButton {
+            width: 300px;
+            height: 80px;
+            line-height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            background-color: rgb(204, 204, 204);
+            margin-top: 100px;
+            cursor: pointer;
+            font-family: sans-serif;
+            position: relative;
+            font-family: monospace;
+        }
+
+        .starterButton:active {
+            background-color: #FFB729;
+            color: white;
+        }
+
+        span {
+            font-size: 16px;
+            margin-right: 5px;
+            font-family: monospace;
+        }
+
+        body {
+            background-color: pink;
+        }
+        .green {
+            background: lightgreen;
+        }
+    </style>
+
+    <span>STATUS:</span><span id="isStarted">NOT Started</span>
+
+    <button class="starterButton">Tap to start the AudioContext</button>
+    <input class="panning-control" type="range" min="-1" max="1" step="0.1" value="0">
+    <span class="panning-value">0</span>
+
+    <div id="log">
+
+
+    </div>
+    <script type="text/javascript">
+        // (function () {
+        //     var old = console.log;
+        //     var logger = document.getElementById('log');
+        //     console.log = function () {
+        //         for (var i = 0; i < arguments.length; i++) {
+        //             if (typeof arguments[i] == 'object') {
+        //                 logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+        //             } else {
+        //                 logger.innerHTML += arguments[i] + '<br />';
+        //             }
+        //         }
+        //     }
+        // })();
+        var panControl = document.querySelector('.panning-control');
+        var panValue = document.querySelector('.panning-value');
+
+
+
+        //create an audio context
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        var audioContext = new AudioContext();
+
+        //set the context
+        var panNode, oscillatorNode;
+        StartAudioContext(audioContext, ".starterButton").then(function () {
+            panControl.oninput = function () {
+                panNode.pan.value = panControl.value;
+                panValue.innerHTML = panControl.value;
+            }
+            panNode = audioContext.createStereoPanner();
+            
+
+
+            oscillatorNode = audioContext.createOscillator();
+            oscillatorNode.frequency.value = 640;
+            oscillatorNode.type = "square";
+            oscillatorNode.connect(panNode);
+            panNode.connect(audioContext.destination);
+            oscillatorNode.start();
+            // oscillatorNode.stop(audioContext.currentTime + 20);
+
+            let logger = document.querySelector("#log");
+            logger.innerHTML = "audioContext.currentTime: " + audioContext.currentTime;
+            document.querySelector("#isStarted").textContent = "Started";
+            document.querySelector("body").classList.add("red");
+
+
+        })
+
+    </script>
+</body>
+
+</html>

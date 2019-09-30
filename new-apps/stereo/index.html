@@ -58,28 +58,27 @@
     <script type="text/javascript">
         var panControl = document.querySelector('.panning-control');
         var panValue = document.querySelector('.panning-value');
-
+        panControl.oninput = function () {
+                panNode.pan.value = panControl.value;
+                panValue.innerHTML = panControl.value;
+            }
 
 
         //create an audio context
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         var audioContext = new AudioContext();
-
+        alert("1");
         //set the context
         var panNode, oscillatorNode;
         StartAudioContext(audioContext, ".starterButton").then(function () {
-            panControl.oninput = function () {
-                panNode.pan.value = panControl.value;
-                panValue.innerHTML = panControl.value;
-            }
+            alert("2");
             panNode = audioContext.createStereoPanner();
             
-
-
             oscillatorNode = audioContext.createOscillator();
             oscillatorNode.frequency.value = 640;
             oscillatorNode.type = "square";
             oscillatorNode.connect(panNode);
+            alert("3")
             panNode.connect(audioContext.destination);
             oscillatorNode.start();
             // oscillatorNode.stop(audioContext.currentTime + 20);
@@ -87,7 +86,7 @@
             let logger = document.querySelector("#log");
             logger.innerHTML = "audioContext.currentTime: " + audioContext.currentTime;
             document.querySelector("#isStarted").textContent = "Started";
-            document.querySelector("body").classList.add("red");
+            document.querySelector("body").classList.add("green");
 
 
         })

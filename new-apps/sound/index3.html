@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>StereoPannerNode example</title>
+  <!-- <script type="text/javascript" src="StartAudioContext.js"></script> -->
+  <script>
+    !function (e, t) { "function" == typeof define && define.amd ? define([], t) : "object" == typeof module && module.exports ? module.exports = t() : e.StartAudioContext = t() }(this, function () { var e = function (e, t) { this._dragged = !1, this._element = e, this._bindedMove = this._moved.bind(this), this._bindedEnd = this._ended.bind(this, t), e.addEventListener("touchstart", this._bindedEnd), e.addEventListener("touchmove", this._bindedMove), e.addEventListener("touchend", this._bindedEnd), e.addEventListener("mouseup", this._bindedEnd) }; function t(e) { return "running" === e.state } return e.prototype._moved = function (e) { this._dragged = !0 }, e.prototype._ended = function (e) { this._dragged || function (e) { var t = e.createBuffer(1, 1, e.sampleRate), n = e.createBufferSource(); n.buffer = t, n.connect(e.destination), n.start(0), e.resume && e.resume() }(e), this._dragged = !1 }, e.prototype.dispose = function () { this._element.removeEventListener("touchstart", this._bindedEnd), this._element.removeEventListener("touchmove", this._bindedMove), this._element.removeEventListener("touchend", this._bindedEnd), this._element.removeEventListener("mouseup", this._bindedEnd), this._bindedMove = null, this._bindedEnd = null, this._element = null }, function (n, i, d) { var o = new Promise(function (e) { !function (e, n) { t(e) ? n() : function i() { t(e) ? n() : (requestAnimationFrame(i), e.resume && e.resume()) }() }(n, e) }), r = []; return i || (i = document.body), function t(n, i, d) { if (Array.isArray(n) || NodeList && n instanceof NodeList) for (var o = 0; o < n.length; o++)t(n[o], i, d); else if ("string" == typeof n) t(document.querySelectorAll(n), i, d); else if (n.jquery && "function" == typeof n.toArray) t(n.toArray(), i, d); else if (Element && n instanceof Element) { var r = new e(n, d); i.push(r) } }(i, r, n), o.then(function () { for (var e = 0; e < r.length; e++)r[e].dispose(); r = null, d && d() }), o } });
+  </script>
+
+  <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <h1>StereoPannerNode example</h1>
+  <audio controls>
+    <source src="viper.ogg" type="audio/ogg">
+    <source src="viper.mp3" type="audio/mp3">
+    <p>Browser too old to support HTML5 audio? How depressing!</p>
+  </audio>
+  <h2>Set stereo panning</h2>
+  <input class="panning-control" type="range" min="-1" max="1" step="0.1" value="0">
+  <span class="panning-value">0</span>
+  <button class="starterButton">wow</button>
+
+  <script>
+    // var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // var myAudio = document.querySelector('audio');
+
+    // // Create a MediaElementAudioSourceNode
+    // // Feed the HTMLMediaElement into it
+    // var source = audioCtx.createMediaElementSource(myAudio);
+    // // Create a stereo panner
+    // var panNode = audioCtx.createStereoPanner();
+    // // Event handler function to increase panning to the right and left when the slider is moved
+    // panControl.oninput = function () {
+    //   panNode.pan.value = panControl.value;
+    //   panValue.innerHTML = panControl.value;
+    // }
+    // // connect the AudioBufferSourceNode to the gainNode
+    // // and the gainNode to the destination, so we can play the
+    // // music and adjust the panning using the controls
+    // source.connect(panNode);
+    // panNode.connect(audioCtx.destination);
+
+
+      var panNode, oscillatorNode;
+    var panControl = document.querySelector('.panning-control');
+    var panValue = document.querySelector('.panning-value');
+    panControl.oninput = function () {
+        panNode.pan.value = panControl.value;
+        panValue.innerHTML = panControl.value;
+      }
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var audioContext = new AudioContext();
+
+    //set the context
+    StartAudioContext(audioContext, ".starterButton").then(function () {
+      panNode = audioContext.createStereoPanner();
+      
+
+
+      oscillatorNode = audioContext.createOscillator();
+      oscillatorNode.frequency.value = 640;
+      oscillatorNode.connect(panNode);
+      
+
+      alert("heee");
+
+
+
+      // // oscillatorNode.connect(audioContext.destination);
+      oscillatorNode.start();
+      panNode.connect(audioContext.destination);
+      
+
+
+      // oscillatorNode.stop(audioContext.currentTime + 20);
+
+      
+
+    })
+
+  </script>
+</body>
+
+</html>

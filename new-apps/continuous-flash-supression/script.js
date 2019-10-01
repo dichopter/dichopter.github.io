@@ -35,7 +35,7 @@ function setup() {
     switchButton.mousePressed(switchImages);
 
     // ⚙️ 
-    settingsButton = createButton("️🌈"); // the settings button is currently just a grayscale button
+    settingsButton = createButton("️🏳️‍🌈"); // the settings button is currently just a grayscale button
     styleElement(settingsButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px"]);
     settingsButton.position(0, 0);
     settingsButton.mousePressed(showSettings);

@@ -48,7 +48,7 @@ function setup() {
     squareArray = new MondrianArray(400, window.width / 2, window.width / 8, window.height / 8);
     
     t = setInterval(updateSquares, 100);
-    windowResized();
+    // windowResized();
 }
  
 
@@ -162,35 +162,39 @@ function showButtons() {
     }, 3000);
 }
 
-function windowResized() {
+// function windowResized() {
+//     resizeEverything();
+//     // resizeEverything();
+// }
+
+window.addEventListener("resize", function() {
     resizeEverything();
-    resizeEverything();
-}
+});
 
 function resizeEverything() {
-    var width =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth,
-    height =
-        window.innerHeight ||
-        document.documentElement.clientHeight ||
-        document.body.clientHeight;
+    // var width =
+    // window.innerWidth ||
+    // document.documentElement.clientWidth ||
+    // document.body.clientWidth,
+    // height =
+    //     window.innerHeight ||
+    //     document.documentElement.clientHeight ||
+    //     document.body.clientHeight;
+    var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     //  alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
-     if(window.height!=height) window.height = height;
-     if(window.width!=width) window.width = width;
+    if(window.height!=height) window.height = height;
+    if(window.width!=width) window.width = width;
     squareArray.resize(width, height);
     var b = document.querySelector('body');
-    b.style.height = height;
-    b.style.width = width;
+    if(b.style.height!=height) b.style.height=height;
+    if(b.style.width!=width) b.style.width=width;
+    var currentCanvas = document.querySelector("canvas");
     if(document.querySelector("canvas").height != height) document.querySelector("canvas").height = height;
     if(document.querySelector("canvas").width != width) document.querySelector("canvas").width = width;
     c = resizeCanvas(width, height);
-    var currentCanvas = document.querySelector("canvas");
-    currentCanvas.style.width = width+"px";
-    currentCanvas.style.height = height+"px";
-    windowWidth = width;
-    windowHeight = height;
+    if (windowWidth != width) windowWidth = width;
+    if(windowHeight = height) windowHeight != height;
     
    
     if (switchOffset) {
@@ -198,7 +202,7 @@ function resizeEverything() {
         squareArray.switchOffset = switchOffset;
     }
 
-    windowResized();
+    // windowResized();
     showButtons();
 }
 

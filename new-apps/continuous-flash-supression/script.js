@@ -197,6 +197,11 @@ function windowResized() {
     showButtons();
 }
 
+function onOrientationChange() {
+    alert("alert");
+}
+
+
 function mouseDragged() {
     showButtons();
     offsetX += mouseX - pmouseX;

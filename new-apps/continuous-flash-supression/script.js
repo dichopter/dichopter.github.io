@@ -25,8 +25,8 @@ function setup() {
     offsetX = 0;
     imgScale = 1;
 
-    settingsButton = createButton("️&#127752;"); // the settings button is currently just a grayscale button
-    styleElement(settingsButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "position", "fixed", "top", "0", "left", "0"]);
+    settingsButton = createButton("BW"); // the settings button is currently just a grayscale button
+    styleElement(settingsButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "50px", "position", "fixed", "top", "0", "left", "0"]);
     settingsButton.mousePressed(showSettings);
 
     exitButton = createButton("✖️");

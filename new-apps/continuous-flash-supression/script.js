@@ -43,11 +43,12 @@ function setup() {
     squareArray = new MondrianArray(400, window.width / 2, window.width / 8, window.height / 8);
     
     t = setInterval(updateSquares, 100);
+    windowResized();
 }
  
 
 function draw() {
-    background(80);
+    background(200);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -168,6 +169,8 @@ function windowResized() {
 
     squareArray.resize(width, height);
     var b = document.querySelector('body');
+    b.style.height = height;
+    b.style.width = width;
     c = resizeCanvas(width, height);
     var currentCanvas = document.querySelector("canvas");
     currentCanvas.style.width = width+"px";
@@ -180,10 +183,8 @@ function windowResized() {
         switchOffset = width / 2;
         squareArray.switchOffset = switchOffset;
     }
+
     
-    // styleElement(switchButton, ["bottom", 0 + "px"]);
-    // styleElement(exitButton, ["left", (windowWidth - 100) + "px"]);
-    // styleElement(resetButton, ["left", (windowWidth - 100) + "px", "bottom", 0 + "px"]);
     showButtons();
 }
 

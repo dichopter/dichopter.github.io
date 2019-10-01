@@ -17,7 +17,7 @@ function preload() {
 
 
 function setup() {
-    c = createCanvas(windowWidth, windowHeight);
+    c = createCanvas(windowWidth, windowHeight+200);
     colorMode(HSB, 255);
 
 
@@ -180,22 +180,34 @@ function resizeEverything() {
     //     window.innerHeight ||
     //     document.documentElement.clientHeight ||
     //     document.body.clientHeight;
-    var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    //  alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
-    if(window.height!=height) window.height = height;
-    if(window.width!=width) window.width = width;
-    squareArray.resize(width, height);
-    var b = document.querySelector('body');
-    if(b.style.height!=height) b.style.height=height;
-    if(b.style.width!=width) b.style.width=width;
+
+    // var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    // var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    // //  alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
+    // if(window.height!=height) window.height = height;
+    // if(window.width!=width) window.width = width;
+    // squareArray.resize(width, height);
+    // var b = document.querySelector('body');
+    // if(b.style.height!=height) b.style.height=height;
+    // if(b.style.width!=width) b.style.width=width;
     var currentCanvas = document.querySelector("canvas");
-    if(document.querySelector("canvas").height != height) document.querySelector("canvas").height = height;
-    if(document.querySelector("canvas").width != width) document.querySelector("canvas").width = width;
-    c = resizeCanvas(width, height);
-    if (windowWidth != width) windowWidth = width;
-    if(windowHeight = height) windowHeight != height;
-    
+    // if(currentCanvas.height != height) currentCanvas.height = height;
+    // if(currentCanvas.width != width) currentCanvas.width = width;
+    // c = resizeCanvas(width, height);
+    // if (windowWidth != width) windowWidth = width;
+    // if(windowHeight = height) windowHeight != height;
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    if(document.documentElement.scrollHeight>h) {
+        currentCanvas.height = h;
+        currentCanvas.style.height = h+"px";
+    }
+    if(document.documentElement.scrollWidth>w) {
+        currentCanvas.width = w;
+        currentCanvas.style.width = w+"px";
+    }
+
+
    
     if (switchOffset) {
         switchOffset = width / 2;

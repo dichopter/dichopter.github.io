@@ -1,10 +1,15 @@
-let c;
-let leftImage, squareArray;
-let exitButton, resetButton, switchButton;
-let offsetX, offsetY, imgScale;
-let switchOffset = 0;
-let pLineLength = 0;
-let grayscale = false;
+var c;
+var leftImage;
+var squareArray;
+var exitButton;
+var resetButton;
+var switchButton;
+var offsetX;
+var offsetY;
+var imgScale;
+var switchOffset = 0;
+var pLineLength = 0;
+var grayscale = false;
 
 function preload() {
     leftImage = loadImage("einstein.png");
@@ -48,7 +53,7 @@ function setup() {
  
 
 function draw() {
-    background(80);
+    background(150);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -89,7 +94,7 @@ function switchImages() {
 }
 
 function mouseWheel(e) {
-    let deltaY = e.deltaY;
+    var deltaY = e.deltaY;
     if (deltaY > 0) {
         imgScale += 0.008;
     } else if (deltaY < 0) {
@@ -173,6 +178,8 @@ function windowResized() {
     var b = document.querySelector('body');
     b.style.height = height;
     b.style.width = width;
+    if(document.querySelector("canvas").height != height) document.querySelector("canvas").height = height;
+    if(document.querySelector("canvas").width != width) document.querySelector("canvas").width = width;
     c = resizeCanvas(width, height);
     var currentCanvas = document.querySelector("canvas");
     currentCanvas.style.width = width+"px";

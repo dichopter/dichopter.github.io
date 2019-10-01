@@ -163,6 +163,11 @@ function showButtons() {
 }
 
 function windowResized() {
+    resizeEverything();
+    resizeEverything();
+}
+
+function resizeEverything() {
     var width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -193,9 +198,10 @@ function windowResized() {
         squareArray.switchOffset = switchOffset;
     }
 
-    // windowResized();
+    windowResized();
     showButtons();
 }
+
 
 function onOrientationChange() {
     alert("alert");

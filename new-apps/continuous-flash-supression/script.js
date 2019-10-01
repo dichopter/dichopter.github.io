@@ -171,7 +171,7 @@ function windowResized() {
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
-     alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
+    //  alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
      if(window.height!=height) window.height = height;
      if(window.width!=width) window.width = width;
     squareArray.resize(width, height);
@@ -193,7 +193,7 @@ function windowResized() {
         squareArray.switchOffset = switchOffset;
     }
 
-    
+    // windowResized();
     showButtons();
 }
 

@@ -17,7 +17,7 @@ function preload() {
 
 
 function setup() {
-    c = createCanvas(windowWidth, windowHeight+200);
+    c = createCanvas(windowWidth, windowHeight + 200);
     colorMode(HSB, 255);
 
 
@@ -46,11 +46,11 @@ function setup() {
 
 
     squareArray = new MondrianArray(400, window.width / 2, window.width / 8, window.height / 8);
-    
+
     t = setInterval(updateSquares, 100);
     // windowResized();
 }
- 
+
 
 function draw() {
     background(150);
@@ -124,7 +124,7 @@ function touchMoved() {
         } else {
             pLineLength = 0; // don't double count a zoom event
         }
-    } 
+    }
     // return false; MUST CHANGE BACK
 }
 
@@ -167,7 +167,7 @@ function showButtons() {
 //     // resizeEverything();
 // }
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
     resizeEverything();
 });
 
@@ -196,24 +196,21 @@ function resizeEverything() {
     // c = resizeCanvas(width, height);
     // if (windowWidth != width) windowWidth = width;
     // if(windowHeight = height) windowHeight != height;
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    
-        currentCanvas.height = h;
-        currentCanvas.style.height = h+"px";
-    
-        currentCanvas.width = w;
-        currentCanvas.style.width = w+"px";
-    resizeCanvas(w,h);
+    var w = Math.min(document.documentElement.clientWidth, window.innerWidth);
+    var h = Math.min(document.documentElement.clientHeight, window.innerHeight);
 
+    currentCanvas.height = h;
+    currentCanvas.style.height = h + "px";
 
-   
+    currentCanvas.width = w;
+    currentCanvas.style.width = w + "px";
+    resizeCanvas(w, h);
+
     if (switchOffset) {
         switchOffset = width / 2;
         squareArray.switchOffset = switchOffset;
     }
 
-    // windowResized();
     showButtons();
 }
 
@@ -255,20 +252,20 @@ class MondrianArray {
         }
     }
 
-    
+
 
     resize(width, height) {
-        
-        this.maxWidth =  width/8;
-        this.maxHeight = height/8;
+
+        this.maxWidth = width / 8;
+        this.maxHeight = height / 8;
         for (var i = 0; i < this.squareCount; i++) {
-            this.squares[i].resize(random(20, this.maxWidth), random(20,this.maxHeight));
+            this.squares[i].resize(random(20, this.maxWidth), random(20, this.maxHeight));
         }
     }
 
-    
 
-    
+
+
 }
 
 class MondrianSquare {
@@ -303,15 +300,15 @@ class MondrianSquare {
     }
 
     checkEdges() {
-        if (this.x + this.width > window.width || (this.switchOffset && this.x + this.width > window.width/2)) {
-            this.x = this.x-this.width;
+        if (this.x + this.width > window.width || (this.switchOffset && this.x + this.width > window.width / 2)) {
+            this.x = this.x - this.width;
         }
         if (this.y + this.height > window.height) {
             this.y = window.height - this.height;
         }
     }
 
-    resize(w,h) {
+    resize(w, h) {
         this.width = w;
         this.height = h;
     }

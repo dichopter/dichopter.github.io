@@ -38,7 +38,7 @@
         }
 
         body {
-            background-color: pink;
+            background-color: red;
         }
         .green {
             background: lightgreen;
@@ -67,18 +67,18 @@
         //create an audio context
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
         var audioContext = new AudioContext();
-        alert("1");
+        
         //set the context
         var panNode, oscillatorNode;
         StartAudioContext(audioContext, ".starterButton").then(function () {
-            alert("2");
+            
             panNode = audioContext.createStereoPanner();
             
             oscillatorNode = audioContext.createOscillator();
             oscillatorNode.frequency.value = 640;
             oscillatorNode.type = "square";
             oscillatorNode.connect(panNode);
-            alert("3")
+            
             panNode.connect(audioContext.destination);
             oscillatorNode.start();
             // oscillatorNode.stop(audioContext.currentTime + 20);

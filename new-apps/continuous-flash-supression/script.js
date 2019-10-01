@@ -125,7 +125,7 @@ function touchMoved() {
             pLineLength = 0; // don't double count a zoom event
         }
     }
-    // return false; MUST CHANGE BACK
+    return false; 
 }
 
 function goBack() {

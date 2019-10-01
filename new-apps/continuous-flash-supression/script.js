@@ -1,3 +1,4 @@
+let c;
 let leftImage, squareArray;
 let exitButton, resetButton, switchButton;
 let offsetX, offsetY, imgScale;
@@ -11,7 +12,7 @@ function preload() {
 
 
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    c = createCanvas(window.innerWidth, window.innerHeight);
     colorMode(HSB, 255);
 
 
@@ -52,7 +53,7 @@ function setup() {
 
 function draw() {
     background(0);
-    image(leftImage, (window.width / 4 - window.width / 2 / 2) + offsetX + switchOffset, (window.height / 2 - window.width / 2.5 / 2) + offsetY, (window.width / 2) * imgScale, (window.width / 2.5) * imgScale);
+    image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
 }
@@ -161,27 +162,34 @@ function showButtons() {
 }
 
 function windowResized() {
-    showButtons();
     var width =
-        window.innerWidth ||
-        document.documentElement.clientWidth ||
-        document.body.clientWidth,
-        height =
-            window.innerHeight ||
-            document.documentElement.clientHeight ||
-            document.body.clientHeight;
-    resizeCanvas(width, height);
-    squareArray.resize();
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth,
+    height =
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight;
+
+    squareArray.resize(width, height);
+    var b = document.querySelector('body');
+    c = resizeCanvas(width, height);
+    var currentCanvas = document.querySelector("canvas");
+    currentCanvas.style.width = width+"px";
+    currentCanvas.style.height = height+"px";
+    windowWidth = width;
+    windowHeight = height;
+    
+   
     if (switchOffset) {
         switchOffset = width / 2;
         squareArray.switchOffset = switchOffset;
-        
     }
     
-    styleElement(switchButton, ["top", (height - 100) + "px"]);
-    styleElement(exitButton, ["left", (width - 100) + "px"]);
-    styleElement(resetButton, ["left", (width - 100) + "px", "top", (height - 100) + "px"]);
-
+    styleElement(switchButton, ["bottom", 0 + "px"]);
+    styleElement(exitButton, ["left", (windowWidth - 100) + "px"]);
+    styleElement(resetButton, ["left", (windowWidth - 100) + "px", "bottom", 0 + "px"]);
+    showButtons();
 }
 
 function mouseDragged() {
@@ -218,15 +226,8 @@ class MondrianArray {
 
     
 
-    resize() {
-        var width =
-            window.innerWidth ||
-            document.documentElement.clientWidth ||
-            document.body.clientWidth,
-            height =
-                window.innerHeight ||
-                document.documentElement.clientHeight ||
-                document.body.clientHeight;
+    resize(width, height) {
+        
         this.maxWidth =  width/8;
         this.maxHeight = height/8;
         for (var i = 0; i < this.squareCount; i++) {

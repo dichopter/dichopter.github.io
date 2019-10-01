@@ -166,7 +166,7 @@ function windowResized() {
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
-
+     alert("window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
     squareArray.resize(width, height);
     var b = document.querySelector('body');
     b.style.height = height;

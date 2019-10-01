@@ -198,14 +198,13 @@ function resizeEverything() {
     // if(windowHeight = height) windowHeight != height;
     var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    if(document.documentElement.scrollHeight>h) {
+    
         currentCanvas.height = h;
         currentCanvas.style.height = h+"px";
-    }
-    if(document.documentElement.scrollWidth>w) {
+    
         currentCanvas.width = w;
         currentCanvas.style.width = w+"px";
-    }
+    resizeCanvas(w,h);
 
 
    

@@ -12,7 +12,7 @@ function preload() {
 
 
 function setup() {
-    c = createCanvas(window.innerWidth, window.innerHeight);
+    c = createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 255);
 
 
@@ -48,7 +48,7 @@ function setup() {
  
 
 function draw() {
-    background(20);
+    background(80);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -119,8 +119,8 @@ function touchMoved() {
         } else {
             pLineLength = 0; // don't double count a zoom event
         }
-    }
-    return false;
+    } 
+    // return false; MUST CHANGE BACK
 }
 
 function goBack() {
@@ -166,7 +166,7 @@ function windowResized() {
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
-     alert("window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
+     alert("width:"+width+";window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"height:"+height+";window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
      if(window.height!=height) window.height = height;
      if(window.width!=width) window.width = width;
     squareArray.resize(width, height);

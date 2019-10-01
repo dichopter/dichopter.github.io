@@ -48,7 +48,7 @@ function setup() {
  
 
 function draw() {
-    background(0);
+    background(20);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -167,6 +167,8 @@ function windowResized() {
         document.documentElement.clientHeight ||
         document.body.clientHeight;
      alert("window.innerWidth:"+window.innerWidth+";document.documentElement.clientWidth:"+document.documentElement.clientWidth+";document.body.clientWidth:"+document.body.clientWidth+";window.width:"+window.width+"window.innerHeight:"+window.innerHeight+";document.documentElement.clientHeight:"+document.documentElement.clientHeight+";document.body.clientHeight:"+document.body.clientHeight+";window.height:"+window.height);
+     if(window.height!=height) window.height = height;
+     if(window.width!=width) window.width = width;
     squareArray.resize(width, height);
     var b = document.querySelector('body');
     b.style.height = height;

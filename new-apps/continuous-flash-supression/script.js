@@ -17,7 +17,7 @@ function preload() {
 
 
 function setup() {
-    c = createCanvas(windowWidth, windowHeight + 200);
+    c = createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 255);
 
 
@@ -53,7 +53,7 @@ function setup() {
 
 
 function draw() {
-    background(150);
+    background(0);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -125,7 +125,7 @@ function touchMoved() {
             pLineLength = 0; // don't double count a zoom event
         }
     }
-    // return false; 
+    return false;
 }
 
 function goBack() {

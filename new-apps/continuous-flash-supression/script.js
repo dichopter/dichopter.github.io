@@ -20,26 +20,21 @@ function setup() {
     offsetX = 0;
     imgScale = 1;
 
+    settingsButton = createButton("️&#127752;"); // the settings button is currently just a grayscale button
+    styleElement(settingsButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "position", "absolute", "top", "0", "left", "0"]);
+    settingsButton.mousePressed(showSettings);
+
     exitButton = createButton("✖️");
-    styleElement(exitButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "opacity", "0.8", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px"]);
-    exitButton.position(window.innerWidth - 100, 0);
+    styleElement(exitButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "opacity", "0.8", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "position", "absolute", "top", "0", "right", "0"]);
     exitButton.mousePressed(goBack);
 
-    resetButton = createButton("🔄");
-    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px"]);
-    resetButton.position(window.innerWidth - 100, window.innerHeight - 100);
-    resetButton.mousePressed(resetImages);
-
     switchButton = createButton("↔️");
-    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px"]);
-    switchButton.position(0, window.innerHeight - 100);
+    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "left", "0", "bottom", "0", "position", "absolute"]);
     switchButton.mousePressed(switchImages);
 
-    // ⚙️ 
-    settingsButton = createButton("️&#127752;"); // the settings button is currently just a grayscale button
-    styleElement(settingsButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px"]);
-    settingsButton.position(0, 0);
-    settingsButton.mousePressed(showSettings);
+    resetButton = createButton("🔄");
+    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px", "right", "0", "bottom", "0", "position", "absolute"]);
+    resetButton.mousePressed(resetImages);
 
     showButtons();
 
@@ -52,7 +47,7 @@ function setup() {
  
 
 function draw() {
-    background(30);
+    background(80);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 
@@ -186,9 +181,9 @@ function windowResized() {
         squareArray.switchOffset = switchOffset;
     }
     
-    styleElement(switchButton, ["bottom", 0 + "px"]);
-    styleElement(exitButton, ["left", (windowWidth - 100) + "px"]);
-    styleElement(resetButton, ["left", (windowWidth - 100) + "px", "bottom", 0 + "px"]);
+    // styleElement(switchButton, ["bottom", 0 + "px"]);
+    // styleElement(exitButton, ["left", (windowWidth - 100) + "px"]);
+    // styleElement(resetButton, ["left", (windowWidth - 100) + "px", "bottom", 0 + "px"]);
     showButtons();
 }
 

@@ -2,11 +2,7 @@ body {
   padding: 0;
   margin: 0;
   /* overflow: hidden; */
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  
   background-color: black;
 }
 
@@ -15,13 +11,9 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
+  border: 15px solid green;
 }
 
 html  {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
   background-color: black;
 }

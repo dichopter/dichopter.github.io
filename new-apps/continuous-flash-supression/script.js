@@ -214,10 +214,21 @@ function resizeEverything() {
     showButtons();
 }
 
-
-function onOrientationChange() {
-    alert("alert");
+function resizeEverything2(w, h) {
+    var currentCanvas = document.querySelector("canvas");
+    currentCanvas.height = h;
+    currentCanvas.style.height = h + "px";
+    currentCanvas.width = w;
+    currentCanvas.style.width = w + "px";
+    resizeCanvas(w, h);
+    if (switchOffset) {
+        switchOffset = width / 2;
+        squareArray.switchOffset = switchOffset;
+    }
+    showButtons();
 }
+
+
 
 
 function mouseDragged() {

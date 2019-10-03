@@ -56,7 +56,10 @@
 
     //set the context
     StartAudioContext(audioContext, ".starterButton").then(function () {
-      panNode = audioContext.createStereoPanner();
+      panNode = audioContext.createStereoPanner(); // The create stereo panner function
+      // does not exist. Look up https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createPanner
+      // for createPanner and an example that is likely to work
+      
       
 
 

@@ -33,7 +33,7 @@ function addImages (numImages) {
       a.setAttribute("imageUrl", "https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/sirius-enigma-images/image"+numImages+".jpg");
       col.appendChild(a);
       var img = document.createElement("img");
-      img.src = "https://dichopter.github.io/stereogram/images/image"+numImages+".jpg";
+      img.src = "https://dichopter.github.io/stereogram/sirius-enigma-images/image"+numImages+".jpg";
       //https://dichopter.github.io/stereogram/images/image9.jpg
       a.appendChild(img);  
       row.appendChild(col);

@@ -38,7 +38,7 @@ function preload(){
 }
 
 function setup() {
-    pixelDensity(1);
+    //pixelDensity(1);
     stereoImage.loadPixels(); // hopefully makes the preload function blocking
     c = createCanvas(window.innerWidth, window.innerHeight);
     background(0);

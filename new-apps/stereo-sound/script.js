@@ -12,7 +12,7 @@
 var c;
 var stereoImage;
 var imgScale = 0.001;
-var switchButton, resetButton; 
+var switchButton, resetButton, exitButton; 
 var pLineLength = 0;
 var imageMoveX = 0, imageMoveY = 0;
 var imageWidth, imageHeight;
@@ -51,15 +51,20 @@ function setup() {
   strokeWeight(10);
   calculateOptimum();
 
-  switchButton = createButton("switch");
-  styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
-  switchButton.position(0, height-100);
-  switchButton.mousePressed(switchImages);
+  resetButton = createButton("🔄");
+    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px", "right", "0", "bottom", "0", "position", "fixed"]);
+    resetButton.mousePressed(resetImages);
 
-  resetButton = createButton("reset"); 
-  styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
-  resetButton.position(width-100, height-100);
-  resetButton.mousePressed(resetImages);
+
+    switchButton = createButton("↔️");
+    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "left", "0", "bottom", "0", "position", "fixed"]);
+    switchButton.mousePressed(switchImages);
+
+    exitButton = createButton("✖️");
+    styleElement(exitButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "opacity", "0.8", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "position", "fixed", "top", "0", "right", "0"]);
+    exitButton.mousePressed(goBack);
+
+
   setInterval(function() {
     let panning = map(ball.x, 0, width, 0.0, 1.0);
     soundFileLeft.pan(panning);
@@ -134,13 +139,19 @@ function styleElement(element, styles) {
   // soundFile.play();
 // }
 
+function goBack() {
+  window.history.back();
+}
+
 
 function showButtons() {
-  styleElement(switchButton, ["opacity", "1"]);
-  styleElement(resetButton, ["opacity", "1"]);
+  styleElement(switchButton, ["opacity", "0.8"]);
+  styleElement(resetButton, ["opacity", "0.8"]);
+  styleElement(exitButton, ["opacity", "0.8"]);
   setTimeout(function(){ 
     styleElement(switchButton, ["opacity", "0"]);
     styleElement(resetButton, ["opacity", "0"]);
+    styleElement(exitButton, ["opacity", "0"]);
    }, 3000);
 }
 

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var numImages = 17;
+  var numImages = 1;
   addImages(numImages);
   var imageUrls = document.querySelectorAll(".stereograms .row a"); 
   imageUrls.forEach(function(imageUrl) {
@@ -30,10 +30,10 @@ function addImages (numImages) {
       col.classList+=" col s12 m6 l4";
       var a = document.createElement("a");
       a.href = "https://dichopter.github.io/stereogram";
-      a.setAttribute("imageUrl", "https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/images/image"+numImages+".jpg");
+      a.setAttribute("imageUrl", "https://raw.githubusercontent.com/dichopter/dichopter.github.io/master/stereogram/sirius-enigma-images/image"+numImages+".jpg");
       col.appendChild(a);
       var img = document.createElement("img");
-      img.src = "https://dichopter.github.io/stereogram/images/image"+numImages+".jpg";
+      img.src = "https://dichopter.github.io/stereogram/sirius-enigma-images/image"+numImages+".jpg";
       //https://dichopter.github.io/stereogram/images/image9.jpg
       a.appendChild(img);  
       row.appendChild(col);

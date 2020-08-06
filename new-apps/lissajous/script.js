@@ -9,25 +9,22 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
     stroke(255);
-    noFill();
+    noFill(); 
 
     l = new Lissajous(5.25, 400, 4000);
 
 
-    switchButton = createButton("switch");
-    styleElement(switchButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-right", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
-    switchButton.position(0, height - 100);
-    switchButton.mousePressed(switchImages);
-
-
-    resetButton = createButton("reset");
-    styleElement(resetButton, ["padding", "0", "padding-top", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
-    resetButton.position(width - 100, height - 100);
+    resetButton = createButton("🔄");
+    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px", "right", "0", "bottom", "0", "position", "fixed"]);
     resetButton.mousePressed(resetImages);
 
-    exitButton = createButton("X");
-    styleElement(exitButton, ["padding", "0", "padding-bottom", "45px", "text-shadow", "black 0px 0px 5px", "padding-left", "30px", "background-color", "transparent", "color", "white", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s"]);
-    exitButton.position(window.innerWidth - 100, 0);
+
+    switchButton = createButton("↔️");
+    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "left", "0", "bottom", "0", "position", "fixed"]);
+    switchButton.mousePressed(switchImages);
+
+    exitButton = createButton("✖️");
+    styleElement(exitButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "opacity", "0.8", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "position", "fixed", "top", "0", "right", "0"]);
     exitButton.mousePressed(goBack);
     showButtons();
 
@@ -106,9 +103,9 @@ function styleElement(element, styles) {
 }
 
 function showButtons() {
-    styleElement(switchButton, ["opacity", "1"]);
-    styleElement(resetButton, ["opacity", "1"]);
-    styleElement(exitButton, ["opacity", "1"]);
+    styleElement(switchButton, ["opacity", "0.8"]);
+    styleElement(resetButton, ["opacity", "0.8"]);
+    styleElement(exitButton, ["opacity", "0.8"]);
 
     setTimeout(function() {
         styleElement(switchButton, ["opacity", "0"]);

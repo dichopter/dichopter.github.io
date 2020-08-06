@@ -29,11 +29,11 @@ function setup() {
     exitButton.mousePressed(goBack);
 
     switchButton = createButton("↔️");
-    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "left", "0", "bottom", "0", "position", "fixed"]);
+    styleElement(switchButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0", "transition", "opacity 1.5s", "font-size", "80px", "left", "0", "bottom", "0", "position", "absolute"]);
     switchButton.mousePressed(switchImages);
 
     resetButton = createButton("🔄");
-    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px", "right", "0", "bottom", "0", "position", "fixed"]);
+    styleElement(resetButton, ["padding", "0", "text-shadow", "black 0px 0px 5px", "background-color", "white", "color", "black", "width", "100px", "height", "100px", "border", "none", "opacity", "0.8", "transition", "opacity 1.5s", "font-size", "80px", "right", "0", "bottom", "0", "position", "absolute"]);
     resetButton.mousePressed(resetImages);
 
     showButtons();
@@ -48,7 +48,7 @@ function setup() {
  
 
 function draw() {
-    background(0);
+    background(200);
     image(leftImage, (windowWidth / 4 - windowWidth / 2 / 2) + offsetX + switchOffset, (windowHeight / 2 - windowWidth / 2.5 / 2) + offsetY, (windowWidth / 2) * imgScale, (windowWidth / 2.5) * imgScale);
     squareArray.drawAll();
 

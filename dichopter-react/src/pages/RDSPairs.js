@@ -23,6 +23,10 @@ const shapes = {
       path: "MarbleBackground.png",
     },
   ],
+  shapes: [{
+      name: "butterfly",
+
+  }]
 };
 
 

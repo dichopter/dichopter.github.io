@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import RDSPairRenderer from "./RDSImages/RDSPairRenderer";
+
 const shapes = {
   backgrounds: [
     {
@@ -23,21 +25,65 @@ const shapes = {
       path: "MarbleBackground.png",
     },
   ],
-  shapes: [{
-      name: "butterfly",
+  shapes: [
+    {
+      name: "LITE",
+    },
+    {
+      name: "Butterfly",
+    },
+    {
+      name: "Bird",
+    },
+    {
+      name: "Clover",
+    },
 
-  }]
+    {
+      name: "Puzzle",
+    },
+    {
+      name: "Rabbit",
+    },
+  ],
 };
 
-
 const ListoHolder = styled.li`
-    background: red;
-    &:first-child {
-        border-radius: 20px;
-    }
-    `;
+  p {
+    border-radius: 20px;
+    background: #eee;
+    padding: 3px;
+  }
+  img {
+    border-radius: 20px;
+  }
+  label {
+    cursor: pointer;
+  }
+`;
 
 const RDSPairs = () => {
+  const [currentBackground, setCurrentBackground] = useState(0);
+  const [currentForeground, setCurrentForeground] = useState(0);
+
+  const backgroundClicked = (e) => {
+    setCurrentBackground(parseInt(e.currentTarget.value, 10));
+  };
+
+  const foregroundClicked = (e) => {
+    setCurrentForeground(parseInt(e.currentTarget.value, 10));
+  };
+
+  const currentBackgroundPath = require("./RDSImages/backgrounds/" +
+  shapes.backgrounds[currentBackground].path);
+  const currentForegroundPath = require(
+    "./RDSImages/foregrounds/" +
+    shapes.shapes[currentForeground].name +
+    shapes.backgrounds[currentBackground].name +
+    ".png");
+    
+  // const styles = ["Aqua", "Azul", "Bark", "Evergreen", "Marble", "Noise"];
+
   return (
     <div className="container">
       <h1>RDS (Random Dot Stereogram) Pairs</h1>
@@ -51,18 +97,70 @@ const RDSPairs = () => {
       <h2>
         <b>To get started, choose a background and a foreground.</b>
       </h2>
-      <h3>Background</h3>
-      <ul className="row">
-        {shapes.backgrounds.map((background) => {
-          return (
-            <ListoHolder className="col s10 m4 lg4">
-              <img style={{"width":"100%"}} src={require('./RDSImages/backgrounds/' + background.path)} alt={background.name} />
-            </ListoHolder>
-          );
-        })}
 
-        <li></li>
-      </ul>
+      <form>
+        <h3>Background</h3>
+        <ul className="row">
+          {shapes.backgrounds.map((background, idx) => {
+            return (
+              <ListoHolder key={background.path} className="col s10 m4 lg4">
+                <p>
+                  <label>
+                    <input
+                      name="background"
+                      type="radio"
+                      value={idx}
+                      checked={idx === currentBackground}
+                      onChange={backgroundClicked}
+                    />
+                    <span className="black-text">{background.name}</span>
+                    <img
+                      style={{ width: "100%" }}
+                      src={require("./RDSImages/backgrounds/" +
+                        background.path)}
+                      alt={background.name}
+                    />
+                  </label>
+                </p>
+              </ListoHolder>
+            );
+          })}
+        </ul>
+        <h3>Foreground</h3>
+        <ul className="row">
+          {shapes.shapes.map((shape, idx) => {
+            return (
+              <ListoHolder key={shape.name} className="col s10 m4 lg4">
+                <p>
+                  <label>
+                    <input
+                      name="foreground"
+                      type="radio"
+                      value={idx}
+                      checked={idx === currentForeground}
+                      onChange={foregroundClicked}
+                    />
+                    <span className="black-text">{shape.name}</span>
+                    <img
+                      style={{ width: "100%" }}
+                      src={require("./RDSImages/foregrounds/" +
+                        shape.name +
+                        shapes.backgrounds[currentBackground].name +
+                        ".png")}
+                      alt={shape.name}
+                    />
+                  </label>
+                </p>
+              </ListoHolder>
+            );
+          })}
+        </ul>
+      </form>
+
+      <RDSPairRenderer
+        background={currentBackgroundPath}
+        foreground={currentForegroundPath}
+      />
     </div>
   );
 };

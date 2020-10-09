@@ -75,15 +75,17 @@ const RDSPairs = () => {
   };
 
   const currentBackgroundPath = require("./RDSImages/backgrounds/" +
-  shapes.backgrounds[currentBackground].path);
-  const currentForegroundPath = require(
-    "./RDSImages/foregrounds/" +
+    shapes.backgrounds[currentBackground].path);
+  const currentForegroundPath = require("./RDSImages/foregrounds/" +
     shapes.shapes[currentForeground].name +
     shapes.backgrounds[currentBackground].name +
     ".png");
-    
-  // const styles = ["Aqua", "Azul", "Bark", "Evergreen", "Marble", "Noise"];
 
+  // const styles = ["Aqua", "Azul", "Bark", "Evergreen", "Marble", "Noise"];
+  const [expanded, setExpanded] = useState(false);
+  const makeFullscreen = () => {
+    setExpanded(true);
+  }
   return (
     <div className="container">
       <h1>RDS (Random Dot Stereogram) Pairs</h1>
@@ -156,11 +158,21 @@ const RDSPairs = () => {
           })}
         </ul>
       </form>
-
+      <h3>Result</h3>
+      <div className="right-align" style={{marginBottom: '20px'}}>
+        <button className="btn" href="" onClick={makeFullscreen}>
+          <i className="material-icons right">zoom_out_map</i>Make Fullscreen
+        </button>
+      </div>
       <RDSPairRenderer
         background={currentBackgroundPath}
         foreground={currentForegroundPath}
+        expanded={expanded}
+        setExpanded={setExpanded}
       />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

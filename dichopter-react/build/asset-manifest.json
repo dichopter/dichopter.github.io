@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/dichopter-react/build/static/css/main.5f361e03.chunk.css",
-    "main.js": "/dichopter-react/build/static/js/main.1821a15b.chunk.js",
-    "main.js.map": "/dichopter-react/build/static/js/main.1821a15b.chunk.js.map",
+    "main.js": "/dichopter-react/build/static/js/main.a984a65d.chunk.js",
+    "main.js.map": "/dichopter-react/build/static/js/main.a984a65d.chunk.js.map",
     "runtime-main.js": "/dichopter-react/build/static/js/runtime-main.0e371f5a.js",
     "runtime-main.js.map": "/dichopter-react/build/static/js/runtime-main.0e371f5a.js.map",
-    "static/js/2.0213f12a.chunk.js": "/dichopter-react/build/static/js/2.0213f12a.chunk.js",
-    "static/js/2.0213f12a.chunk.js.map": "/dichopter-react/build/static/js/2.0213f12a.chunk.js.map",
+    "static/js/2.632b0d27.chunk.js": "/dichopter-react/build/static/js/2.632b0d27.chunk.js",
+    "static/js/2.632b0d27.chunk.js.map": "/dichopter-react/build/static/js/2.632b0d27.chunk.js.map",
     "index.html": "/dichopter-react/build/index.html",
-    "precache-manifest.e10b967ded8e3cd459a45d14c6fe8b12.js": "/dichopter-react/build/precache-manifest.e10b967ded8e3cd459a45d14c6fe8b12.js",
+    "precache-manifest.689d49888c3ea8f0b0c94f2e0e6060c4.js": "/dichopter-react/build/precache-manifest.689d49888c3ea8f0b0c94f2e0e6060c4.js",
     "service-worker.js": "/dichopter-react/build/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/dichopter-react/build/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.0213f12a.chunk.js.LICENSE.txt": "/dichopter-react/build/static/js/2.0213f12a.chunk.js.LICENSE.txt",
+    "static/js/2.632b0d27.chunk.js.LICENSE.txt": "/dichopter-react/build/static/js/2.632b0d27.chunk.js.LICENSE.txt",
     "static/media/AquaBackground.png": "/dichopter-react/build/static/media/AquaBackground.0d23f16d.png",
     "static/media/AzulBackground.png": "/dichopter-react/build/static/media/AzulBackground.1cdafb2d.png",
     "static/media/BarkBackground.png": "/dichopter-react/build/static/media/BarkBackground.35fa5a96.png",
@@ -62,8 +62,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0e371f5a.js",
-    "static/js/2.0213f12a.chunk.js",
+    "static/js/2.632b0d27.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.1821a15b.chunk.js"
+    "static/js/main.a984a65d.chunk.js"
   ]
 }

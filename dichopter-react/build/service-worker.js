@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dichopter-react/build/precache-manifest.e10b967ded8e3cd459a45d14c6fe8b12.js"
+  "/dichopter-react/build/precache-manifest.689d49888c3ea8f0b0c94f2e0e6060c4.js"
 );
 
 self.addEventListener('message', (event) => {

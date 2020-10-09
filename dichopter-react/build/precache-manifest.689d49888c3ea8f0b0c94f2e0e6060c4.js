@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d9f2428331a0485523da9f4fc32cb3b",
+    "revision": "9d6b39025ed6d383516254c7973b62ae",
     "url": "/dichopter-react/build/index.html"
   },
   {
-    "revision": "4c41c31fcacc571c92a5",
+    "revision": "8845a5e71f1bad580a35",
     "url": "/dichopter-react/build/static/css/main.5f361e03.chunk.css"
   },
   {
-    "revision": "9aa468828b022044cb25",
-    "url": "/dichopter-react/build/static/js/2.0213f12a.chunk.js"
+    "revision": "dfeae753be4693300663",
+    "url": "/dichopter-react/build/static/js/2.632b0d27.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/dichopter-react/build/static/js/2.0213f12a.chunk.js.LICENSE.txt"
+    "url": "/dichopter-react/build/static/js/2.632b0d27.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4c41c31fcacc571c92a5",
-    "url": "/dichopter-react/build/static/js/main.1821a15b.chunk.js"
+    "revision": "8845a5e71f1bad580a35",
+    "url": "/dichopter-react/build/static/js/main.a984a65d.chunk.js"
   },
   {
     "revision": "6f19e6e6732fc823e688",
